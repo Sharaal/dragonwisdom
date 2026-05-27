@@ -1,2 +1,2 @@
 import "./nav/index.js";
-import "./table/data.js";
+import "./table/index.js";

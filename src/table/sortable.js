@@ -50,7 +50,7 @@ function sortTable(table, columnIndex, direction) {
     .forEach(({ row }) => tbody.append(row));
 }
 
-export function enhanceDataTableSorting(table) {
+export function enhanceTableSorting(table) {
   const headers = Array.from(table.tHead?.rows[0]?.cells ?? []);
 
   headers.forEach((header, columnIndex) => {

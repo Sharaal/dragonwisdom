@@ -4,7 +4,7 @@
 @import "./links/index.css";
 @import "./lists/index.css";
 @import "./nav/index.css";
-@import "./table/data.css";
+@import "./table/index.css";
 @import "./typography/index.css";
 
 @layer base {
