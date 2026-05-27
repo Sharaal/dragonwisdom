@@ -16,7 +16,8 @@ function assetUrl(fileName) {
 function cssIndexHtml(html, { jsScript, scriptReplacement = "" }) {
   return html
     .replace(jsScript, scriptReplacement)
-    .replace('<a href="./index-css.html">CSS Version</a>', '<a href="./index.html">JavaScript Version</a>');
+    .replace('href="./index-css.html"', 'href="./index.html"')
+    .replace("Relative Verlinkung zur CSS Version", "Relative Verlinkung zur JavaScript Version");
 }
 
 function localIndexHtml() {

@@ -9,7 +9,7 @@
     grid-column: 1;
   }
 
-  .sidebar {
+  body > nav {
     @apply sticky top-0 z-20 mb-0 flex flex-wrap items-start justify-end gap-2 border-b border-stone-200 bg-stone-50 py-3;
 
     block-size: var(--header-height);
@@ -17,15 +17,15 @@
     position: sticky;
   }
 
-  .sidebar ul {
+  body > nav ul {
     @apply m-0 flex list-none flex-wrap gap-2 p-0;
   }
 
-  .sidebar li + li {
+  body > nav li + li {
     @apply mt-0;
   }
 
-  .sidebar-toggle {
+  body > nav > label > input[type="checkbox"] {
     block-size: 1px;
     inline-size: 1px;
     opacity: 0;
@@ -33,22 +33,22 @@
     position: absolute;
   }
 
-  .sidebar label,
-  .sidebar a {
+  body > nav label,
+  body > nav a {
     @apply inline-flex rounded border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 no-underline shadow-sm;
   }
 
-  .sidebar label {
+  body > nav label {
     @apply cursor-pointer;
 
     flex: 0 0 auto;
   }
 
-  .sidebar .sidebar-menu {
+  body > nav > label + ul {
     display: none;
   }
 
-  .sidebar label:has(.sidebar-toggle:checked) + .sidebar-menu {
+  body > nav > label:has(input[type="checkbox"]:checked) + ul {
     @apply absolute right-0 top-full border-b border-stone-200 bg-stone-50 py-3 shadow-sm;
 
     display: flex;
@@ -57,10 +57,10 @@
     width: min(100vw - 2rem, 960px);
   }
 
-  .sidebar label:hover,
-  .sidebar label:has(.sidebar-toggle:checked),
-  .sidebar a:hover,
-  .sidebar a[aria-current="page"] {
+  body > nav label:hover,
+  body > nav label:has(input[type="checkbox"]:checked),
+  body > nav a:hover,
+  body > nav a[aria-current="page"] {
     @apply border-slate-800 bg-slate-800 text-white;
   }
 
@@ -78,7 +78,7 @@
     @apply mt-8;
   }
 
-  :root.has-sidebar-navigation main > section + section {
+  :root.has-nav-navigation main > section + section {
     @apply mt-0;
   }
 
@@ -93,7 +93,7 @@
       grid-column: 1 / -1;
     }
 
-    .sidebar {
+    body > nav {
       @apply z-10 mb-0 block border-b-0 border-r border-stone-200 pb-6 pr-4 pt-6;
 
       block-size: auto;
@@ -103,26 +103,26 @@
       top: var(--header-height);
     }
 
-    :root.has-sidebar-navigation .sidebar {
+    :root.has-nav-navigation body > nav {
       max-height: none;
       overflow-y: visible;
-      top: var(--sidebar-sticky-top);
+      top: var(--nav-sticky-top);
     }
 
-    :root.has-sidebar-navigation.sidebar-scroll-up .sidebar {
-      top: var(--sidebar-sticky-top);
+    :root.has-nav-navigation.nav-scroll-up body > nav {
+      top: var(--nav-sticky-top);
     }
 
-    .sidebar label {
+    body > nav label {
       @apply hidden;
     }
 
-    .sidebar ul {
+    body > nav ul {
       @apply flex-col flex-nowrap;
     }
 
-    .sidebar .sidebar-menu,
-    .sidebar label:has(.sidebar-toggle:checked) + .sidebar-menu {
+    body > nav > label + ul,
+    body > nav > label:has(input[type="checkbox"]:checked) + ul {
       @apply static mt-2 border-b-0 bg-transparent py-0 shadow-none;
 
       display: flex;
@@ -130,7 +130,7 @@
       width: auto;
     }
 
-    .sidebar a {
+    body > nav a {
       @apply w-full;
     }
 

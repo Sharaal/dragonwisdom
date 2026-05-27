@@ -43,31 +43,31 @@ function scrollToMain() {
   }
 }
 
-function updateSidebarHeight(sidebar) {
-  document.documentElement.style.setProperty("--sidebar-height", `${sidebar.offsetHeight}px`);
+function updateNavHeight(nav) {
+  document.documentElement.style.setProperty("--nav-height", `${nav.offsetHeight}px`);
 }
 
-function getSidebarInset() {
+function getNavInset() {
   return Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-height")) || 0;
 }
 
-function getSidebarBottomTop(sidebar) {
-  const inset = getSidebarInset();
+function getNavBottomTop(nav) {
+  const inset = getNavInset();
 
-  return Math.min(inset, window.innerHeight - sidebar.offsetHeight);
+  return Math.min(inset, window.innerHeight - nav.offsetHeight);
 }
 
-function trackSidebarScrollDirection(sidebar) {
+function trackNavScrollDirection(nav) {
   let lastScrollY = window.scrollY;
   let isScrollQueued = false;
-  let stickyTop = getSidebarInset();
+  let stickyTop = getNavInset();
 
   const setStickyTop = () => {
-    const inset = getSidebarInset();
-    const bottomTop = getSidebarBottomTop(sidebar);
+    const inset = getNavInset();
+    const bottomTop = getNavBottomTop(nav);
 
     stickyTop = Math.max(bottomTop, Math.min(inset, stickyTop));
-    document.documentElement.style.setProperty("--sidebar-sticky-top", `${stickyTop}px`);
+    document.documentElement.style.setProperty("--nav-sticky-top", `${stickyTop}px`);
   };
 
   const updateScrollDirection = () => {
@@ -75,10 +75,10 @@ function trackSidebarScrollDirection(sidebar) {
     const scrollDistance = currentScrollY - lastScrollY;
 
     if (scrollDistance < 0) {
-      document.documentElement.classList.add("sidebar-scroll-up");
+      document.documentElement.classList.add("nav-scroll-up");
       stickyTop -= scrollDistance;
     } else if (scrollDistance > 0) {
-      document.documentElement.classList.remove("sidebar-scroll-up");
+      document.documentElement.classList.remove("nav-scroll-up");
       stickyTop -= scrollDistance;
     }
 
@@ -103,26 +103,26 @@ function trackSidebarScrollDirection(sidebar) {
   return setStickyTop;
 }
 
-export function enhanceSidebarNavigation() {
-  const sidebar = document.querySelector("nav.sidebar");
-  const menu = sidebar?.querySelector(".sidebar-toggle");
-  const menuLabel = sidebar?.querySelector("label");
-  const links = Array.from(sidebar?.querySelectorAll('a[href^="#"]') ?? []);
+export function enhanceNavNavigation() {
+  const nav = document.querySelector("body > nav");
+  const menu = nav?.querySelector('label > input[type="checkbox"]');
+  const menuLabel = nav?.querySelector("label");
+  const links = Array.from(nav?.querySelectorAll('a[href^="#"]') ?? []);
   const sections = getLinkedSections(links);
 
   if (!links.length || !sections.length) {
     return;
   }
 
-  document.documentElement.classList.add("has-sidebar-navigation");
-  const updateSidebarPosition = trackSidebarScrollDirection(sidebar);
-  updateSidebarHeight(sidebar);
+  document.documentElement.classList.add("has-nav-navigation");
+  const updateNavPosition = trackNavScrollDirection(nav);
+  updateNavHeight(nav);
 
   if ("ResizeObserver" in window) {
-    new ResizeObserver(() => updateSidebarHeight(sidebar)).observe(sidebar);
+    new ResizeObserver(() => updateNavHeight(nav)).observe(nav);
   } else {
-    window.addEventListener("resize", updateSidebarPosition);
-    window.addEventListener("resize", () => updateSidebarHeight(sidebar));
+    window.addEventListener("resize", updateNavPosition);
+    window.addEventListener("resize", () => updateNavHeight(nav));
   }
 
   const fallbackId = sections[0].id;
@@ -149,7 +149,7 @@ export function enhanceSidebarNavigation() {
     event.preventDefault();
     menu.checked = !menu.checked;
     window.scrollTo(scrollX, scrollY);
-    updateSidebarHeight(sidebar);
+    updateNavHeight(nav);
   };
 
   menuLabel?.addEventListener("pointerdown", toggleMenu);
@@ -189,7 +189,7 @@ export function enhanceSidebarNavigation() {
 }
 
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", enhanceSidebarNavigation, { once: true });
+  document.addEventListener("DOMContentLoaded", enhanceNavNavigation, { once: true });
 } else {
-  enhanceSidebarNavigation();
+  enhanceNavNavigation();
 }
