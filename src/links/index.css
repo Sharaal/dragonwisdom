@@ -1,0 +1,19 @@
+@layer base {
+  .content a {
+    @apply font-medium text-sky-700 underline underline-offset-2;
+  }
+
+  .content a:hover {
+    @apply text-sky-900;
+  }
+
+  .content a[target="_blank"]::after {
+    content: "↗";
+
+    @apply ml-1 inline-block text-sm no-underline;
+  }
+
+  .content a:focus-visible {
+    @apply rounded outline-2 outline-offset-2 outline-sky-700;
+  }
+}

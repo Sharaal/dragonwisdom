@@ -35,7 +35,6 @@ function localIndexHtml() {
         try {
           const index = await readFile(resolve("index.html"), "utf8");
           const html = cssIndexHtml(index, {
-            scriptReplacement: '    <link rel="stylesheet" href="/src/dragonwisdom.css">',
             jsScript: '    <script type="module" src="/src/dragonwisdom.js"></script>'
           });
 

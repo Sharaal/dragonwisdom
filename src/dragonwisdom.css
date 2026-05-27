@@ -1,6 +1,9 @@
 @import "tailwindcss";
+@import "./links/index.css";
+@import "./lists/index.css";
 @import "./nav/sidebar.css";
 @import "./table/data.css";
+@import "./typography/index.css";
 
 @layer base {
   :root {

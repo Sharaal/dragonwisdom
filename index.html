@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./favicon.ico">
     <title>DragonWisdom</title>
+    <link rel="stylesheet" href="/src/dragonwisdom.css">
     <script type="module" src="/src/dragonwisdom.js"></script>
   </head>
   <body>
@@ -14,16 +15,57 @@
 
       <nav class="sidebar">
         <ul>
-          <li><a href="#data">Datentabelle</a></li>
+          <li><a href="#text">Text</a></li>
         </ul>
         <label aria-label="Menü"><input class="sidebar-toggle" type="checkbox">☰</label>
         <ul class="sidebar-menu">
-          <li><a href="#sortable">Sortierbare Datentabelle</a></li>
+          <li><a href="#links">Links</a></li>
+          <li><a href="#lists">Listen</a></li>
+          <li><a href="#tables">Tabellen</a></li>
         </ul>
       </nav>
 
       <div class="content">
-        <section id="data">
+        <section id="text">
+          <p>Ein Paragraph bildet einen einfachen Textabschnitt.</p>
+          <p><strong>Wichtiger Text</strong> und <b>fetter Text</b> können unterschiedlich ausgezeichnet werden.</p>
+          <p><em>Betonter Text</em> und <i>kursiver Text</i> zeigen semantische und typografische Kursivschrift.</p>
+          <p><mark>Markierter Text</mark>, <small>kleiner Text</small>, <code>code</code> und <abbr title="Hypertext Markup Language">HTML</abbr> ergänzen kurze Inline-Beispiele.</p>
+          <blockquote>
+            <p>Gute Auszeichnung beginnt mit klarer Bedeutung.</p>
+            <footer>DragonWisdom</footer>
+          </blockquote>
+        </section>
+
+        <section id="links">
+          <p><a href="#text">Interner Link zum Textabschnitt</a></p>
+          <p><a href="./index-css.html">Relative Verlinkung zur CSS Version</a></p>
+          <p><a href="https://developer.mozilla.org/de/docs/Web/HTML">Externer Link zur HTML-Dokumentation</a></p>
+          <p><a href="https://developer.mozilla.org/de/docs/Web/HTML/Element/a" target="_blank" rel="noreferrer">Externer Link in neuem Fenster</a></p>
+        </section>
+
+        <section id="lists">
+          <ul>
+            <li>Ungeordneter Eintrag</li>
+            <li>Weiterer Eintrag</li>
+            <li>Abschließender Eintrag</li>
+          </ul>
+
+          <ol>
+            <li>Erster Schritt</li>
+            <li>Zweiter Schritt</li>
+            <li>Dritter Schritt</li>
+          </ol>
+
+          <dl>
+            <dt>HTML</dt>
+            <dd>Struktur und Bedeutung</dd>
+            <dt>CSS</dt>
+            <dd>Darstellung und Layout</dd>
+          </dl>
+        </section>
+
+        <section id="tables">
           <table class="data">
             <thead>
               <tr>
@@ -55,9 +97,7 @@
               </tr>
             </tbody>
           </table>
-        </section>
 
-        <section id="sortable">
           <table class="data sortable">
             <thead>
               <tr>
