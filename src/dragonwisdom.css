@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./header/index.css";
 @import "./headlines/index.css";
 @import "./links/index.css";
 @import "./lists/index.css";
@@ -15,7 +16,7 @@
   }
 
   body {
-    @apply mx-auto py-12;
+    @apply mx-auto;
 
     min-width: 20rem;
     width: min(100% - 2rem, 960px);

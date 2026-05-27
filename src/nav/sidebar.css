@@ -1,7 +1,19 @@
 @layer components {
-  .sidebar {
-    @apply sticky top-0 z-10 mb-6 flex flex-wrap items-start gap-2 border-b border-stone-200 bg-stone-50 py-3;
+  body {
+    @apply grid gap-x-0;
 
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  body > header {
+    grid-column: 1;
+  }
+
+  .sidebar {
+    @apply sticky top-0 z-20 mb-0 flex flex-wrap items-start justify-end gap-2 border-b border-stone-200 bg-stone-50 py-3;
+
+    block-size: var(--header-height);
+    grid-column: 2;
     position: sticky;
   }
 
@@ -37,11 +49,12 @@
   }
 
   .sidebar label:has(.sidebar-toggle:checked) + .sidebar-menu {
-    @apply absolute left-0 right-0 top-full border-b border-stone-200 bg-stone-50 py-3 shadow-sm;
+    @apply absolute right-0 top-full border-b border-stone-200 bg-stone-50 py-3 shadow-sm;
 
     display: flex;
 
     flex-basis: auto;
+    width: min(100vw - 2rem, 960px);
   }
 
   .sidebar label:hover,
@@ -52,41 +65,52 @@
   }
 
   main > section {
-    scroll-margin-top: var(--sidebar-height, 5rem);
+    scroll-margin-top: calc(var(--header-height) + 1.5rem);
+  }
+
+  main {
+    @apply mb-6 mt-6;
+
+    grid-column: 1 / -1;
   }
 
   main > section + section {
     @apply mt-8;
   }
 
+  :root.has-sidebar-navigation main > section + section {
+    @apply mt-0;
+  }
+
   @media (min-width: 48rem) {
     body {
-      @apply grid items-start gap-x-8;
+      @apply items-start gap-x-8;
 
       grid-template-columns: 12rem minmax(0, 1fr);
     }
 
-    body > h1,
-    body > p {
+    body > header {
       grid-column: 1 / -1;
     }
 
     .sidebar {
-      @apply mb-0 block border-b-0 border-r border-stone-200 py-0 pr-4;
+      @apply z-10 mb-0 block border-b-0 border-r border-stone-200 pb-6 pr-4 pt-6;
 
-      max-height: calc(100vh - 3rem);
+      block-size: auto;
+      grid-column: 1;
+      max-height: calc(100vh - var(--header-height));
       overflow-y: auto;
-      top: 1.5rem;
+      top: var(--header-height);
     }
 
     :root.has-sidebar-navigation .sidebar {
       max-height: none;
       overflow-y: visible;
-      top: var(--sidebar-sticky-top, min(1.5rem, calc(100vh - var(--sidebar-height, 0px) - 1.5rem)));
+      top: var(--sidebar-sticky-top);
     }
 
     :root.has-sidebar-navigation.sidebar-scroll-up .sidebar {
-      top: var(--sidebar-sticky-top, 1.5rem);
+      top: var(--sidebar-sticky-top);
     }
 
     .sidebar label {
@@ -103,6 +127,7 @@
 
       display: flex;
       flex-basis: auto;
+      width: auto;
     }
 
     .sidebar a {
@@ -110,11 +135,13 @@
     }
 
     main {
+      @apply mb-6 mt-6;
+
       grid-column: 2;
     }
 
-    main > section {
-      @apply scroll-mt-6;
+    main > section > :first-child {
+      @apply mt-0;
     }
 
     main > section + section {

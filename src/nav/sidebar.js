@@ -28,24 +28,39 @@ function showSection(links, sections, activeId) {
   });
 }
 
+function scrollToMain() {
+  const main = document.querySelector("main");
+
+  if (!main) {
+    return;
+  }
+
+  const headerHeight = document.querySelector("body > header")?.offsetHeight ?? 0;
+  const scrollTop = main.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+  if (window.scrollY > scrollTop) {
+    window.scrollTo(window.scrollX, scrollTop);
+  }
+}
+
 function updateSidebarHeight(sidebar) {
   document.documentElement.style.setProperty("--sidebar-height", `${sidebar.offsetHeight}px`);
 }
 
 function getSidebarInset() {
-  return Number.parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
+  return Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-height")) || 0;
 }
 
 function getSidebarBottomTop(sidebar) {
   const inset = getSidebarInset();
 
-  return Math.min(inset, window.innerHeight - sidebar.offsetHeight - inset);
+  return Math.min(inset, window.innerHeight - sidebar.offsetHeight);
 }
 
 function trackSidebarScrollDirection(sidebar) {
   let lastScrollY = window.scrollY;
   let isScrollQueued = false;
-  let stickyTop = getSidebarBottomTop(sidebar);
+  let stickyTop = getSidebarInset();
 
   const setStickyTop = () => {
     const inset = getSidebarInset();
@@ -84,6 +99,8 @@ function trackSidebarScrollDirection(sidebar) {
   window.addEventListener("scroll", handleScroll, { passive: true });
   window.addEventListener("resize", setStickyTop);
   setStickyTop();
+
+  return setStickyTop;
 }
 
 export function enhanceSidebarNavigation() {
@@ -98,12 +115,13 @@ export function enhanceSidebarNavigation() {
   }
 
   document.documentElement.classList.add("has-sidebar-navigation");
-  trackSidebarScrollDirection(sidebar);
+  const updateSidebarPosition = trackSidebarScrollDirection(sidebar);
   updateSidebarHeight(sidebar);
 
   if ("ResizeObserver" in window) {
     new ResizeObserver(() => updateSidebarHeight(sidebar)).observe(sidebar);
   } else {
+    window.addEventListener("resize", updateSidebarPosition);
     window.addEventListener("resize", () => updateSidebarHeight(sidebar));
   }
 
@@ -156,6 +174,7 @@ export function enhanceSidebarNavigation() {
       }
 
       activateSection(targetId);
+      scrollToMain();
 
       closeMenu();
     });

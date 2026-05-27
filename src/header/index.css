@@ -1,0 +1,25 @@
+@layer components {
+  :root {
+    --header-height: calc(3.75rem + 3px);
+  }
+
+  body > header {
+    @apply sticky top-0 z-30 mb-0 flex items-center border-b border-stone-200 bg-stone-50;
+
+    block-size: var(--header-height);
+  }
+
+  body > header h1 {
+    @apply my-0;
+  }
+
+  body > header p {
+    @apply mb-0 mt-2;
+  }
+
+  @media (min-width: 48rem) {
+    body > header {
+      @apply sticky top-0 z-30 mb-0;
+    }
+  }
+}
