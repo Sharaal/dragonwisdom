@@ -13,12 +13,40 @@ function assetUrl(fileName) {
   return `./${fileName}`;
 }
 
+function cssIndexHtml(html, { cssHref, jsScript }) {
+  return html
+    .replace(jsScript, `<link rel="stylesheet" href="${cssHref}">`)
+    .replace('<a href="./index-css.html">CSS Version</a>', '<a href="./index.html">JavaScript Version</a>');
+}
+
 function localIndexHtml() {
   const cssUrl = assetUrl("dragonwisdom.css");
   const jsUrl = assetUrl("dragonwisdom.js");
 
   return {
     name: "local-index-html",
+    configureServer(server) {
+      server.middlewares.use(async (request, response, next) => {
+        if (request.url?.split(/[?#]/, 1)[0] !== "/index-css.html") {
+          next();
+          return;
+        }
+
+        try {
+          const index = await readFile(resolve("index.html"), "utf8");
+          const html = cssIndexHtml(index, {
+            cssHref: "/src/dragonwisdom.css",
+            jsScript: '    <script type="module" src="/src/dragonwisdom.js"></script>'
+          });
+
+          response.statusCode = 200;
+          response.setHeader("Content-Type", "text/html");
+          response.end(await server.transformIndexHtml("/index-css.html", html));
+        } catch (error) {
+          next(error);
+        }
+      });
+    },
     transformIndexHtml: {
       order: "post",
       handler(html) {
@@ -41,9 +69,10 @@ function localIndexHtml() {
           '<link rel="icon" href="./assets/favicon.ico">',
           '<link rel="icon" href="./favicon.ico">'
         );
-      const cssIndex = index
-        .replace(`    <script src="${jsUrl}"></script>\n`, "")
-        .replace('<a href="./index-css.html">CSS Version</a>', '<a href="./index.html">JavaScript Version</a>');
+      const cssIndex = cssIndexHtml(index, {
+        cssHref: cssUrl,
+        jsScript: `    <script src="${jsUrl}"></script>`
+      });
 
       await writeFile(indexPath, index);
       await writeFile(cssIndexPath, cssIndex);

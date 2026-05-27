@@ -11,7 +11,7 @@
 - Eine optionale JS-Datei als Output für das Verhalten: `dist/public/dragonwisdom.js`.
 - `index.html` im Repository-Root ist die einzige Demo-Quelle; `dist/public/index.html` ist die gebaute Demo.
 - `dist/public/index.html` muss lokal per `file://` nutzbar bleiben.
-- `dist/public/index-css.html` ist die CSS-only Demo ohne JS-Referenz.
+- `dist/public/index-css.html` ist die CSS Demo ohne JS-Referenz.
 - Die gebauten Demo-Dateien verlinken gegenseitig aufeinander.
 
 ## Demo
