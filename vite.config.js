@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, rename, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import tailwindcss from "@tailwindcss/vite";
 
@@ -36,12 +36,18 @@ function localIndexHtml() {
     async closeBundle() {
       const indexPath = resolve("dist/public/index.html");
       const cssIndexPath = resolve("dist/public/index-css.html");
-      const index = await readFile(indexPath, "utf8");
+      const index = (await readFile(indexPath, "utf8"))
+        .replace(
+          '<link rel="icon" href="./assets/favicon.ico">',
+          '<link rel="icon" href="./favicon.ico">'
+        );
       const cssIndex = index
         .replace(`    <script src="${jsUrl}"></script>\n`, "")
         .replace('<a href="./index-css.html">CSS Version</a>', '<a href="./index.html">JavaScript Version</a>');
 
+      await writeFile(indexPath, index);
       await writeFile(cssIndexPath, cssIndex);
+      await rename(resolve("dist/public/assets/favicon.ico"), resolve("dist/public/favicon.ico"));
     }
   };
 }
