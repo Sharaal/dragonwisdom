@@ -4,6 +4,7 @@
 
 - Das HTML muss so minimalistisch wie möglich sein; nur die minimal notwendigsten Auszeichnungen sind erlaubt.
 - Deutsche Texte verwenden echte Umlaute statt Umschreibungen wie `ue`, `oe` oder `ae`.
+- Nach Änderungen nicht im Browser prüfen; ein Code-Check reicht aus.
 
 ## Output
 
