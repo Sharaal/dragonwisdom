@@ -15,12 +15,9 @@
   }
 
   body {
-    @apply m-0 min-w-80;
-  }
-
-  main {
     @apply mx-auto py-12;
 
+    min-width: 20rem;
     width: min(100% - 2rem, 960px);
   }
 

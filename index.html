@@ -9,153 +9,152 @@
     <script type="module" src="/src/dragonwisdom.js"></script>
   </head>
   <body>
+    <h1>DragonWisdom</h1>
+    <p><a href="./index-css.html">CSS Version</a></p>
+
+    <nav class="sidebar">
+      <ul>
+        <li><a href="#headlines">Überschriften</a></li>
+      </ul>
+      <label aria-label="Menü"><input class="sidebar-toggle" type="checkbox">☰</label>
+      <ul class="sidebar-menu">
+        <li><a href="#text">Text</a></li>
+        <li><a href="#links">Links</a></li>
+        <li><a href="#lists">Listen</a></li>
+        <li><a href="#tables">Tabellen</a></li>
+      </ul>
+    </nav>
+
     <main>
-      <h1>DragonWisdom</h1>
-      <p><a href="./index-css.html">CSS Version</a></p>
+      <section id="headlines">
+        <h1>Überschrift erster Ordnung</h1>
+        <h2>Überschrift zweiter Ordnung</h2>
+        <h3>Überschrift dritter Ordnung</h3>
+        <h4>Überschrift vierter Ordnung</h4>
+        <h5>Überschrift fünfter Ordnung</h5>
+        <h6>Überschrift sechster Ordnung</h6>
+      </section>
 
-      <nav class="sidebar">
+      <section id="text">
+        <h2>Text</h2>
+        <p>Ein Paragraph bildet einen einfachen Textabschnitt.</p>
+        <p><strong>Wichtiger Text</strong> und <b>fetter Text</b> können unterschiedlich ausgezeichnet werden.</p>
+        <p><em>Betonter Text</em> und <i>kursiver Text</i> zeigen semantische und typografische Kursivschrift.</p>
+        <p><mark>Markierter Text</mark>, <small>kleiner Text</small>, <code>code</code> und <abbr title="Hypertext Markup Language">HTML</abbr> ergänzen kurze Inline-Beispiele.</p>
+        <blockquote>
+          <p>Gute Auszeichnung beginnt mit klarer Bedeutung.</p>
+          <footer>DragonWisdom</footer>
+        </blockquote>
+      </section>
+
+      <section id="links">
+        <h2>Links</h2>
+        <p><a href="#text">Interner Link zum Textabschnitt</a></p>
+        <p><a href="./index-css.html">Relative Verlinkung zur CSS Version</a></p>
+        <p><a href="https://developer.mozilla.org/de/docs/Web/HTML">Externer Link zur HTML-Dokumentation</a></p>
+        <p><a href="https://developer.mozilla.org/de/docs/Web/HTML/Element/a" target="_blank" rel="noreferrer">Externer Link in neuem Fenster</a></p>
+
+        <h2>Buttons</h2>
+        <p><button type="button">Normaler Button</button></p>
+        <p><button type="button" disabled>Deaktivierter Button</button></p>
+      </section>
+
+      <section id="lists">
+        <h2>Ungeordnete Liste</h2>
         <ul>
-          <li><a href="#headlines">Überschriften</a></li>
+          <li>Ungeordneter Eintrag</li>
+          <li>Weiterer Eintrag</li>
+          <li>Abschließender Eintrag</li>
         </ul>
-        <label aria-label="Menü"><input class="sidebar-toggle" type="checkbox">☰</label>
-        <ul class="sidebar-menu">
-          <li><a href="#text">Text</a></li>
-          <li><a href="#links">Links</a></li>
-          <li><a href="#lists">Listen</a></li>
-          <li><a href="#tables">Tabellen</a></li>
-        </ul>
-      </nav>
 
-      <div class="content">
-        <section id="headlines">
-          <h1>Überschrift erster Ordnung</h1>
-          <h2>Überschrift zweiter Ordnung</h2>
-          <h3>Überschrift dritter Ordnung</h3>
-          <h4>Überschrift vierter Ordnung</h4>
-          <h5>Überschrift fünfter Ordnung</h5>
-          <h6>Überschrift sechster Ordnung</h6>
-        </section>
+        <h2>Nummerierte Liste</h2>
+        <ol>
+          <li>Erster Schritt</li>
+          <li>Zweiter Schritt</li>
+          <li>Dritter Schritt</li>
+        </ol>
 
-        <section id="text">
-          <p>Ein Paragraph bildet einen einfachen Textabschnitt.</p>
-          <p><strong>Wichtiger Text</strong> und <b>fetter Text</b> können unterschiedlich ausgezeichnet werden.</p>
-          <p><em>Betonter Text</em> und <i>kursiver Text</i> zeigen semantische und typografische Kursivschrift.</p>
-          <p><mark>Markierter Text</mark>, <small>kleiner Text</small>, <code>code</code> und <abbr title="Hypertext Markup Language">HTML</abbr> ergänzen kurze Inline-Beispiele.</p>
-          <blockquote>
-            <p>Gute Auszeichnung beginnt mit klarer Bedeutung.</p>
-            <footer>DragonWisdom</footer>
-          </blockquote>
-        </section>
+        <h2>Definitionen</h2>
+        <dl>
+          <dt>HTML</dt>
+          <dd>Struktur und Bedeutung</dd>
+          <dt>CSS</dt>
+          <dd>Darstellung und Layout</dd>
+        </dl>
+      </section>
 
-        <section id="links">
-          <h2>Links</h2>
-          <p><a href="#text">Interner Link zum Textabschnitt</a></p>
-          <p><a href="./index-css.html">Relative Verlinkung zur CSS Version</a></p>
-          <p><a href="https://developer.mozilla.org/de/docs/Web/HTML">Externer Link zur HTML-Dokumentation</a></p>
-          <p><a href="https://developer.mozilla.org/de/docs/Web/HTML/Element/a" target="_blank" rel="noreferrer">Externer Link in neuem Fenster</a></p>
+      <section id="tables">
+        <h2>Datentabelle</h2>
+        <table class="data">
+          <thead>
+            <tr>
+              <th>HTML</th>
+              <th>Bedeutung</th>
+              <th>JavaScript</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>class="data"</td>
+              <td>Gestylte Datentabelle</td>
+              <td>Nein</td>
+            </tr>
+            <tr>
+              <td>class="data sortable"</td>
+              <td>Sortierbare Datentabelle</td>
+              <td>Ja</td>
+            </tr>
+            <tr>
+              <td>thead/th</td>
+              <td>Spaltenüberschriften</td>
+              <td>Für Sortierung</td>
+            </tr>
+            <tr>
+              <td>tbody/tr</td>
+              <td>Datenzeilen</td>
+              <td>Für Sortierung</td>
+            </tr>
+          </tbody>
+        </table>
 
-          <h2>Buttons</h2>
-          <p><button type="button">Normaler Button</button></p>
-          <p><button type="button" disabled>Deaktivierter Button</button></p>
-        </section>
-
-        <section id="lists">
-          <h2>Ungeordnete Liste</h2>
-          <ul>
-            <li>Ungeordneter Eintrag</li>
-            <li>Weiterer Eintrag</li>
-            <li>Abschließender Eintrag</li>
-          </ul>
-
-          <h2>Nummerierte Liste</h2>
-          <ol>
-            <li>Erster Schritt</li>
-            <li>Zweiter Schritt</li>
-            <li>Dritter Schritt</li>
-          </ol>
-
-          <h2>Definitionen</h2>
-          <dl>
-            <dt>HTML</dt>
-            <dd>Struktur und Bedeutung</dd>
-            <dt>CSS</dt>
-            <dd>Darstellung und Layout</dd>
-          </dl>
-        </section>
-
-        <section id="tables">
-          <h2>Datentabelle</h2>
-          <table class="data">
-            <thead>
-              <tr>
-                <th>HTML</th>
-                <th>Bedeutung</th>
-                <th>JavaScript</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>class="data"</td>
-                <td>Gestylte Datentabelle</td>
-                <td>Nein</td>
-              </tr>
-              <tr>
-                <td>class="data sortable"</td>
-                <td>Sortierbare Datentabelle</td>
-                <td>Ja</td>
-              </tr>
-              <tr>
-                <td>thead/th</td>
-                <td>Spaltenüberschriften</td>
-                <td>Für Sortierung</td>
-              </tr>
-              <tr>
-                <td>tbody/tr</td>
-                <td>Datenzeilen</td>
-                <td>Für Sortierung</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h2>Sortierbare Datentabellen</h2>
-          <table class="data sortable">
-            <thead>
-              <tr>
-                <th>Fähigkeit</th>
-                <th>Aktiviert durch</th>
-                <th>Datei</th>
-                <th>Stabilität</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Tabellenlayout</td>
-                <td>data</td>
-                <td>src/table/data.css</td>
-                <td>Stabil</td>
-              </tr>
-              <tr>
-                <td>Zebra-Zeilen</td>
-                <td>data</td>
-                <td>src/table/data.css</td>
-                <td>Stabil</td>
-              </tr>
-              <tr>
-                <td>Sortierpfeile</td>
-                <td>sortable</td>
-                <td>src/table/data/sortable.css</td>
-                <td>Experimentell</td>
-              </tr>
-              <tr>
-                <td>Spaltensortierung</td>
-                <td>sortable</td>
-                <td>src/table/data/sortable.js</td>
-                <td>Experimentell</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </div>
+        <h2>Sortierbare Datentabellen</h2>
+        <table class="data sortable">
+          <thead>
+            <tr>
+              <th>Fähigkeit</th>
+              <th>Aktiviert durch</th>
+              <th>Datei</th>
+              <th>Stabilität</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tabellenlayout</td>
+              <td>data</td>
+              <td>src/table/data.css</td>
+              <td>Stabil</td>
+            </tr>
+            <tr>
+              <td>Zebra-Zeilen</td>
+              <td>data</td>
+              <td>src/table/data.css</td>
+              <td>Stabil</td>
+            </tr>
+            <tr>
+              <td>Sortierpfeile</td>
+              <td>sortable</td>
+              <td>src/table/data/sortable.css</td>
+              <td>Experimentell</td>
+            </tr>
+            <tr>
+              <td>Spaltensortierung</td>
+              <td>sortable</td>
+              <td>src/table/data/sortable.js</td>
+              <td>Experimentell</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
   </body>
 </html>
