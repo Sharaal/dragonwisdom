@@ -1,0 +1,40 @@
+@layer base {
+  .content h1,
+  .content h2,
+  .content h3,
+  .content h4,
+  .content h5,
+  .content h6 {
+    @apply font-bold leading-tight text-slate-900;
+  }
+
+  .content h1 {
+    @apply mb-4 mt-10;
+
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+  }
+
+  .content h2 {
+    @apply mb-3 mt-8 text-2xl;
+  }
+
+  .content h3 {
+    @apply mb-3 mt-6 text-xl;
+  }
+
+  .content h4 {
+    @apply mb-2 mt-5 text-lg;
+  }
+
+  .content h5 {
+    @apply mb-2 mt-4 text-base;
+  }
+
+  .content h6 {
+    @apply mb-2 mt-4 text-sm uppercase tracking-wide text-slate-600;
+  }
+
+  .content > section > :first-child {
+    @apply mt-0;
+  }
+}

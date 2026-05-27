@@ -15,10 +15,11 @@
 
       <nav class="sidebar">
         <ul>
-          <li><a href="#text">Text</a></li>
+          <li><a href="#headlines">Überschriften</a></li>
         </ul>
         <label aria-label="Menü"><input class="sidebar-toggle" type="checkbox">☰</label>
         <ul class="sidebar-menu">
+          <li><a href="#text">Text</a></li>
           <li><a href="#links">Links</a></li>
           <li><a href="#lists">Listen</a></li>
           <li><a href="#tables">Tabellen</a></li>
@@ -26,6 +27,15 @@
       </nav>
 
       <div class="content">
+        <section id="headlines">
+          <h1>Überschrift erster Ordnung</h1>
+          <h2>Überschrift zweiter Ordnung</h2>
+          <h3>Überschrift dritter Ordnung</h3>
+          <h4>Überschrift vierter Ordnung</h4>
+          <h5>Überschrift fünfter Ordnung</h5>
+          <h6>Überschrift sechster Ordnung</h6>
+        </section>
+
         <section id="text">
           <p>Ein Paragraph bildet einen einfachen Textabschnitt.</p>
           <p><strong>Wichtiger Text</strong> und <b>fetter Text</b> können unterschiedlich ausgezeichnet werden.</p>
@@ -45,18 +55,21 @@
         </section>
 
         <section id="lists">
+          <h2>Ungeordnete Liste</h2>
           <ul>
             <li>Ungeordneter Eintrag</li>
             <li>Weiterer Eintrag</li>
             <li>Abschließender Eintrag</li>
           </ul>
 
+          <h2>Nummerierte Liste</h2>
           <ol>
             <li>Erster Schritt</li>
             <li>Zweiter Schritt</li>
             <li>Dritter Schritt</li>
           </ol>
 
+          <h2>Definitionen</h2>
           <dl>
             <dt>HTML</dt>
             <dd>Struktur und Bedeutung</dd>
