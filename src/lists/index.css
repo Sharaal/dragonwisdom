@@ -1,32 +1,32 @@
 @layer base {
-  .content ul,
-  .content ol,
-  .content dl {
+  ul,
+  ol,
+  dl {
     @apply my-4;
   }
 
-  .content ul,
-  .content ol {
+  ul,
+  ol {
     @apply pl-6;
   }
 
-  .content ul {
+  ul {
     @apply list-disc;
   }
 
-  .content ol {
+  ol {
     @apply list-decimal;
   }
 
-  .content li + li {
+  li + li {
     @apply mt-2;
   }
 
-  .content dd {
+  dd {
     @apply ml-6 mt-1 text-slate-700;
   }
 
-  .content dd + dt {
+  dd + dt {
     @apply mt-3;
   }
 }

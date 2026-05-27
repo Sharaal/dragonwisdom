@@ -1,35 +1,35 @@
 @layer base {
-  .content a {
+  a:not(nav a) {
     @apply font-medium text-sky-700 underline underline-offset-2;
   }
 
-  .content a:hover {
+  a:not(nav a):hover {
     @apply text-sky-900;
   }
 
-  .content a[target="_blank"]::after {
+  a:not(nav a)[target="_blank"]::after {
     content: "↗";
 
     @apply ml-1 inline-block text-sm no-underline;
   }
 
-  .content a:focus-visible {
+  a:not(nav a):focus-visible {
     @apply rounded outline-2 outline-offset-2 outline-sky-700;
   }
 
-  .content button {
+  button {
     @apply rounded-md border border-sky-700 bg-sky-700 px-4 py-2 font-medium text-white;
   }
 
-  .content button:hover:not(:disabled) {
+  button:hover:not(:disabled) {
     @apply border-sky-900 bg-sky-900;
   }
 
-  .content button:disabled {
+  button:disabled {
     @apply cursor-not-allowed border-slate-300 bg-slate-200 text-slate-500;
   }
 
-  .content button:focus-visible {
+  button:focus-visible {
     @apply outline-2 outline-offset-2 outline-sky-700;
   }
 }

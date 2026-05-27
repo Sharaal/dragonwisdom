@@ -1,46 +1,46 @@
 @layer base {
-  .content p {
+  p {
     @apply my-4;
   }
 
-  .content strong,
-  .content b,
-  .content dt {
+  strong,
+  b,
+  dt {
     @apply font-semibold;
   }
 
-  .content em,
-  .content i {
+  em,
+  i {
     @apply italic;
   }
 
-  .content mark {
+  mark {
     @apply rounded bg-yellow-200 px-1 text-slate-950;
   }
 
-  .content small {
+  small {
     @apply text-sm text-slate-600;
   }
 
-  .content code {
+  code {
     @apply rounded bg-slate-100 px-1 py-0.5 font-mono text-sm text-slate-900;
   }
 
-  .content abbr[title] {
+  abbr[title] {
     @apply cursor-help decoration-dotted underline-offset-2;
 
     text-decoration-line: underline;
   }
 
-  .content blockquote {
+  blockquote {
     @apply my-6 border-l-4 border-slate-300 pl-4 text-slate-700;
   }
 
-  .content blockquote p {
+  blockquote p {
     @apply my-0;
   }
 
-  .content footer {
+  footer {
     @apply mt-2 text-sm text-slate-500;
   }
 }
