@@ -114,13 +114,7 @@ export function enhanceSidebarNavigation() {
   };
 
   const activateCurrentHash = () => showSection(links, sections, getActiveId());
-  const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView();
-  };
-  const activateAndScroll = (sectionId) => {
-    showSection(links, sections, sectionId);
-    scrollToSection(sectionId);
-  };
+  const activateSection = (sectionId) => showSection(links, sections, sectionId);
   const closeMenu = () => {
     if (window.matchMedia("(max-width: 47.999rem)").matches) {
       menu.checked = false;
@@ -157,12 +151,11 @@ export function enhanceSidebarNavigation() {
 
       event.preventDefault();
 
-      if (window.location.hash === link.hash) {
-        activateAndScroll(targetId);
-      } else {
-        window.location.hash = link.hash;
-        activateAndScroll(targetId);
+      if (window.location.hash !== link.hash) {
+        window.history.pushState(null, "", link.hash);
       }
+
+      activateSection(targetId);
 
       closeMenu();
     });
