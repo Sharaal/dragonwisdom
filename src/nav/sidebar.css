@@ -1,0 +1,61 @@
+@layer components {
+  .sidebar {
+    @apply sticky top-0 z-10 mb-6 border-b border-stone-200 bg-stone-50 py-3;
+  }
+
+  .sidebar ul {
+    @apply m-0 flex list-none flex-wrap gap-2 p-0;
+  }
+
+  .sidebar a {
+    @apply inline-flex rounded border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 no-underline shadow-sm;
+  }
+
+  .sidebar a:hover,
+  .sidebar a[aria-current="page"] {
+    @apply border-slate-800 bg-slate-800 text-white;
+  }
+
+  main > section {
+    scroll-margin-top: var(--sidebar-height, 5rem);
+  }
+
+  main > section + section {
+    @apply mt-8;
+  }
+
+  @media (min-width: 48rem) {
+    main {
+      @apply grid items-start gap-x-8;
+
+      grid-template-columns: 12rem minmax(0, 1fr);
+    }
+
+    main > h1,
+    main > p {
+      grid-column: 1 / -1;
+    }
+
+    .sidebar {
+      @apply top-6 mb-0 border-b-0 border-r border-stone-200 py-0 pr-4;
+    }
+
+    .sidebar ul {
+      @apply flex-col flex-nowrap;
+    }
+
+    .sidebar a {
+      @apply w-full;
+    }
+
+    main > section {
+      @apply scroll-mt-6;
+
+      grid-column: 2;
+    }
+
+    main > section + section {
+      @apply mt-0;
+    }
+  }
+}

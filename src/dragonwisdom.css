@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./nav/sidebar.css";
 @import "./table/data.css";
 
 @layer base {
