@@ -1,0 +1,25 @@
+@layer components {
+  table.data.sortable th[role="button"] {
+    @apply cursor-pointer pr-7;
+  }
+
+  table.data.sortable th[role="button"]::after {
+    content: "";
+    @apply absolute right-3 top-1/2 h-0 w-0;
+
+    border-left: 0.25rem solid transparent;
+    border-right: 0.25rem solid transparent;
+    border-top: 0.35rem solid color-mix(in oklab, white 65%, transparent);
+    transform: translateY(-20%);
+  }
+
+  table.data.sortable th[aria-sort="ascending"]::after {
+    border-top: 0;
+    border-bottom: 0.35rem solid white;
+    transform: translateY(-50%);
+  }
+
+  table.data.sortable th[aria-sort="descending"]::after {
+    border-top-color: white;
+  }
+}

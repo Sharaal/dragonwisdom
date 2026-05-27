@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragonwisdom</title>
+    <script type="module" src="/src/dragonwisdom.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Dragonwisdom</h1>
+      <p><a href="./index-css.html">CSS Version</a></p>
+
+      <table class="data">
+        <thead>
+          <tr>
+            <th>HTML</th>
+            <th>Bedeutung</th>
+            <th>JavaScript</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>class="data"</td>
+            <td>Gestylte Datentabelle</td>
+            <td>Nein</td>
+          </tr>
+          <tr>
+            <td>class="data sortable"</td>
+            <td>Sortierbare Datentabelle</td>
+            <td>Ja</td>
+          </tr>
+          <tr>
+            <td>thead/th</td>
+            <td>Spaltenüberschriften</td>
+            <td>Für Sortierung</td>
+          </tr>
+          <tr>
+            <td>tbody/tr</td>
+            <td>Datenzeilen</td>
+            <td>Für Sortierung</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="data sortable">
+        <thead>
+          <tr>
+            <th>Fähigkeit</th>
+            <th>Aktiviert durch</th>
+            <th>Datei</th>
+            <th>Stabilität</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tabellenlayout</td>
+            <td>data</td>
+            <td>src/table/data.css</td>
+            <td>Stabil</td>
+          </tr>
+          <tr>
+            <td>Zebra-Zeilen</td>
+            <td>data</td>
+            <td>src/table/data.css</td>
+            <td>Stabil</td>
+          </tr>
+          <tr>
+            <td>Sortierpfeile</td>
+            <td>sortable</td>
+            <td>src/table/data/sortable.css</td>
+            <td>Experimentell</td>
+          </tr>
+          <tr>
+            <td>Spaltensortierung</td>
+            <td>sortable</td>
+            <td>src/table/data/sortable.js</td>
+            <td>Experimentell</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

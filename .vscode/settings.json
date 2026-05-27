@@ -1,0 +1,7 @@
+{
+  "css.customData": [
+    "./.vscode/tailwind.css-data.json"
+  ],
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2
+}
