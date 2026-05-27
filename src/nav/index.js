@@ -43,66 +43,6 @@ function scrollToMain() {
   }
 }
 
-function updateNavHeight(nav) {
-  document.documentElement.style.setProperty("--nav-height", `${nav.offsetHeight}px`);
-}
-
-function getNavInset() {
-  return Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-height")) || 0;
-}
-
-function getNavBottomTop(nav) {
-  const inset = getNavInset();
-
-  return Math.min(inset, window.innerHeight - nav.offsetHeight);
-}
-
-function trackNavScrollDirection(nav) {
-  let lastScrollY = window.scrollY;
-  let isScrollQueued = false;
-  let stickyTop = getNavInset();
-
-  const setStickyTop = () => {
-    const inset = getNavInset();
-    const bottomTop = getNavBottomTop(nav);
-
-    stickyTop = Math.max(bottomTop, Math.min(inset, stickyTop));
-    document.documentElement.style.setProperty("--nav-sticky-top", `${stickyTop}px`);
-  };
-
-  const updateScrollDirection = () => {
-    const currentScrollY = window.scrollY;
-    const scrollDistance = currentScrollY - lastScrollY;
-
-    if (scrollDistance < 0) {
-      document.documentElement.classList.add("nav-scroll-up");
-      stickyTop -= scrollDistance;
-    } else if (scrollDistance > 0) {
-      document.documentElement.classList.remove("nav-scroll-up");
-      stickyTop -= scrollDistance;
-    }
-
-    setStickyTop();
-    lastScrollY = currentScrollY;
-    isScrollQueued = false;
-  };
-
-  const handleScroll = () => {
-    if (isScrollQueued) {
-      return;
-    }
-
-    isScrollQueued = true;
-    requestAnimationFrame(updateScrollDirection);
-  };
-
-  window.addEventListener("scroll", handleScroll, { passive: true });
-  window.addEventListener("resize", setStickyTop);
-  setStickyTop();
-
-  return setStickyTop;
-}
-
 export function enhanceNavNavigation() {
   const nav = document.querySelector("body > nav");
   const menu = nav?.querySelector('label > input[type="checkbox"]');
@@ -115,15 +55,6 @@ export function enhanceNavNavigation() {
   }
 
   document.documentElement.classList.add("has-nav-navigation");
-  const updateNavPosition = trackNavScrollDirection(nav);
-  updateNavHeight(nav);
-
-  if ("ResizeObserver" in window) {
-    new ResizeObserver(() => updateNavHeight(nav)).observe(nav);
-  } else {
-    window.addEventListener("resize", updateNavPosition);
-    window.addEventListener("resize", () => updateNavHeight(nav));
-  }
 
   const fallbackId = sections[0].id;
   const getActiveId = () => {
@@ -149,7 +80,6 @@ export function enhanceNavNavigation() {
     event.preventDefault();
     menu.checked = !menu.checked;
     window.scrollTo(scrollX, scrollY);
-    updateNavHeight(nav);
   };
 
   menuLabel?.addEventListener("pointerdown", toggleMenu);

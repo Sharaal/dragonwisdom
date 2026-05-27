@@ -103,16 +103,6 @@
       top: var(--header-height);
     }
 
-    :root.has-nav-navigation body > nav {
-      max-height: none;
-      overflow-y: visible;
-      top: var(--nav-sticky-top);
-    }
-
-    :root.has-nav-navigation.nav-scroll-up body > nav {
-      top: var(--nav-sticky-top);
-    }
-
     body > nav label {
       @apply hidden;
     }
