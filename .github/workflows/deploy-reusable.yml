@@ -34,6 +34,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL }}
         run: npm run build
 
       - name: Configure SSH
