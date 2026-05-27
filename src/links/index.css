@@ -16,4 +16,20 @@
   .content a:focus-visible {
     @apply rounded outline-2 outline-offset-2 outline-sky-700;
   }
+
+  .content button {
+    @apply rounded-md border border-sky-700 bg-sky-700 px-4 py-2 font-medium text-white;
+  }
+
+  .content button:hover:not(:disabled) {
+    @apply border-sky-900 bg-sky-900;
+  }
+
+  .content button:disabled {
+    @apply cursor-not-allowed border-slate-300 bg-slate-200 text-slate-500;
+  }
+
+  .content button:focus-visible {
+    @apply outline-2 outline-offset-2 outline-sky-700;
+  }
 }
