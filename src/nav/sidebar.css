@@ -144,8 +144,5 @@
       @apply mt-0;
     }
 
-    main > section + section {
-      @apply mt-0;
-    }
   }
 }
