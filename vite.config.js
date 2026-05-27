@@ -13,9 +13,9 @@ function assetUrl(fileName) {
   return `./${fileName}`;
 }
 
-function cssIndexHtml(html, { cssHref, jsScript }) {
+function cssIndexHtml(html, { jsScript, scriptReplacement = "" }) {
   return html
-    .replace(jsScript, `<link rel="stylesheet" href="${cssHref}">`)
+    .replace(jsScript, scriptReplacement)
     .replace('<a href="./index-css.html">CSS Version</a>', '<a href="./index.html">JavaScript Version</a>');
 }
 
@@ -35,7 +35,7 @@ function localIndexHtml() {
         try {
           const index = await readFile(resolve("index.html"), "utf8");
           const html = cssIndexHtml(index, {
-            cssHref: "/src/dragonwisdom.css",
+            scriptReplacement: '    <link rel="stylesheet" href="/src/dragonwisdom.css">',
             jsScript: '    <script type="module" src="/src/dragonwisdom.js"></script>'
           });
 
@@ -70,7 +70,6 @@ function localIndexHtml() {
           '<link rel="icon" href="./favicon.ico">'
         );
       const cssIndex = cssIndexHtml(index, {
-        cssHref: cssUrl,
         jsScript: `    <script src="${jsUrl}"></script>`
       });
 
