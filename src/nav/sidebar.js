@@ -32,6 +32,60 @@ function updateSidebarHeight(sidebar) {
   document.documentElement.style.setProperty("--sidebar-height", `${sidebar.offsetHeight}px`);
 }
 
+function getSidebarInset() {
+  return Number.parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
+}
+
+function getSidebarBottomTop(sidebar) {
+  const inset = getSidebarInset();
+
+  return Math.min(inset, window.innerHeight - sidebar.offsetHeight - inset);
+}
+
+function trackSidebarScrollDirection(sidebar) {
+  let lastScrollY = window.scrollY;
+  let isScrollQueued = false;
+  let stickyTop = getSidebarBottomTop(sidebar);
+
+  const setStickyTop = () => {
+    const inset = getSidebarInset();
+    const bottomTop = getSidebarBottomTop(sidebar);
+
+    stickyTop = Math.max(bottomTop, Math.min(inset, stickyTop));
+    document.documentElement.style.setProperty("--sidebar-sticky-top", `${stickyTop}px`);
+  };
+
+  const updateScrollDirection = () => {
+    const currentScrollY = window.scrollY;
+    const scrollDistance = currentScrollY - lastScrollY;
+
+    if (scrollDistance < 0) {
+      document.documentElement.classList.add("sidebar-scroll-up");
+      stickyTop -= scrollDistance;
+    } else if (scrollDistance > 0) {
+      document.documentElement.classList.remove("sidebar-scroll-up");
+      stickyTop -= scrollDistance;
+    }
+
+    setStickyTop();
+    lastScrollY = currentScrollY;
+    isScrollQueued = false;
+  };
+
+  const handleScroll = () => {
+    if (isScrollQueued) {
+      return;
+    }
+
+    isScrollQueued = true;
+    requestAnimationFrame(updateScrollDirection);
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener("resize", setStickyTop);
+  setStickyTop();
+}
+
 export function enhanceSidebarNavigation() {
   const sidebar = document.querySelector("nav.sidebar");
   const links = Array.from(sidebar?.querySelectorAll('a[href^="#"]') ?? []);
@@ -41,6 +95,8 @@ export function enhanceSidebarNavigation() {
     return;
   }
 
+  document.documentElement.classList.add("has-sidebar-navigation");
+  trackSidebarScrollDirection(sidebar);
   updateSidebarHeight(sidebar);
 
   if ("ResizeObserver" in window) {

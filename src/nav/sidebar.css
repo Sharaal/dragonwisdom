@@ -37,7 +37,21 @@
     }
 
     .sidebar {
-      @apply top-6 mb-0 border-b-0 border-r border-stone-200 py-0 pr-4;
+      @apply mb-0 border-b-0 border-r border-stone-200 py-0 pr-4;
+
+      max-height: calc(100vh - 3rem);
+      overflow-y: auto;
+      top: 1.5rem;
+    }
+
+    :root.has-sidebar-navigation .sidebar {
+      max-height: none;
+      overflow-y: visible;
+      top: var(--sidebar-sticky-top, min(1.5rem, calc(100vh - var(--sidebar-height, 0px) - 1.5rem)));
+    }
+
+    :root.has-sidebar-navigation.sidebar-scroll-up .sidebar {
+      top: var(--sidebar-sticky-top, 1.5rem);
     }
 
     .sidebar ul {
