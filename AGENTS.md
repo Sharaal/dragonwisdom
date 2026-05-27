@@ -1,4 +1,4 @@
-# Dragonwisdom
+# DragonWisdom
 
 ## Allgemein
 
