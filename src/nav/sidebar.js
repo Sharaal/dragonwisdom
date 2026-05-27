@@ -88,6 +88,8 @@ function trackSidebarScrollDirection(sidebar) {
 
 export function enhanceSidebarNavigation() {
   const sidebar = document.querySelector("nav.sidebar");
+  const menu = sidebar?.querySelector(".sidebar-toggle");
+  const menuLabel = sidebar?.querySelector("label");
   const links = Array.from(sidebar?.querySelectorAll('a[href^="#"]') ?? []);
   const sections = getLinkedSections(links);
 
@@ -119,6 +121,31 @@ export function enhanceSidebarNavigation() {
     showSection(links, sections, sectionId);
     scrollToSection(sectionId);
   };
+  const closeMenu = () => {
+    if (window.matchMedia("(max-width: 47.999rem)").matches) {
+      menu.checked = false;
+    }
+  };
+  const toggleMenu = (event) => {
+    if (!window.matchMedia("(max-width: 47.999rem)").matches) {
+      return;
+    }
+
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+
+    event.preventDefault();
+    menu.checked = !menu.checked;
+    window.scrollTo(scrollX, scrollY);
+    updateSidebarHeight(sidebar);
+  };
+
+  menuLabel?.addEventListener("pointerdown", toggleMenu);
+  menuLabel?.addEventListener("click", (event) => {
+    if (window.matchMedia("(max-width: 47.999rem)").matches) {
+      event.preventDefault();
+    }
+  });
 
   links.forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -136,6 +163,8 @@ export function enhanceSidebarNavigation() {
         window.location.hash = link.hash;
         activateAndScroll(targetId);
       }
+
+      closeMenu();
     });
   });
 

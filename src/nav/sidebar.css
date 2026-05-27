@@ -1,16 +1,47 @@
 @layer components {
   .sidebar {
-    @apply sticky top-0 z-10 mb-6 border-b border-stone-200 bg-stone-50 py-3;
+    @apply sticky top-0 z-10 mb-6 flex flex-wrap items-start gap-2 border-b border-stone-200 bg-stone-50 py-3;
+
+    position: sticky;
   }
 
   .sidebar ul {
     @apply m-0 flex list-none flex-wrap gap-2 p-0;
   }
 
+  .sidebar-toggle {
+    block-size: 1px;
+    inline-size: 1px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .sidebar label,
   .sidebar a {
     @apply inline-flex rounded border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 no-underline shadow-sm;
   }
 
+  .sidebar label {
+    @apply cursor-pointer;
+
+    flex: 0 0 auto;
+  }
+
+  .sidebar .sidebar-menu {
+    display: none;
+  }
+
+  .sidebar label:has(.sidebar-toggle:checked) + .sidebar-menu {
+    @apply absolute left-0 right-0 top-full border-b border-stone-200 bg-stone-50 py-3 shadow-sm;
+
+    display: flex;
+
+    flex-basis: auto;
+  }
+
+  .sidebar label:hover,
+  .sidebar label:has(.sidebar-toggle:checked),
   .sidebar a:hover,
   .sidebar a[aria-current="page"] {
     @apply border-slate-800 bg-slate-800 text-white;
@@ -37,7 +68,7 @@
     }
 
     .sidebar {
-      @apply mb-0 border-b-0 border-r border-stone-200 py-0 pr-4;
+      @apply mb-0 block border-b-0 border-r border-stone-200 py-0 pr-4;
 
       max-height: calc(100vh - 3rem);
       overflow-y: auto;
@@ -54,8 +85,20 @@
       top: var(--sidebar-sticky-top, 1.5rem);
     }
 
+    .sidebar label {
+      @apply hidden;
+    }
+
     .sidebar ul {
       @apply flex-col flex-nowrap;
+    }
+
+    .sidebar .sidebar-menu,
+    .sidebar label:has(.sidebar-toggle:checked) + .sidebar-menu {
+      @apply static mt-2 border-b-0 bg-transparent py-0 shadow-none;
+
+      display: flex;
+      flex-basis: auto;
     }
 
     .sidebar a {
