@@ -16,11 +16,11 @@
     @apply border-slate-800 bg-slate-800 text-white;
   }
 
-  main > section {
+  .content > section {
     scroll-margin-top: var(--sidebar-height, 5rem);
   }
 
-  main > section + section {
+  .content > section + section {
     @apply mt-8;
   }
 
@@ -48,13 +48,15 @@
       @apply w-full;
     }
 
-    main > section {
-      @apply scroll-mt-6;
-
+    .content {
       grid-column: 2;
     }
 
-    main > section + section {
+    .content > section {
+      @apply scroll-mt-6;
+    }
+
+    .content > section + section {
       @apply mt-0;
     }
   }

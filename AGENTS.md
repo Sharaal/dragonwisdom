@@ -22,6 +22,7 @@
 
 - Quellcode wird nach Verwendungszweck unter `src/` einsortiert, z. B. `src/table/data.css` und `src/table/data.js`.
 - Module für Klassen werden nach HTML-Element und Klasse benannt, z. B. `nav class="sidebar"` nutzt `src/nav/sidebar.css` und `src/nav/sidebar.js`.
+- Minimale Layout-Container sind erlaubt, wenn CSS Grid sonst mehrere Content-Blöcke instabil neben Navigation platziert.
 - Feature-spezifische Styles werden unterhalb des Elements gekapselt, z. B. `src/table/data/sortable.css`.
 - Feature-spezifisches Verhalten wird unterhalb des Elements gekapselt, z. B. `src/table/data/sortable.js`.
 - `src/dragonwisdom.js` bleibt ein schlanker Entry und importiert nur CSS sowie Element-Module.
