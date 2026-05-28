@@ -21,6 +21,10 @@
     @apply m-0 flex list-none flex-wrap gap-2 p-0;
   }
 
+  body > nav li {
+    @apply min-w-0;
+  }
+
   body > nav li + li {
     @apply mt-0;
   }
@@ -28,6 +32,12 @@
   body > nav button,
   body > nav a {
     @apply inline-flex rounded border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 no-underline shadow-sm;
+  }
+
+  body > nav li > ul {
+    @apply mt-2;
+
+    flex-basis: 100%;
   }
 
   body > nav button {
@@ -47,6 +57,16 @@
 
     flex-basis: auto;
     width: min(100vw - 2rem, 960px);
+  }
+
+  :root:not(.has-nav-navigation) body > nav:focus-within > button[aria-controls="main-navigation"] + ul {
+    @apply absolute right-0 top-full border-b border-stone-200 bg-stone-50 py-3 shadow-sm;
+
+    display: flex;
+
+    flex-basis: auto;
+    max-width: min(100vw - 2rem, 960px);
+    width: max-content;
   }
 
   body > nav button:hover,
@@ -103,6 +123,14 @@
       @apply flex-col flex-nowrap;
     }
 
+    body > nav li > ul {
+      @apply gap-1 border-l border-stone-200 pl-3;
+    }
+
+    body > nav li > ul a {
+      @apply py-1.5;
+    }
+
     body > nav > button:not([aria-controls="main-navigation"]) {
       @apply mt-4;
     }
@@ -112,11 +140,13 @@
     }
 
     body > nav > button[aria-controls="main-navigation"] + ul,
-    body > nav > button[aria-controls="main-navigation"][aria-expanded="true"] + ul {
+    body > nav > button[aria-controls="main-navigation"][aria-expanded="true"] + ul,
+    :root:not(.has-nav-navigation) body > nav:focus-within > button[aria-controls="main-navigation"] + ul {
       @apply static mt-2 border-b-0 bg-transparent py-0 shadow-none;
 
       display: flex;
       flex-basis: auto;
+      max-width: none;
       width: auto;
     }
 
