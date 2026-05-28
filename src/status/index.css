@@ -1,0 +1,17 @@
+@layer components {
+  .info {
+    @apply bg-sky-100 text-sky-900;
+  }
+
+  .success {
+    @apply bg-emerald-100 text-emerald-900;
+  }
+
+  .warning {
+    @apply bg-amber-100 text-amber-950;
+  }
+
+  .danger {
+    @apply bg-red-100 text-red-900;
+  }
+}
