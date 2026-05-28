@@ -78,7 +78,7 @@ jobs:
       - name: Rsync HTML and favicon files
         if: inputs.deploy_files == 'html_ico'
         run: |
-          rsync -az --delete --delete-excluded --progress \
+          rsync -az --delete --delete-excluded --prune-empty-dirs --progress \
             --include='*/' \
             --include='*.html' \
             --include='*.ico' \
