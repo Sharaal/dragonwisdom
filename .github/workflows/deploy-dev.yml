@@ -17,7 +17,6 @@ jobs:
       deploy_files: all
       environment: prod
       htaccess_mode: no-cache
-      project_environment: dev
       public_base_url_kind: dev
       server_dir: dev/
     secrets: inherit

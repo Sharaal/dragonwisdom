@@ -16,10 +16,6 @@ on:
         description: ".htaccess mode: no-cache or immutable"
         required: true
         type: string
-      project_environment:
-        description: Project environment for this deployment
-        required: true
-        type: string
       public_base_url_kind:
         description: "Public base URL source: dev or releases"
         required: true
@@ -90,7 +86,6 @@ jobs:
 
       - name: Build
         env:
-          PROJECT_ENVIRONMENT: ${{ inputs.project_environment }}
           PUBLIC_BASE_URL: ${{ steps.public_base_url.outputs.public_base_url }}
         run: npm run build
 
