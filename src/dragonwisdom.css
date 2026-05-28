@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./header/index.css";
+@import "./image/index.css";
 @import "./links/index.css";
 @import "./lists/index.css";
 @import "./nav/index.css";

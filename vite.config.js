@@ -68,7 +68,8 @@ function localIndexHtml() {
         .replace(
           '<link rel="icon" href="./assets/favicon.ico">',
           '<link rel="icon" href="./favicon.ico">'
-        );
+        )
+        .replaceAll('src="./assets/favicon.ico"', 'src="./favicon.ico"');
       const cssIndex = cssIndexHtml(index, {
         jsScript: `    <script src="${jsUrl}"></script>`
       });
