@@ -23,7 +23,7 @@
 
 - Quellcode wird nach Verwendungszweck unter `src/` einsortiert, z. B. `src/table/data.css` und `src/table/data.js`.
 - Module für Klassen werden nach HTML-Element und Klasse benannt, z. B. `nav class="sidebar"` nutzt `src/nav/sidebar.css` und `src/nav/sidebar.js`.
-- Zweckorientierte Sammelmodule sind erlaubt, wenn mehrere semantisch zusammengehörige HTML-Elemente dieselbe Standardformatierung teilen, z. B. `src/headlines`, `src/typography`, `src/links` und `src/lists`.
+- Zweckorientierte Sammelmodule sind erlaubt, wenn mehrere semantisch zusammengehörige HTML-Elemente dieselbe Standardformatierung teilen, z. B. `src/headline`, `src/typography`, `src/link` und `src/list`.
 - Minimale Layout-Container sind erlaubt, wenn CSS Grid sonst mehrere Content-Blöcke instabil neben Navigation platziert.
 - Feature-spezifische Styles werden unterhalb des Elements gekapselt, z. B. `src/table/data/sortable.css`.
 - Feature-spezifisches Verhalten wird unterhalb des Elements gekapselt, z. B. `src/table/data/sortable.js`.
