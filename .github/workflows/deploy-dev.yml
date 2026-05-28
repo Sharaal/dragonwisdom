@@ -11,8 +11,10 @@ permissions:
 
 jobs:
   deploy-dev:
-    name: Deploy
+    name: Deploy Dev
     uses: ./.github/workflows/deploy-reusable.yml
     with:
       environment: prod
+      project_environment: dev
+      server_dir: dev/
     secrets: inherit

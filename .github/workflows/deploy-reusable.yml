@@ -7,6 +7,14 @@ on:
         description: GitHub environment for this deployment
         required: true
         type: string
+      project_environment:
+        description: Project environment for this deployment
+        required: true
+        type: string
+      server_dir:
+        description: Server directory
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -35,6 +43,7 @@ jobs:
 
       - name: Build
         env:
+          PROJECT_ENVIRONMENT: ${{ inputs.project_environment }}
           PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL }}
         run: npm run build
 
@@ -45,8 +54,13 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H "${{ vars.SSH_HOST }}" >> ~/.ssh/known_hosts
 
+      - name: Create server directory
+        run: |
+          ssh "${{ vars.SSH_LOGIN }}@${{ vars.SSH_HOST }}" \
+            "mkdir -p '${{ vars.SSH_ROOT_DIRECTORY }}${{ inputs.server_dir }}'"
+
       - name: Rsync files
         run: |
           rsync -az --delete --progress \
             ./dist/public/ \
-            "${{ vars.SSH_LOGIN }}@${{ vars.SSH_HOST }}:${{ vars.SSH_ROOT_DIRECTORY }}"
+            "${{ vars.SSH_LOGIN }}@${{ vars.SSH_HOST }}:${{ vars.SSH_ROOT_DIRECTORY }}${{ inputs.server_dir }}"
