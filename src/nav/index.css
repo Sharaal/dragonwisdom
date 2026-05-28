@@ -31,7 +31,7 @@
   }
 
   body > nav button {
-    @apply cursor-pointer;
+    @apply cursor-pointer rounded-full;
 
     flex: 0 0 auto;
   }
