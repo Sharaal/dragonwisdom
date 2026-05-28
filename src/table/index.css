@@ -1,4 +1,5 @@
 @import "./sortable.css";
+@import "./status.css";
 
 @layer components {
   table {
@@ -9,12 +10,12 @@
     @apply bg-slate-800 text-white;
   }
 
-  table tbody tr:nth-child(even) {
+  table tbody tr:nth-child(even):not(.info, .success, .warning, .danger) {
     @apply bg-stone-100;
   }
 
-  table tbody tr:hover {
-    @apply bg-slate-100;
+  table tbody tr:hover:not(.info, .success, .warning, .danger) {
+    @apply bg-slate-200;
   }
 
   table th,
