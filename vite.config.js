@@ -26,7 +26,6 @@ function cssIndexHtml(html, { jsScript, scriptReplacement = "" }) {
 function localIndexHtml() {
   const cssUrl = assetUrl("dragonwisdom.css");
   const jsUrl = assetUrl("dragonwisdom.js");
-  const headline = `DragonWisdom ${packageJson.version}`;
 
   return {
     name: "local-index-html",
@@ -55,7 +54,6 @@ function localIndexHtml() {
       order: "post",
       handler(html) {
         return html
-          .replace("<h1>DragonWisdom</h1>", `<h1>${headline}</h1>`)
           .replace(
             '<script type="module" crossorigin src="./dragonwisdom.js"></script>',
             `<script src="${jsUrl}"></script>`
@@ -63,7 +61,8 @@ function localIndexHtml() {
           .replace(
             '<link rel="stylesheet" crossorigin href="./dragonwisdom.css">',
             `<link rel="stylesheet" href="${cssUrl}">`
-          );
+          )
+          .replaceAll("{version}", packageJson.version);
       }
     },
     async closeBundle() {

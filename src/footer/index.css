@@ -1,0 +1,19 @@
+@layer components {
+  body > footer {
+    @apply mt-0 border-t border-stone-200 py-4 text-sm text-slate-600;
+
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: 48rem) {
+    body {
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      min-height: 100vh;
+    }
+
+    body > footer {
+      grid-column: 2;
+      grid-row: 3;
+    }
+  }
+}
