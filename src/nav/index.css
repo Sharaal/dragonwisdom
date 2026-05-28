@@ -36,11 +36,11 @@
     flex: 0 0 auto;
   }
 
-  body > nav > button + ul {
+  body > nav > button[aria-controls="main-navigation"] + ul {
     display: none;
   }
 
-  body > nav > button[aria-expanded="true"] + ul {
+  body > nav > button[aria-controls="main-navigation"][aria-expanded="true"] + ul {
     @apply absolute right-0 top-full border-b border-stone-200 bg-stone-50 py-3 shadow-sm;
 
     display: flex;
@@ -95,7 +95,7 @@
       top: var(--header-height);
     }
 
-    body > nav button {
+    body > nav button[aria-controls="main-navigation"] {
       @apply hidden;
     }
 
@@ -103,8 +103,16 @@
       @apply flex-col flex-nowrap;
     }
 
-    body > nav > button + ul,
-    body > nav > button[aria-expanded="true"] + ul {
+    body > nav > button:not([aria-controls="main-navigation"]) {
+      @apply mt-4;
+    }
+
+    body > nav > button:not([aria-controls="main-navigation"]) + button:not([aria-controls="main-navigation"]) {
+      @apply mt-2;
+    }
+
+    body > nav > button[aria-controls="main-navigation"] + ul,
+    body > nav > button[aria-controls="main-navigation"][aria-expanded="true"] + ul {
       @apply static mt-2 border-b-0 bg-transparent py-0 shadow-none;
 
       display: flex;
@@ -112,7 +120,8 @@
       width: auto;
     }
 
-    body > nav a {
+    body > nav a,
+    body > nav button[data-saveable-button] {
       @apply w-full;
     }
 

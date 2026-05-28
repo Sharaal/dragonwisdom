@@ -45,3 +45,13 @@
     @apply outline-2 outline-offset-2 outline-sky-700;
   }
 }
+
+@layer components {
+  button.secondary:not(:disabled) {
+    @apply border-sky-200 bg-sky-50 text-sky-900;
+  }
+
+  button.secondary:hover:not(:disabled) {
+    @apply border-sky-700 bg-sky-100 text-sky-950;
+  }
+}
