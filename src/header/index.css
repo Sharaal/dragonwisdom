@@ -10,7 +10,7 @@
   }
 
   body > header h1 {
-    @apply my-0;
+    @apply my-0 whitespace-nowrap;
   }
 
   body > header p {
