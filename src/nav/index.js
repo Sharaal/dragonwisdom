@@ -28,19 +28,12 @@ function showSection(links, sections, activeId) {
   });
 }
 
-function scrollToMain() {
-  const main = document.querySelector("main");
-
-  if (!main) {
+function scrollToSection(section) {
+  if (!section) {
     return;
   }
 
-  const headerHeight = document.querySelector("body > header")?.offsetHeight ?? 0;
-  const scrollTop = main.getBoundingClientRect().top + window.scrollY - headerHeight;
-
-  if (window.scrollY > scrollTop) {
-    window.scrollTo(window.scrollX, scrollTop);
-  }
+  section.scrollIntoView();
 }
 
 export function enhanceNavNavigation() {
@@ -102,7 +95,7 @@ export function enhanceNavNavigation() {
       }
 
       activateSection(targetId);
-      scrollToMain();
+      scrollToSection(document.getElementById(targetId));
 
       closeMenu();
     });

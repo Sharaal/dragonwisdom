@@ -3,15 +3,47 @@
     @apply bg-sky-100 text-sky-900;
   }
 
+  button.info {
+    @apply border-sky-300 bg-sky-100 text-sky-900;
+  }
+
+  button.info:hover:not(:disabled) {
+    @apply border-sky-700 bg-sky-700 text-white;
+  }
+
   .success {
     @apply bg-emerald-100 text-emerald-900;
+  }
+
+  button.success {
+    @apply border-emerald-300 bg-emerald-100 text-emerald-900;
+  }
+
+  button.success:hover:not(:disabled) {
+    @apply border-emerald-700 bg-emerald-700 text-white;
   }
 
   .warning {
     @apply bg-amber-100 text-amber-950;
   }
 
+  button.warning {
+    @apply border-amber-300 bg-amber-100 text-amber-950;
+  }
+
+  button.warning:hover:not(:disabled) {
+    @apply border-amber-600 bg-amber-600 text-white;
+  }
+
   .danger {
     @apply bg-red-100 text-red-900;
+  }
+
+  button.danger {
+    @apply border-red-300 bg-red-100 text-red-900;
+  }
+
+  button.danger:hover:not(:disabled) {
+    @apply border-red-700 bg-red-700 text-white;
   }
 }
