@@ -10,7 +10,7 @@
   }
 
   body > nav {
-    @apply sticky top-0 z-20 mb-0 flex flex-wrap items-start justify-end gap-2 border-b border-stone-200 bg-stone-50 py-3;
+    @apply sticky top-0 z-40 mb-0 flex flex-wrap items-start justify-end gap-2 border-b border-stone-200 bg-stone-50 py-3;
 
     block-size: var(--header-height);
     grid-column: 2;
@@ -94,7 +94,7 @@
     }
 
     body > nav {
-      @apply z-10 mb-0 block border-b-0 border-r border-stone-200 pb-6 pr-4 pt-6;
+      @apply z-40 mb-0 block border-b-0 border-r border-stone-200 pb-6 pr-4 pt-6;
 
       block-size: auto;
       grid-column: 1;

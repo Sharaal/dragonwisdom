@@ -17,7 +17,7 @@ function cssIndexHtml(html, { jsScript, scriptReplacement = "" }) {
   return html
     .replace(jsScript, scriptReplacement)
     .replace('href="./index-css.html"', 'href="./index.html"')
-    .replace("Relative Verlinkung zur CSS Version", "Relative Verlinkung zur JavaScript Version");
+    .replace("CSS Variante", "JavaScript Variante");
 }
 
 function localIndexHtml() {
