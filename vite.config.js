@@ -1,7 +1,10 @@
 import { defineConfig } from "vite";
+import { readFileSync } from "node:fs";
 import { readFile, rename, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import tailwindcss from "@tailwindcss/vite";
+
+const packageJson = JSON.parse(readFileSync(resolve("package.json"), "utf8"));
 
 function assetUrl(fileName) {
   const publicBaseUrl = process.env.PUBLIC_BASE_URL?.replace(/\/+$/, "");
@@ -23,6 +26,7 @@ function cssIndexHtml(html, { jsScript, scriptReplacement = "" }) {
 function localIndexHtml() {
   const cssUrl = assetUrl("dragonwisdom.css");
   const jsUrl = assetUrl("dragonwisdom.js");
+  const headline = `DragonWisdom ${packageJson.version}`;
 
   return {
     name: "local-index-html",
@@ -51,6 +55,7 @@ function localIndexHtml() {
       order: "post",
       handler(html) {
         return html
+          .replace("<h1>DragonWisdom</h1>", `<h1>${headline}</h1>`)
           .replace(
             '<script type="module" crossorigin src="./dragonwisdom.js"></script>',
             `<script src="${jsUrl}"></script>`
