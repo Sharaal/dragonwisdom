@@ -90,6 +90,7 @@ export default defineConfig({
     cssCodeSplit: false,
     rollupOptions: {
       output: {
+        codeSplitting: false,
         entryFileNames: "dragonwisdom.js",
         assetFileNames: (assetInfo) => {
           if (assetInfo.name?.endsWith(".css")) {
