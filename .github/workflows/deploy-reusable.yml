@@ -12,6 +12,10 @@ on:
         description: GitHub environment for this deployment
         required: true
         type: string
+      htaccess_mode:
+        description: ".htaccess mode: no-cache or immutable"
+        required: true
+        type: string
       project_environment:
         description: Project environment for this deployment
         required: true
@@ -119,3 +123,27 @@ jobs:
             --exclude='*' \
             ./dist/public/ \
             "${{ vars.SSH_LOGIN }}@${{ vars.SSH_HOST }}:${{ vars.SSH_ROOT_DIRECTORY }}${{ inputs.server_dir }}"
+
+      - name: Deploy .htaccess
+        shell: bash
+        env:
+          HTACCESS_MODE: ${{ inputs.htaccess_mode }}
+        run: |
+          case "$HTACCESS_MODE" in
+            immutable|no-cache)
+              htaccess_file="./htaccess/$HTACCESS_MODE/.htaccess"
+              ;;
+            *)
+              echo "Expected htaccess_mode to be no-cache or immutable, got: $HTACCESS_MODE" >&2
+              exit 1
+              ;;
+          esac
+
+          if [[ ! -f "$htaccess_file" ]]; then
+            echo "Missing .htaccess file: $htaccess_file" >&2
+            exit 1
+          fi
+
+          rsync -az --progress \
+            "$htaccess_file" \
+            "${{ vars.SSH_LOGIN }}@${{ vars.SSH_HOST }}:${{ vars.SSH_ROOT_DIRECTORY }}${{ inputs.server_dir }}.htaccess"

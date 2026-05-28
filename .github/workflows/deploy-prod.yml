@@ -38,6 +38,7 @@ jobs:
     with:
       deploy_files: html_ico
       environment: prod
+      htaccess_mode: no-cache
       project_environment: prod
       public_base_url_kind: releases
       public_base_url_path: /v${{ needs.prepare.outputs.release_major }}
@@ -51,6 +52,7 @@ jobs:
     with:
       deploy_files: all
       environment: prod
+      htaccess_mode: immutable
       project_environment: prod
       public_base_url_kind: releases
       public_base_url_path: /v${{ needs.prepare.outputs.release_major }}

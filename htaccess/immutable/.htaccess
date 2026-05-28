@@ -1,0 +1,10 @@
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|ico|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
