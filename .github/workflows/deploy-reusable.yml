@@ -3,12 +3,21 @@ name: Deploy Reusable
 on:
   workflow_call:
     inputs:
+      deploy_files:
+        description: "Files to deploy: all or html_ico"
+        required: false
+        default: all
+        type: string
       environment:
         description: GitHub environment for this deployment
         required: true
         type: string
       project_environment:
         description: Project environment for this deployment
+        required: true
+        type: string
+      public_base_url:
+        description: Public base URL for generated asset references
         required: true
         type: string
       server_dir:
@@ -44,7 +53,7 @@ jobs:
       - name: Build
         env:
           PROJECT_ENVIRONMENT: ${{ inputs.project_environment }}
-          PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL }}
+          PUBLIC_BASE_URL: ${{ inputs.public_base_url }}
         run: npm run build
 
       - name: Configure SSH
@@ -59,8 +68,20 @@ jobs:
           ssh "${{ vars.SSH_LOGIN }}@${{ vars.SSH_HOST }}" \
             "mkdir -p '${{ vars.SSH_ROOT_DIRECTORY }}${{ inputs.server_dir }}'"
 
-      - name: Rsync files
+      - name: Rsync all files
+        if: inputs.deploy_files == 'all'
         run: |
           rsync -az --delete --progress \
+            ./dist/public/ \
+            "${{ vars.SSH_LOGIN }}@${{ vars.SSH_HOST }}:${{ vars.SSH_ROOT_DIRECTORY }}${{ inputs.server_dir }}"
+
+      - name: Rsync HTML and favicon files
+        if: inputs.deploy_files == 'html_ico'
+        run: |
+          rsync -az --delete --delete-excluded --progress \
+            --include='*/' \
+            --include='*.html' \
+            --include='*.ico' \
+            --exclude='*' \
             ./dist/public/ \
             "${{ vars.SSH_LOGIN }}@${{ vars.SSH_HOST }}:${{ vars.SSH_ROOT_DIRECTORY }}${{ inputs.server_dir }}"

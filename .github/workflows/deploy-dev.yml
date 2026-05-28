@@ -14,7 +14,9 @@ jobs:
     name: Deploy Dev
     uses: ./.github/workflows/deploy-reusable.yml
     with:
+      deploy_files: all
       environment: prod
       project_environment: dev
+      public_base_url: ${{ vars.DEV_PUBLIC_BASE_URL }}
       server_dir: dev/
     secrets: inherit
