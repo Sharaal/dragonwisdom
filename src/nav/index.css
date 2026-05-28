@@ -25,30 +25,22 @@
     @apply mt-0;
   }
 
-  body > nav > label > input[type="checkbox"] {
-    block-size: 1px;
-    inline-size: 1px;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-  }
-
-  body > nav label,
+  body > nav button,
   body > nav a {
     @apply inline-flex rounded border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 no-underline shadow-sm;
   }
 
-  body > nav label {
+  body > nav button {
     @apply cursor-pointer;
 
     flex: 0 0 auto;
   }
 
-  body > nav > label + ul {
+  body > nav > button + ul {
     display: none;
   }
 
-  body > nav > label:has(input[type="checkbox"]:checked) + ul {
+  body > nav > button[aria-expanded="true"] + ul {
     @apply absolute right-0 top-full border-b border-stone-200 bg-stone-50 py-3 shadow-sm;
 
     display: flex;
@@ -57,8 +49,8 @@
     width: min(100vw - 2rem, 960px);
   }
 
-  body > nav label:hover,
-  body > nav label:has(input[type="checkbox"]:checked),
+  body > nav button:hover,
+  body > nav button[aria-expanded="true"],
   body > nav a:hover,
   body > nav a[aria-current="page"] {
     @apply border-slate-800 bg-slate-800 text-white;
@@ -103,7 +95,7 @@
       top: var(--header-height);
     }
 
-    body > nav label {
+    body > nav button {
       @apply hidden;
     }
 
@@ -111,8 +103,8 @@
       @apply flex-col flex-nowrap;
     }
 
-    body > nav > label + ul,
-    body > nav > label:has(input[type="checkbox"]:checked) + ul {
+    body > nav > button + ul,
+    body > nav > button[aria-expanded="true"] + ul {
       @apply static mt-2 border-b-0 bg-transparent py-0 shadow-none;
 
       display: flex;
