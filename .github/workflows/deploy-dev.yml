@@ -17,6 +17,6 @@ jobs:
       deploy_files: all
       environment: prod
       project_environment: dev
-      public_base_url: ${{ vars.DEV_PUBLIC_BASE_URL }}
+      public_base_url_kind: dev
       server_dir: dev/
     secrets: inherit
