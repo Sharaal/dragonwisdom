@@ -58,7 +58,7 @@ export function enhanceNavNavigation() {
   const activateSection = (sectionId) => showSection(links, sections, sectionId);
   const setMenuExpanded = (expanded) => {
     menuButton?.setAttribute("aria-expanded", String(expanded));
-    menuButton?.setAttribute("aria-label", expanded ? "Menü schließen" : "Menü öffnen");
+    menuButton?.setAttribute("aria-label", expanded ? "Close menu" : "Open menu");
   };
   const closeMenu = () => {
     if (window.matchMedia("(max-width: 47.999rem)").matches) {

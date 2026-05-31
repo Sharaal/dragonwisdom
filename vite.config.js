@@ -20,7 +20,7 @@ function cssIndexHtml(html, { jsScript, scriptReplacement = "" }) {
   return html
     .replace(jsScript, scriptReplacement)
     .replace('href="./index-css.html"', 'href="./index.html"')
-    .replace("CSS Variante", "JavaScript Variante");
+    .replace("CSS Version", "JavaScript Version");
 }
 
 function localIndexHtml() {
