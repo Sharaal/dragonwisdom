@@ -19,6 +19,8 @@
       </ul>
       <button type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-navigation">☰</button>
       <ul id="main-navigation">
+        <li><a href="#dragonwisdom">DragonWisdom</a></li>
+        <li><a href="#how-to-use-it">How to Use It</a></li>
         <li>
           <a href="#text">Dokumentation</a>
           <ul>
@@ -34,6 +36,61 @@
     </nav>
 
     <main>
+      <section id="dragonwisdom">
+        <section>
+          <h2>DragonWisdom</h2>
+          <p>Create HTML documentation files that are AI-agent friendly, semantically optimized, and token-efficient, while also providing a clear, visually structured presentation designed to communicate information effectively to human readers.</p>
+        </section>
+        <section>
+          <h2>The Idea Behind It</h2>
+          <p>Anthropic proposed moving away from Markdown files toward HTML files in order to provide more structured information in repositories.</p>
+          <p>However, this is not a simple or self-evident decision. Compared to Markdown, HTML has both advantages and disadvantages.</p>
+          <h3>Pros</h3>
+          <ul>
+            <li>Semantic HTML improves how AI agents understand and process information.</li>
+            <li>More information can be presented in a visually structured, human-friendly way.</li>
+            <li>HTML enables many more presentation features. For example, GitHub supports Mermaid natively in Markdown, which is useful. With HTML, however, you can provide exactly the features you need to present your information in the best possible way.</li>
+          </ul>
+          <h3>Cons</h3>
+          <ul>
+            <li>Token usage can increase significantly, especially when using tools such as Tailwind CSS, which can make HTML very verbose.</li>
+            <li>Writing HTML manually is not as easy as writing Markdown.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>The Solution</h2>
+          <p>To address these drawbacks, I researched an AI-first solution: documentation that is optimized for AI agents without compromising the reading experience for humans.</p>
+          <ul>
+            <li>The HTML uses only the minimum elements needed for clear semantics and reduced token usage.</li>
+            <li>Tailwind CSS is used as the foundation for styling, but it is abstracted into custom CSS.</li>
+            <li>Powerful human-focused features, such as sortable tables, Save button and Mermaid support, are available as opt-in features.</li>
+            <li>JavaScript is entirely optional.</li>
+          </ul>
+        </section>
+      </section>
+
+      <section id="how-to-use-it">
+        <section>
+          <h2>How to Use It</h2>
+        </section>
+        <section>
+          <h3>Store the File</h3>
+          <p>Visit <a href="https://dragonwisdom.sharaal.de">https://dragonwisdom.sharaal.de</a>, press Ctrl+S, or click <code>Save</code>, then save and use the file.</p>
+        </section>
+        <section>
+          <h3>Skill</h3>
+          <p>Soon, there will be a skill that makes it easy to write and update pages with AI agents.</p>
+        </section>
+        <section>
+          <h3>Use It Manually</h3>
+          <ol>
+            <li>Reference the CSS: <code>&lt;link rel="stylesheet" href="https://releases.dragonwisdom.sharaal.de/{version}/dragonwisdom.css"&gt;</code></li>
+            <li>Reference the JavaScript (optional): <code>&lt;script src="https://releases.dragonwisdom.sharaal.de/{version}/dragonwisdom.js"&gt;&lt;/script&gt;</code></li>
+            <li>Write the HTML as described in the documentation at <a href="https://dragonwisdom.sharaal.de/">https://dragonwisdom.sharaal.de/</a></li>
+          </ol>
+        </section>
+      </section>
+
       <section id="text">
         <section>
           <h2>Überschriften</h2>

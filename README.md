@@ -21,7 +21,7 @@ However, this is not a simple or self-evident decision. Compared to Markdown, HT
 * Token usage can increase significantly, especially when using tools such as Tailwind CSS, which can make HTML very verbose.
 * Writing HTML manually is not as easy as writing Markdown.
 
-## The Implementation: DragonWisdom
+## The Solution
 
 To address these drawbacks, I researched an AI-first solution: documentation that is optimized for AI agents without compromising the reading experience for humans.
 
