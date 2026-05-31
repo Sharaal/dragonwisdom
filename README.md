@@ -1,4 +1,4 @@
-Homepage: https://dragonwisdom.sharaal.de
+Homepage: https://dragonwisdom.de
 
 # DragonWisdom
 
@@ -34,7 +34,7 @@ To address these drawbacks, I researched an AI-first solution: documentation tha
 
 ### Store the File
 
-Visit https://dragonwisdom.sharaal.de, press Ctrl+S, or click `Save`, then save and use the file.
+Visit https://dragonwisdom.de, press Ctrl+S, or click `Save`, then save and use the file.
 
 ### Skill
 
@@ -42,9 +42,9 @@ Soon, there will be a skill that makes it easy to write and update pages with AI
 
 ### Use It Manually
 
-1. Reference the CSS: `<link rel="stylesheet" href="https://releases.dragonwisdom.sharaal.de/{version}/dragonwisdom.css">` 
-2. Reference the JavaScript (optional): `<script src="https://releases.dragonwisdom.sharaal.de/{version}/dragonwisdom.js"></script>`
-3. Write the HTML as described in the documentation at https://dragonwisdom.sharaal.de/
+1. Reference the CSS: `<link rel="stylesheet" href="https://releases.dragonwisdom.de/{version}/dragonwisdom.css">` 
+2. Reference the JavaScript (optional): `<script src="https://releases.dragonwisdom.de/{version}/dragonwisdom.js"></script>`
+3. Write the HTML as described in the documentation at https://dragonwisdom.de/
 
 ## Build Locally
 
