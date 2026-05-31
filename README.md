@@ -53,6 +53,10 @@ Soon, there will be a skill that makes it easy to write and update pages with AI
 3. Start the server via `npm run dev` and open the page in the browser.
 4. Build the static artifacts via `npm run build`, they will be available in `dist/public`.
 
+## License
+
+DragonWisdom is licensed under the Creative Commons Attribution 4.0 International License. See [LICENSE](LICENSE).
+
 ## Questions or Feedback?
 
 Contact me at [dragonwisdom@sharaal.de](mailto:dragonwisdom@sharaal.de) or Discord `sharaal`.
