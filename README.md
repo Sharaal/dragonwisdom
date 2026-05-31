@@ -16,7 +16,7 @@ However, this is not a simple or self-evident decision. Compared to Markdown, HT
 * More information can be presented in a visually structured, human-friendly way.
 * HTML enables many more presentation features. For example, GitHub supports Mermaid natively in Markdown, which is useful. With HTML, however, you can provide exactly the features you need to present your information in the best possible way.
 
-### Cons
+### Cons of the Idea Normally
 
 * Token usage can increase significantly, especially when using tools such as Tailwind CSS, which can make HTML very verbose.
 * Writing HTML manually is not as easy as writing Markdown.
