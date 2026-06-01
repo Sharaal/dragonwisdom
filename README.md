@@ -6,6 +6,13 @@ AI-friendly HTML documentation readable for humans.
 
 DragonWisdom helps you write documentation as minimal semantic HTML, keep the structure clear for AI agents, and publish one local or static HTML file.
 
+Compare the two variants yourself:
+
+* Markdown with long and/or many files
+  ![Markdown variant](public/img/markdown.png)
+* Structured HTML file
+  ![HTML variant](public/img/html.png)
+
 ## What You Are Looking At
 
 The homepage (https://dragonwisdom.de) is the live example. Its `index.html` is the source of the demo and can be the source of your knowledge. It contains the documentation content and only the HTML needed for clear meaning.
