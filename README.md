@@ -56,7 +56,7 @@ Soon, there will be a skill that helps AI agents write and update DragonWisdom p
 
 You can create your own HTML documentation from scratch with the elements described in the documentation.
 
-Add the release CSS to your HTML:
+Add the CSS to your HTML:
 
 ```html
 <link rel="stylesheet" href="https://releases.dragonwisdom.de/{version}/dragonwisdom.css">
