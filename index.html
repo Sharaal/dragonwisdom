@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/src/dragonwisdom.css">
     <script type="module" src="/src/dragonwisdom.js"></script>
   </head>
-  <body class="saveable pageable">
+  <body class="pageable saveable">
     <header>
       <h1>DragonWisdom {version}</h1>
     </header>
@@ -34,6 +34,7 @@
             <li><a href="#tabs">Tabs</a></li>
             <li><a href="#tables">Tables</a></li>
             <li><a href="#diagrams">Diagrams</a></li>
+            <li><a href="#features">Features</a></li>
           </ul>
         </li>
         <li><a href="./index-css.html">CSS-only Version</a></li>
@@ -430,6 +431,21 @@ flowchart LR
   B --> E[Human-friendly optional features]
 </pre>
           </div>
+        </section>
+      </section>
+
+      <section id="features">
+        <section>
+          <h2>Features</h2>
+          <p>Feature toggles are body classes that enable optional JavaScript behavior without adding extra markup.</p>
+          <pre><code>&lt;body class="pageable saveable"&gt;</code></pre>
+          <dl>
+            <dt><code>saveable</code></dt>
+            <dd>Injects the <code>Save this page</code> button into the navigation when JavaScript is loaded.</dd>
+            <dt><code>pageable</code></dt>
+            <dd>Injects the <code>One-Page</code> / <code>Multi-Page</code> navigation mode button when JavaScript is loaded. The JavaScript version starts in <code>Multi-Page</code> mode.</dd>
+          </dl>
+          <p>Without JavaScript, these classes have no interactive effect. Without <code>saveable</code>, no save button is injected. Without <code>pageable</code>, no page mode button is injected.</p>
         </section>
       </section>
     </main>
