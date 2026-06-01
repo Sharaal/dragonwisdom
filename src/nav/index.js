@@ -1,3 +1,5 @@
+import { translate } from "../i18n/index.js";
+
 function decodeHash(hash) {
   try {
     return decodeURIComponent(hash.slice(1));
@@ -58,7 +60,7 @@ export function enhanceNavNavigation() {
   const activateSection = (sectionId) => showSection(links, sections, sectionId);
   const setMenuExpanded = (expanded) => {
     menuButton?.setAttribute("aria-expanded", String(expanded));
-    menuButton?.setAttribute("aria-label", expanded ? "Close menu" : "Open menu");
+    menuButton?.setAttribute("aria-label", translate(expanded ? "nav.closeMenu" : "nav.openMenu"));
   };
   const closeMenu = () => {
     if (window.matchMedia("(max-width: 47.999rem)").matches) {
@@ -79,6 +81,7 @@ export function enhanceNavNavigation() {
   };
 
   menuButton?.addEventListener("click", toggleMenu);
+  setMenuExpanded(menuButton?.getAttribute("aria-expanded") === "true");
 
   links.forEach((link) => {
     link.addEventListener("click", (event) => {

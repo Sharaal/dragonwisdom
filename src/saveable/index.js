@@ -1,3 +1,5 @@
+import { translate } from "../i18n/index.js";
+
 const enhancedButtons = new WeakSet();
 
 function getSuggestedFileName() {
@@ -62,7 +64,7 @@ export function enhanceSaveableDocument() {
 
   button.type = "button";
   button.classList.add("secondary");
-  button.textContent = "Save this page";
+  button.textContent = translate("saveable.savePage");
   button.dataset.saveableButton = "";
   nav.append(button);
 

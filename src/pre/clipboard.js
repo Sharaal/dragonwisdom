@@ -1,3 +1,5 @@
+import { translate } from "../i18n/index.js";
+
 const codeBlockSelector = "pre:not(.mermaid)";
 const mermaidCodeEventName = "dragonwisdom:mermaid-code";
 const showcaseEventName = "dragonwisdom:showcase";
@@ -57,8 +59,8 @@ function enhanceCodeBlock(pre) {
 
   button.type = "button";
   button.className = "copy";
-  button.setAttribute("aria-label", "Code kopieren");
-  button.title = "Code kopieren";
+  button.setAttribute("aria-label", translate("clipboard.copyCode"));
+  button.title = translate("clipboard.copyCode");
   button.addEventListener("click", () => {
     copyText(getCodeBlockText(pre))
       .then(() => markCopied(button))

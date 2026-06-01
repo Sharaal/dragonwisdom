@@ -1,3 +1,4 @@
+import { translate } from "../i18n/index.js";
 import { enhanceTabs } from "../section/tabs.js";
 
 const mermaidScriptUrl = "https://cdn.jsdelivr.net/npm/mermaid@11.15.0/dist/mermaid.min.js";
@@ -83,7 +84,7 @@ function wrapMermaidNode(node, index) {
 
   tabs.className = "tabs mermaid-tabs";
   node.replaceWith(tabs);
-  tabs.append(createPanel("Preview", node), createPanel("Code", createCodeBlock(codeText)));
+  tabs.append(createPanel(translate("mermaid.preview"), node), createPanel(translate("mermaid.code"), createCodeBlock(codeText)));
   enhanceTabs(tabs, index);
 
   return node;
