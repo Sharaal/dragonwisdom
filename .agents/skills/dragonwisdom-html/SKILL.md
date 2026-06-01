@@ -10,8 +10,8 @@ Use this skill only when the user explicitly asks for the DragonWisdom HTML skil
 ## References
 
 - Read `references/index.html` to understand the supported DragonWisdom HTML elements, classes, and feature patterns.
-- Use `references/minimal.html` as the base template unless the user requests navigation.
-- Use `references/nav.html` as the base template when the user requests navigation.
+- Use `references/nav.html` as the default base template.
+- Use `references/minimal.html` only when the user explicitly asks for a minimal template, no navigation, or an equivalent navigation-free document.
 
 If a referenced file is missing, tell the user to run `npm run build` in the DragonWisdom repository so the generated references are copied into this skill.
 
@@ -19,7 +19,7 @@ If a referenced file is missing, tell the user to run `npm run build` in the Dra
 
 Before writing HTML, determine these options from the user's request. If an option is not explicit, ask for it and mention the default.
 
-- Navigation: default `no`. If `yes`, use `references/nav.html`; otherwise use `references/minimal.html`.
+- Navigation: default `yes`. If `yes` or unspecified, use `references/nav.html`; if the user explicitly asks for `minimal`, no navigation, or an equivalent navigation-free document, use `references/minimal.html`.
 - Save button: default `no`. If `yes`, add `saveable` to the `body` class list.
 - Multi-page option: default `no`. If `yes`, add `pageable` to the `body` class list.
 
