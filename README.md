@@ -25,10 +25,21 @@ The built page can still be opened locally with `file://`, so it works as a stat
 
 ```mermaid
 flowchart LR
-  A[Minimal HTML] --> B[DragonWisdom CSS]
-  B --> C[Readable documentation]
-  A --> D[Optional DragonWisdom JS]
-  D --> E[Save, navigation, Mermaid, sortable tables]
+  subgraph agents[For AI-Agents]
+    A[Minimal HTML]
+  end
+  subgraph humans[For Humans]
+    B[DragonWisdom CSS]
+    C[Readable documentation]
+    D[Optional DragonWisdom JS]
+    E[Save, navigation, Mermaid, sortable tables]
+  end
+  A --> B
+  B --> C
+  A --> D
+  D --> E
+  style agents fill:#eff6ff,stroke:#60a5fa
+  style humans fill:#f0fdf4,stroke:#4ade80
 ```
 
 ## How to Use It
