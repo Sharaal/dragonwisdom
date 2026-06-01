@@ -1,6 +1,7 @@
 const enhancedShowcases = new WeakSet();
 const showcaseSourceMarkup = new WeakMap();
 const showcaseEventName = "dragonwisdom:showcase";
+const voidElementNames = new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"]);
 
 function formatMarkup(markup) {
   const lines = markup.replace(/\r\n?/g, "\n").split("\n");
@@ -28,6 +29,46 @@ function formatMarkup(markup) {
   return lines.map((line) => line.slice(indentation)).join("\n");
 }
 
+function serializeAttribute(attribute) {
+  return `${attribute.name}="${attribute.value.replaceAll("&", "&amp;").replaceAll('"', "&quot;")}"`;
+}
+
+function serializeText(text) {
+  return text.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+}
+
+function serializeElement(element) {
+  const tagName = element.tagName.toLowerCase();
+  const attributes = Array.from(element.attributes).map(serializeAttribute).join(" ");
+  const openingTag = attributes ? `<${tagName} ${attributes}>` : `<${tagName}>`;
+
+  if (tagName === "pre") {
+    return `${openingTag}${element.textContent ?? ""}</${tagName}>`;
+  }
+
+  if (voidElementNames.has(tagName)) {
+    return openingTag;
+  }
+
+  return `${openingTag}${serializeNodes(element.childNodes)}</${tagName}>`;
+}
+
+function serializeNode(node) {
+  if (node.nodeType === Node.TEXT_NODE) {
+    return serializeText(node.textContent ?? "");
+  }
+
+  if (node.nodeType === Node.ELEMENT_NODE) {
+    return serializeElement(node);
+  }
+
+  return "";
+}
+
+function serializeNodes(nodes) {
+  return Array.from(nodes).map(serializeNode).join("");
+}
+
 function getSourceMarkup(showcase) {
   if (showcaseSourceMarkup.has(showcase)) {
     return showcaseSourceMarkup.get(showcase);
@@ -39,7 +80,7 @@ function getSourceMarkup(showcase) {
     button.remove();
   });
 
-  return formatMarkup(source.innerHTML);
+  return formatMarkup(serializeNodes(source.childNodes));
 }
 
 function getElementIndentation(element) {
@@ -51,7 +92,7 @@ function getElementIndentation(element) {
 }
 
 function getShowcaseChildMarkup(child) {
-  return formatMarkup(`${getElementIndentation(child)}${child.outerHTML}`);
+  return formatMarkup(`${getElementIndentation(child)}${serializeElement(child)}`);
 }
 
 function createSourcePane(markup) {
