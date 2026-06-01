@@ -96,7 +96,13 @@
 
   @media (min-width: 48rem) {
     body {
-      @apply items-start gap-x-8;
+      @apply items-start;
+
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    body:has(> nav) {
+      @apply gap-x-8;
 
       grid-template-columns: 12rem minmax(0, 1fr);
     }
@@ -160,7 +166,7 @@
       @apply w-full;
     }
 
-    main {
+    body:has(> nav) main {
       @apply mb-6 mt-6;
 
       grid-column: 2;
