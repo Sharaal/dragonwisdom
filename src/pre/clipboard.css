@@ -1,0 +1,31 @@
+@layer base {
+  pre:not(.mermaid):has(> button.copy),
+  pre.mermaid:not([data-processed]):has(> button.copy) {
+    @apply relative pr-12;
+  }
+
+  pre > button.copy {
+    @apply absolute right-2 top-2 flex size-8 items-center justify-center rounded border border-slate-300 bg-white text-slate-600 shadow-sm;
+  }
+
+  pre > button.copy::before {
+    content: "⧉";
+  }
+
+  pre > button.copy:hover,
+  pre > button.copy:focus-visible {
+    @apply border-slate-400 text-slate-900;
+  }
+
+  pre > button.copy:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-slate-500;
+  }
+
+  pre > button.copy[data-state="copied"] {
+    @apply border-emerald-500 text-emerald-700;
+  }
+
+  pre > button.copy[data-state="copied"]::before {
+    content: "✓";
+  }
+}
