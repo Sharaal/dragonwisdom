@@ -62,7 +62,7 @@ export function enhanceSaveableDocument() {
 
   button.type = "button";
   button.classList.add("secondary");
-  button.textContent = "Save";
+  button.textContent = "Save this page";
   button.dataset.saveableButton = "";
   nav.append(button);
 

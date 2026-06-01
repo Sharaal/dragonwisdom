@@ -14,13 +14,11 @@
     </header>
 
     <nav>
-      <ul>
-        <li><a href="./index-css.html">CSS Version</a></li>
-      </ul>
       <button type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-navigation">☰</button>
       <ul id="main-navigation">
-        <li><a href="#dragonwisdom">DragonWisdom</a></li>
+        <li><a href="#dragonwisdom">Live Example</a></li>
         <li><a href="#how-to-use-it">How to Use It</a></li>
+        <li><a href="#background">Background</a></li>
         <li>
           <a href="#text">Documentation</a>
           <ul>
@@ -32,62 +30,91 @@
             <li><a href="#diagrams">Diagrams</a></li>
           </ul>
         </li>
+        <li><a href="./index-css.html">CSS-only Version</a></li>
       </ul>
     </nav>
 
     <main>
       <section id="dragonwisdom">
         <section>
-          <h2>DragonWisdom</h2>
-          <p>Create HTML documentation files that are AI-agent friendly, semantically optimized, and token-efficient, while also providing a clear, visually structured presentation designed to communicate information effectively to human readers.</p>
-        </section>
-        <section>
-          <h2>The Idea Behind It</h2>
-          <p>Anthropic proposed moving away from Markdown files toward HTML files in order to provide more structured information in repositories.</p>
-          <p>However, this is not a simple or self-evident decision. Compared to Markdown, HTML has both advantages and disadvantages.</p>
-          <h3>Pros</h3>
+          <h2>AI-friendly HTML documentation readable for humans.</h2>
+          <p>This page is the live example. It is written as minimal semantic HTML and styled by DragonWisdom.</p>
           <ul>
-            <li>Semantic HTML improves how AI agents understand and process information.</li>
-            <li>More information can be presented in a visually structured, human-friendly way.</li>
-            <li>HTML enables many more presentation features. For example, GitHub supports Mermaid natively in Markdown, which is useful. With HTML, however, you can provide exactly the features you need to present your information in the best possible way.</li>
-          </ul>
-          <h3>Cons of the Idea Normally</h3>
-          <ul>
-            <li>Token usage can increase significantly, especially when using tools such as Tailwind CSS, which can make HTML very verbose.</li>
-            <li>Writing HTML manually is not as easy as writing Markdown.</li>
+            <li>Write less markup.</li>
+            <li>Keep structure clear for AI agents.</li>
+            <li>Publish one local or static HTML file.</li>
           </ul>
         </section>
         <section>
-          <h2>The Solution</h2>
-          <p>To address these drawbacks, I researched an AI-first solution: documentation that is optimized for AI agents without compromising the reading experience for humans.</p>
-          <ul>
-            <li>The HTML uses only the minimum elements needed for clear semantics and reduced token usage.</li>
-            <li>Tailwind CSS is used as the foundation for styling, but it is abstracted into custom CSS.</li>
-            <li>Powerful human-focused features, such as sortable tables, Save button and Mermaid support, are available as opt-in features.</li>
-            <li>JavaScript is entirely optional.</li>
-          </ul>
+          <h2>What You Are Looking At</h2>
+          <p><code>index.html</code> is the source of this demo and can be the source of your knowledge. It contains the documentation content and only the HTML needed for clear meaning.</p>
+          <p><code>dragonwisdom.css</code> provides the visual design. <code>dragonwisdom.js</code> is optional and adds navigation, saving, Mermaid diagrams and sortable tables.</p>
+          <p>The built page can still be opened locally with <code>file://</code>, so it works as a static document.</p>
+        </section>
+        <section>
+          <h2>How It Works</h2>
+<pre class="mermaid">
+  flowchart LR
+    A[Minimal HTML] --> B[DragonWisdom CSS]
+    B --> C[Readable documentation]
+    A --> D[Optional DragonWisdom JS]
+    D --> E[Save, navigation, Mermaid, sortable tables]
+</pre>
         </section>
       </section>
 
       <section id="how-to-use-it">
         <section>
           <h2>How to Use It</h2>
-          <h3>Store the File</h3>
-          <p>Visit <a href="https://dragonwisdom.de">https://dragonwisdom.de</a>, press Ctrl+S, or click <code>Save</code>, then save and use the file.</p>
-          <h3>Skill</h3>
-          <p>Soon, there will be a skill that makes it easy to write and update pages with AI agents.</p>
-          <h3>Use It Manually</h3>
-          <ol>
-            <li>Reference the CSS: <code>&lt;link rel="stylesheet" href="https://releases.dragonwisdom.de/{version}/dragonwisdom.css"&gt;</code></li>
-            <li>Reference the JavaScript (optional): <code>&lt;script src="https://releases.dragonwisdom.de/{version}/dragonwisdom.js"&gt;&lt;/script&gt;</code></li>
-            <li>Write the HTML as described in the documentation at <a href="https://dragonwisdom.de/">https://dragonwisdom.de/</a></li>
-          </ol>
+          <h3>Use This Page as a Template</h3>
+          <p>Press Ctrl+S, or use the JavaScript Version's <code>Save this page</code> button. Then edit the saved HTML file for your own documentation.</p>
+          <h3>AI Skill</h3>
+          <p>Soon, there will be a skill that helps AI agents write and update DragonWisdom pages.</p>
+        </section>
+        <section>
+          <h2>Alternative</h2>
+          <h3>Write Your Own HTML</h3>
+          <p>You can create your own HTML documentation from scratch with the elements described in the documentation.</p>
+          <h3>Link the Release CSS</h3>
+          <p>Add <code>&lt;link rel="stylesheet" href="https://releases.dragonwisdom.de/{version}/dragonwisdom.css"&gt;</code> to your HTML.</p>
+          <h3>Add Optional JavaScript</h3>
+          <p>Add <code>&lt;script src="https://releases.dragonwisdom.de/{version}/dragonwisdom.js"&gt;&lt;/script&gt;</code> when you want interactive navigation, saving, Mermaid rendering or sortable tables.</p>
+        </section>
+      </section>
+
+      <section id="background">
+        <section>
+          <h2>Why HTML Instead of Markdown?</h2>
+          <p>Anthropic proposed HTML files as a way to give AI agents more structured information in repositories.</p>
+          <p>HTML can be useful for documentation, but it must stay small and easy to write.</p>
+          <h3>What HTML Adds</h3>
+          <ul>
+            <li>Semantic HTML improves how AI agents understand and process information.</li>
+            <li>More information can be presented in a visually structured, human-friendly way.</li>
+            <li>HTML enables features such as Mermaid diagrams, sortable tables and saveable pages.</li>
+          </ul>
+          <h3>What DragonWisdom Avoids</h3>
+          <ul>
+            <li>Verbose utility classes in every HTML element.</li>
+            <li>JavaScript as a hard requirement.</li>
+            <li>Layout wrappers that do not add meaning.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>The Solution</h2>
+          <p>DragonWisdom keeps the source close to plain semantic HTML and moves the design into one CSS file.</p>
+          <ul>
+            <li>Use regular elements such as headings, paragraphs, lists, tables and figures.</li>
+            <li>Add classes only when they change meaning or enable a feature.</li>
+            <li>Use JavaScript only for opt-in behavior.</li>
+          </ul>
         </section>
       </section>
 
       <section id="text">
         <section>
           <h2>Headings</h2>
+          <p>Headings give AI agents and human readers the same outline of the document.</p>
           <h1>First-level heading</h1>
           <h2>Second-level heading</h2>
           <h3>Third-level heading</h3>
@@ -122,6 +149,7 @@
       <section id="images">
         <section>
           <h2>Image</h2>
+          <p>Images can explain a concept without changing the document structure.</p>
           <img src="./favicon.ico" alt="DragonWisdom Symbol">
         </section>
         <section>
@@ -136,8 +164,9 @@
       <section id="links">
         <section>
           <h2>References</h2>
+          <p>Links keep supporting material close to the documentation without copying it into the page.</p>
           <p><a href="#text">Internal link to the text section</a></p>
-          <p><a href="./index-css.html">Relative link to the CSS version</a></p>
+          <p><a href="./favicon.ico">Relative link to the favicon</a></p>
           <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">External link to the HTML documentation</a></p>
           <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank" rel="noreferrer">External link in a new window</a></p>
           <p><a href="mailto:mail@example.com">Write an email</a></p>
@@ -157,6 +186,7 @@
       <section id="lists">
         <section>
           <h2>Unordered List</h2>
+          <p>Lists make key facts easy to scan and easy for agents to extract.</p>
           <ul>
             <li>Unordered item</li>
             <li>Another item</li>
@@ -195,41 +225,48 @@
       <section id="tables">
         <section>
           <h2>Table</h2>
+          <p>Tables are useful when documentation needs comparison, status or structured feature data.</p>
           <table>
-            <caption>HTML structure and behavior of standard tables</caption>
+            <caption>DragonWisdom feature overview</caption>
             <thead>
               <tr>
+                <th>Feature</th>
                 <th>HTML</th>
-                <th>Meaning</th>
-                <th>JavaScript</th>
+                <th>Requires JS</th>
+                <th>Use Case</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>table</td>
-                <td>Styled standard table</td>
+                <td>Standard table</td>
+                <td><code>table</code></td>
                 <td>No</td>
+                <td>Feature lists and comparisons</td>
               </tr>
               <tr>
-                <td>class="sortable"</td>
-                <td>Sortable data table</td>
+                <td>Sortable table</td>
+                <td><code>table class="sortable"</code></td>
                 <td>Yes</td>
+                <td>Data that readers need to reorder</td>
               </tr>
               <tr>
-                <td>thead/th</td>
-                <td>Column headings</td>
-                <td>For sorting</td>
+                <td>Status badge</td>
+                <td><code>class="success"</code></td>
+                <td>No</td>
+                <td>Visible state or severity</td>
               </tr>
               <tr>
-                <td>tbody/tr</td>
-                <td>Data rows</td>
-                <td>For sorting</td>
+                <td>Mermaid diagram</td>
+                <td><code>pre class="mermaid"</code></td>
+                <td>Yes</td>
+                <td>Workflows and relationships</td>
               </tr>
             </tbody>
           </table>
         </section>
         <section>
           <h2>Sortable Table</h2>
+          <p>Add <code>sortable</code> when a table should become interactive. The plain table still works without JavaScript.</p>
           <table class="sortable">
             <caption>Sortable table features</caption>
             <thead>
@@ -273,6 +310,7 @@
       <section id="diagrams">
         <section>
           <h2>Mermaid Diagram</h2>
+          <p>Diagrams show relationships that would be too slow to understand as text alone.</p>
 <pre class="mermaid">
   flowchart LR
     A[Knowledge] --> B[DragonWisdom]
