@@ -70,6 +70,7 @@ export function enhanceNavNavigation() {
   const menuButton = nav?.querySelector('button[aria-controls="main-navigation"]');
   const links = Array.from(nav?.querySelectorAll('a[href^="#"]') ?? []);
   const sections = getLinkedSections(links);
+  const isPageable = document.body.classList.contains("pageable");
 
   if (!links.length || !sections.length) {
     return;
@@ -77,7 +78,7 @@ export function enhanceNavNavigation() {
 
   document.documentElement.classList.add("has-nav-navigation");
 
-  const modeButton = createModeButton(nav);
+  const modeButton = isPageable ? createModeButton(nav) : null;
   const fallbackId = sections[0].id;
   let mode = multiPageMode;
   let observer = null;
@@ -153,6 +154,10 @@ export function enhanceNavNavigation() {
     }
   };
   const updateModeButton = () => {
+    if (!modeButton) {
+      return;
+    }
+
     modeButton.textContent = translate(mode === onePageMode ? "nav.mode.onePage" : "nav.mode.multiPage");
     modeButton.setAttribute("aria-pressed", String(mode === multiPageMode));
   };
@@ -244,7 +249,7 @@ export function enhanceNavNavigation() {
   setMenuExpanded(menuButton?.getAttribute("aria-expanded") === "true");
   updateModeButton();
 
-  modeButton.addEventListener("click", () => {
+  modeButton?.addEventListener("click", () => {
     setMode(mode === onePageMode ? multiPageMode : onePageMode);
   });
 
