@@ -1,3 +1,4 @@
 dist
 node_modules
+.agents/skills/dragonwisdom-html/references/*.html
 .DS_Store

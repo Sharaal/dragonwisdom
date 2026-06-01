@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import { readFileSync } from "node:fs";
 import { readdir, readFile, rename, writeFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { extname, resolve } from "node:path";
 import tailwindcss from "@tailwindcss/vite";
 
 const packageJson = JSON.parse(readFileSync(resolve("package.json"), "utf8"));
@@ -23,9 +23,11 @@ function cssIndexHtml(html, { jsScript, scriptReplacement = "" }) {
     .replaceAll("CSS-only Version", "JavaScript Version");
 }
 
-function templateHtml(html, { cssUrl, jsUrl }) {
-  return html
+function templateText(text, { cssUrl, jsUrl, skillArchiveUrl, skillInstallScriptUrl }) {
+  return text
     .replaceAll("{version}", packageJson.version)
+    .replaceAll("{skill_archive_url}", skillArchiveUrl)
+    .replaceAll("{skill_install_script_url}", skillInstallScriptUrl)
     .replace(
       '<link rel="stylesheet" href="/src/dragonwisdom.css">',
       `<link rel="stylesheet" href="${cssUrl}">`
@@ -36,7 +38,7 @@ function templateHtml(html, { cssUrl, jsUrl }) {
     );
 }
 
-async function transformTemplateHtml(directory, urls) {
+async function transformTemplateFiles(directory, urls) {
   let entries;
 
   try {
@@ -53,22 +55,24 @@ async function transformTemplateHtml(directory, urls) {
     const entryPath = resolve(directory, entry.name);
 
     if (entry.isDirectory()) {
-      await transformTemplateHtml(entryPath, urls);
+      await transformTemplateFiles(entryPath, urls);
       return;
     }
 
-    if (!entry.isFile()) {
+    if (!entry.isFile() || ![".html", ".sh"].includes(extname(entry.name))) {
       return;
     }
 
     const template = await readFile(entryPath, "utf8");
-    await writeFile(entryPath, templateHtml(template, urls));
+    await writeFile(entryPath, templateText(template, urls));
   }));
 }
 
 function localIndexHtml() {
   const cssUrl = assetUrl("dragonwisdom.css");
   const jsUrl = assetUrl("dragonwisdom.js");
+  const skillArchiveUrl = assetUrl("SKILL.zip");
+  const skillInstallScriptUrl = assetUrl("install-skill.sh");
 
   return {
     name: "local-index-html",
@@ -105,7 +109,9 @@ function localIndexHtml() {
             '<link rel="stylesheet" crossorigin href="./dragonwisdom.css">',
             `<link rel="stylesheet" href="${cssUrl}">`
           )
-          .replaceAll("{version}", packageJson.version);
+          .replaceAll("{version}", packageJson.version)
+          .replaceAll("{skill_archive_url}", skillArchiveUrl)
+          .replaceAll("{skill_install_script_url}", skillInstallScriptUrl);
       }
     },
     async closeBundle() {
@@ -123,7 +129,12 @@ function localIndexHtml() {
 
       await writeFile(indexPath, index);
       await writeFile(cssIndexPath, cssIndex);
-      await transformTemplateHtml(resolve("dist/public"), { cssUrl, jsUrl });
+      await transformTemplateFiles(resolve("dist/public"), {
+        cssUrl,
+        jsUrl,
+        skillArchiveUrl,
+        skillInstallScriptUrl
+      });
       await rename(resolve("dist/public/assets/favicon.ico"), resolve("dist/public/favicon.ico"));
     }
   };

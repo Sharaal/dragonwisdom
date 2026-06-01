@@ -44,15 +44,25 @@ flowchart LR
 
 ## How to Use It
 
+### AI Skill
+
+Install the DragonWisdom HTML skill for AI agents with one command. The installer replaces an existing skill at `$HOME/.agents/skills/dragonwisdom-html`.
+
+```sh
+curl -o- https://releases.dragonwisdom.de/{version}/install-skill.sh | bash
+```
+
+```sh
+wget -qO- https://releases.dragonwisdom.de/{version}/install-skill.sh | bash
+```
+
+Use the skill by starting your prompt with `$dragonwisdom-html`.
+
 ### Use the Homepage as a Template
 
 Visit the Homepage (https://dragonwisdom.de), Press Ctrl+S, or use the JavaScript Version's `Save this page` button. Then edit the saved HTML file for your own documentation.
 
-### AI Skill
-
-Soon, there will be a skill that helps AI agents write and update DragonWisdom pages.
-
-### Alternative
+### Alternative: Write Your Own HTML
 
 You can create your own HTML documentation from scratch with the elements described in the documentation.
 
