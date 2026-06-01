@@ -1,4 +1,5 @@
 const enhancedShowcases = new WeakSet();
+const showcaseSourceMarkup = new WeakMap();
 const showcaseEventName = "dragonwisdom:showcase";
 
 function formatMarkup(markup) {
@@ -28,6 +29,10 @@ function formatMarkup(markup) {
 }
 
 function getSourceMarkup(showcase) {
+  if (showcaseSourceMarkup.has(showcase)) {
+    return showcaseSourceMarkup.get(showcase);
+  }
+
   const source = showcase.cloneNode(true);
 
   source.querySelectorAll("pre > button.copy").forEach((button) => {
@@ -35,6 +40,18 @@ function getSourceMarkup(showcase) {
   });
 
   return formatMarkup(source.innerHTML);
+}
+
+function getElementIndentation(element) {
+  if (element.previousSibling?.nodeType !== Node.TEXT_NODE) {
+    return "";
+  }
+
+  return element.previousSibling.textContent.match(/(?:^|\n)([ \t]*)$/)?.[1] ?? "";
+}
+
+function getShowcaseChildMarkup(child) {
+  return formatMarkup(`${getElementIndentation(child)}${child.outerHTML}`);
 }
 
 function createSourcePane(markup) {
@@ -76,7 +93,27 @@ export function enhanceShowcase(showcase) {
   document.dispatchEvent(new CustomEvent(showcaseEventName));
 }
 
+function wrapShowcaseChild(child) {
+  if (child.classList.contains("showcase")) {
+    return child;
+  }
+
+  const showcase = document.createElement("div");
+
+  showcase.className = "showcase";
+  showcaseSourceMarkup.set(showcase, getShowcaseChildMarkup(child));
+  child.replaceWith(showcase);
+  showcase.append(child);
+
+  return showcase;
+}
+
+function enhanceShowcaseGroup(group) {
+  Array.from(group.children).map(wrapShowcaseChild).forEach(enhanceShowcase);
+}
+
 export function enhanceAllShowcases() {
+  document.querySelectorAll('[class~="showcases"]').forEach(enhanceShowcaseGroup);
   document.querySelectorAll('[class~="showcase"]').forEach(enhanceShowcase);
 }
 

@@ -1,4 +1,12 @@
 @layer components {
+  .showcases {
+    @apply grid justify-items-start gap-4;
+  }
+
+  .showcases > .showcase[data-showcase-enhanced] {
+    @apply w-full justify-self-stretch;
+  }
+
   .showcase[data-showcase-enhanced] {
     @apply grid gap-4 md:grid-cols-2;
   }
