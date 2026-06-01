@@ -8,15 +8,19 @@ function getSuggestedFileName() {
   return fileName || "index.html";
 }
 
-function createHtmlBlob() {
-  return new Blob([`<!doctype html>\n${document.documentElement.outerHTML}`], {
+function getCurrentDocumentHtml() {
+  return window.dragonwisdomOriginalHtml ?? `<!doctype html>\n${document.documentElement.outerHTML}`;
+}
+
+function createHtmlBlob(html) {
+  return new Blob([html], {
     type: "text/html"
   });
 }
 
 async function saveHtml() {
   const fileName = getSuggestedFileName();
-  const blob = createHtmlBlob();
+  const blob = createHtmlBlob(getCurrentDocumentHtml());
 
   if ("showSaveFilePicker" in window) {
     const handle = await window.showSaveFilePicker({
