@@ -39,4 +39,12 @@
   section.tabs [role="tabpanel"] {
     @apply p-5;
   }
+
+  section.tabs [role="tabpanel"] > [hidden] + * {
+    @apply mt-0;
+  }
+
+  section.tabs [role="tabpanel"] > :last-child {
+    @apply mb-0;
+  }
 }
