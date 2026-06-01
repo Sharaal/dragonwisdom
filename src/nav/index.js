@@ -118,7 +118,7 @@ export function enhanceNavNavigation() {
     return getActiveId();
   };
   const markClosestVisibleSection = () => {
-    markCurrentLink(links, getClosestVisibleSectionId());
+    markFocusedSection(getClosestVisibleSectionId());
   };
   const scheduleMarkClosestVisibleSection = () => {
     if (scheduledMarkFrame) {
@@ -165,6 +165,16 @@ export function enhanceNavNavigation() {
     if (window.location.hash !== hash) {
       window.history.pushState(null, "", hash);
     }
+  };
+  const replaceHash = (hash) => {
+    if (window.location.hash !== hash) {
+      window.history.replaceState(null, "", hash);
+    }
+  };
+  const getSectionHash = (sectionId) => links.find((link) => decodeHash(link.hash) === sectionId)?.hash ?? `#${sectionId}`;
+  const markFocusedSection = (sectionId) => {
+    markCurrentLink(links, sectionId);
+    replaceHash(getSectionHash(sectionId));
   };
   const disconnectObserver = () => {
     observer?.disconnect();
@@ -219,7 +229,7 @@ export function enhanceNavNavigation() {
       showSection(links, sections, getCurrentLinkId() || getActiveId());
     } else {
       showAllSections(sections);
-      markCurrentLink(links, getClosestVisibleSectionId());
+      markFocusedSection(getClosestVisibleSectionId());
       observeSections();
     }
   };
