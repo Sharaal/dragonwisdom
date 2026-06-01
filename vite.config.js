@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import { readFileSync } from "node:fs";
-import { readFile, rename, writeFile } from "node:fs/promises";
+import { readdir, readFile, rename, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import tailwindcss from "@tailwindcss/vite";
 
@@ -21,6 +21,49 @@ function cssIndexHtml(html, { jsScript, scriptReplacement = "" }) {
     .replace(jsScript, scriptReplacement)
     .replaceAll('href="./index-css.html"', 'href="./index.html"')
     .replaceAll("CSS-only Version", "JavaScript Version");
+}
+
+function templateHtml(html, { cssUrl, jsUrl }) {
+  return html
+    .replaceAll("{version}", packageJson.version)
+    .replace(
+      '<link rel="stylesheet" href="/src/dragonwisdom.css">',
+      `<link rel="stylesheet" href="${cssUrl}">`
+    )
+    .replace(
+      '<script type="module" src="/src/dragonwisdom.js"></script>',
+      `<script src="${jsUrl}"></script>`
+    );
+}
+
+async function transformTemplateHtml(directory, urls) {
+  let entries;
+
+  try {
+    entries = await readdir(directory, { withFileTypes: true });
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return;
+    }
+
+    throw error;
+  }
+
+  await Promise.all(entries.map(async (entry) => {
+    const entryPath = resolve(directory, entry.name);
+
+    if (entry.isDirectory()) {
+      await transformTemplateHtml(entryPath, urls);
+      return;
+    }
+
+    if (!entry.isFile()) {
+      return;
+    }
+
+    const template = await readFile(entryPath, "utf8");
+    await writeFile(entryPath, templateHtml(template, urls));
+  }));
 }
 
 function localIndexHtml() {
@@ -80,6 +123,7 @@ function localIndexHtml() {
 
       await writeFile(indexPath, index);
       await writeFile(cssIndexPath, cssIndex);
+      await transformTemplateHtml(resolve("dist/public"), { cssUrl, jsUrl });
       await rename(resolve("dist/public/assets/favicon.ico"), resolve("dist/public/favicon.ico"));
     }
   };
