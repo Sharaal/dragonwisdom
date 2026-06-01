@@ -26,6 +26,7 @@
             <li><a href="#images">Images</a></li>
             <li><a href="#links">Links</a></li>
             <li><a href="#lists">Lists</a></li>
+            <li><a href="#columns">Columns</a></li>
             <li><a href="#tables">Tables</a></li>
             <li><a href="#diagrams">Diagrams</a></li>
           </ul>
@@ -45,9 +46,9 @@
             <li>Publish one local or static HTML file.</li>
           </ul>
           <p>Compare the two variants yourself:</p>
-          <ul>
-            <li>Markdown with long and/or many files <img src="./img/markdown.png" alt="Markdown variant"></li>
-            <li>Structured HTML file <img src="./img/html.png" alt="HTML variant"></li>
+          <ul class="columns-2">
+            <li>Long/many <strong>Markdown</strong> files <img src="./img/markdown.png" alt="Markdown variant"></li>
+            <li>One structured <strong>HTML</strong> file <img src="./img/html.png" alt="HTML variant"></li>
           </ul>
         </section>
         <section>
@@ -224,6 +225,27 @@
             <dt>CSS</dt>
             <dd>Presentation and layout</dd>
           </dl>
+        </section>
+      </section>
+
+      <section id="columns">
+        <section>
+          <h2>Two Columns</h2>
+          <p>Use <code>columns-2</code> when text should flow through two columns on every display size.</p>
+          <div class="columns-2">
+            <p>Columns are useful for compact reference text, glossaries and short documentation notes.</p>
+            <p>The content keeps its semantic structure while the browser distributes it across the columns.</p>
+            <p>Use columns for flowing content, not for precise interface layouts or independent panels.</p>
+          </div>
+        </section>
+        <section>
+          <h2>Three Columns</h2>
+          <p>Use <code>columns-3</code> when short text blocks should flow through three columns on every display size.</p>
+          <div class="columns-3">
+            <p>First column content can start with the same simple paragraph markup as normal text.</p>
+            <p>Additional paragraphs continue the same flow without extra wrappers or layout elements.</p>
+            <p>The class is a Tailwind utility and does not need a DragonWisdom CSS module.</p>
+          </div>
         </section>
       </section>
 

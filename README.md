@@ -8,9 +8,9 @@ DragonWisdom helps you write documentation as minimal semantic HTML, keep the st
 
 Compare the two variants yourself:
 
-* Markdown with long and/or many files
+* Long/many **Markdown** files
   ![Markdown variant](public/img/markdown.png)
-* Structured HTML file
+* One structured **HTML** file
   ![HTML variant](public/img/html.png)
 
 ## What You Are Looking At
