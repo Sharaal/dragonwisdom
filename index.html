@@ -27,6 +27,7 @@
             <li><a href="#links">Links</a></li>
             <li><a href="#lists">Lists</a></li>
             <li><a href="#columns">Columns</a></li>
+            <li><a href="#showcase">Showcase</a></li>
             <li><a href="#tabs">Tabs</a></li>
             <li><a href="#tables">Tables</a></li>
             <li><a href="#diagrams">Diagrams</a></li>
@@ -132,35 +133,56 @@ flowchart LR
         <section>
           <h2>Headings</h2>
           <p>Headings give AI agents and human readers the same outline of the document.</p>
-          <h1>First-level heading</h1>
-          <h2>Second-level heading</h2>
-          <h3>Third-level heading</h3>
-          <h4>Fourth-level heading</h4>
-          <h5>Fifth-level heading</h5>
-          <h6>Sixth-level heading</h6>
+          <div class="showcase">
+            <h1>First-level heading</h1>
+
+            <h2>Second-level heading</h2>
+
+            <h3>Third-level heading</h3>
+
+            <h4>Fourth-level heading</h4>
+
+            <h5>Fifth-level heading</h5>
+
+            <h6>Sixth-level heading</h6>
+          </div>
         </section>
         <section>
           <h2>Body Text</h2>
-          <p>A paragraph forms a simple text section.</p>
-          <p><strong>Important text</strong> and <b>bold text</b> can be marked up differently.</p>
-          <p><em>Emphasized text</em> and <i>italic text</i> show semantic and typographic italics.</p>
-          <p><mark>Marked text</mark>, <small>small text</small>, <code>code</code> and <abbr title="Hypertext Markup Language">HTML</abbr> add short inline examples.</p>
-<pre><code>long-code-value-that-can-wrap-inside-the-word-when-the-line-is-too-narrow</code></pre>
+          <div class="showcase">
+            <p>A paragraph forms a simple text section.</p>
+
+            <p><strong>Important text</strong> and <b>bold text</b> can be marked up differently.</p>
+
+            <p><em>Emphasized text</em> and <i>italic text</i> show semantic and typographic italics.</p>
+
+            <p><mark>Marked text</mark>, <small>small text</small>, <code>code</code> and <abbr title="Hypertext Markup Language">HTML</abbr> add short inline examples.</p>
+
+            <pre><code>long-code-value-that-can-wrap-inside-the-word-when-the-line-is-too-narrow</code></pre>
+          </div>
         </section>
         <section>
           <h2>Quote</h2>
-          <blockquote>
-            <p>Good markup starts with clear meaning.</p>
-            <footer>DragonWisdom</footer>
-          </blockquote>
+          <div class="showcase">
+            <blockquote>
+              <p>Good markup starts with clear meaning.</p>
+              <footer>DragonWisdom</footer>
+            </blockquote>
+          </div>
         </section>
         <section>
           <h2>Notes</h2>
-          <aside>Neutral note for additional information.</aside>
-          <aside class="info">Information with additional context.</aside>
-          <aside class="success">Successful action or confirmed state.</aside>
-          <aside class="warning">Warning about a possible limitation.</aside>
-          <aside class="danger">Critical note or error state.</aside>
+          <div class="showcase">
+            <aside>Neutral note for additional information.</aside>
+
+            <aside class="info">Information with additional context.</aside>
+
+            <aside class="success">Successful action or confirmed state.</aside>
+
+            <aside class="warning">Warning about a possible limitation.</aside>
+
+            <aside class="danger">Critical note or error state.</aside>
+          </div>
         </section>
       </section>
 
@@ -168,14 +190,18 @@ flowchart LR
         <section>
           <h2>Image</h2>
           <p>Images can explain a concept without changing the document structure.</p>
-          <img src="./favicon.ico" alt="DragonWisdom Symbol">
+          <div class="showcase">
+            <img src="./favicon.ico" alt="DragonWisdom Symbol">
+          </div>
         </section>
         <section>
           <h2>Figure</h2>
-          <figure>
-            <img src="./favicon.ico" alt="DragonWisdom Symbol">
-            <figcaption>Image with a short description.</figcaption>
-          </figure>
+          <div class="showcase">
+            <figure>
+              <img src="./favicon.ico" alt="DragonWisdom Symbol">
+              <figcaption>Image with a short description.</figcaption>
+            </figure>
+          </div>
         </section>
       </section>
 
@@ -183,21 +209,35 @@ flowchart LR
         <section>
           <h2>References</h2>
           <p>Links keep supporting material close to the documentation without copying it into the page.</p>
-          <p><a href="#text">Internal link to the text section</a></p>
-          <p><a href="./favicon.ico">Relative link to the favicon</a></p>
-          <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">External link to the HTML documentation</a></p>
-          <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank" rel="noreferrer">External link in a new window</a></p>
-          <p><a href="mailto:mail@example.com">Write an email</a></p>
-          <p><a href="tel:+491234567890">Call a phone number</a></p>
+          <div class="showcase">
+            <p><a href="#text">Internal link to the text section</a></p>
+
+            <p><a href="./favicon.ico">Relative link to the favicon</a></p>
+
+            <p><a href="https://example.com">External link</a></p>
+
+            <p><a href="https://example.com" target="_blank" rel="noreferrer">External link in a new window</a></p>
+
+            <p><a href="mailto:mail@example.com">Write an email</a></p>
+
+            <p><a href="tel:+491234567890">Call a phone number</a></p>
+          </div>
         </section>
         <section>
           <h2>Buttons</h2>
-          <p><button type="button">Normal</button> <button type="button" disabled>Disabled</button></p>
-          <p><button type="button" class="secondary">Secondary</button> <button type="button" class="secondary" disabled>Secondary disabled</button></p>
-          <p><button type="button" class="info">Info</button> <button type="button" class="info" disabled>Info disabled</button></p>
-          <p><button type="button" class="success">Success</button> <button type="button" class="success" disabled>Success disabled</button></p>
-          <p><button type="button" class="warning">Warning</button> <button type="button" class="warning" disabled>Warning disabled</button></p>
-          <p><button type="button" class="danger">Error</button> <button type="button" class="danger" disabled>Error disabled</button></p>
+          <div class="showcase">
+            <p><button type="button">Normal</button> <button type="button" disabled>Disabled</button></p>
+
+            <p><button type="button" class="secondary">Secondary</button> <button type="button" class="secondary" disabled>Secondary disabled</button></p>
+
+            <p><button type="button" class="info">Info</button> <button type="button" class="info" disabled>Info disabled</button></p>
+
+            <p><button type="button" class="success">Success</button> <button type="button" class="success" disabled>Success disabled</button></p>
+
+            <p><button type="button" class="warning">Warning</button> <button type="button" class="warning" disabled>Warning disabled</button></p>
+            
+            <p><button type="button" class="danger">Error</button> <button type="button" class="danger" disabled>Error disabled</button></p>
+          </div>
         </section>
       </section>
 
@@ -205,38 +245,46 @@ flowchart LR
         <section>
           <h2>Unordered List</h2>
           <p>Lists make key facts easy to scan and easy for agents to extract.</p>
-          <ul>
-            <li>Unordered item</li>
-            <li>Another item</li>
-            <li>Final item</li>
-          </ul>
+          <div class="showcase">
+            <ul>
+              <li>Unordered item</li>
+              <li>Another item</li>
+              <li>Final item</li>
+            </ul>
+          </div>
         </section>
         <section>
           <h2>Ordered List</h2>
-          <ol>
-            <li>First step</li>
-            <li>Second step</li>
-            <li>Third step</li>
-          </ol>
+          <div class="showcase">
+            <ol>
+              <li>First step</li>
+              <li>Second step</li>
+              <li>Third step</li>
+            </ol>
+          </div>
         </section>
         <section>
           <h2>Badges</h2>
-          <ul class="badges">
-            <li>Neutral</li>
-            <li class="info">Info</li>
-            <li class="success">Stable</li>
-            <li class="warning">Experimental</li>
-            <li class="danger">Deprecated</li>
-          </ul>
+          <div class="showcase">
+            <ul class="badges">
+              <li>Neutral</li>
+              <li class="info">Info</li>
+              <li class="success">Stable</li>
+              <li class="warning">Experiment</li>
+              <li class="danger">Deprecated</li>
+            </ul>
+          </div>
         </section>
         <section>
           <h2>Definitions</h2>
-          <dl>
-            <dt>HTML</dt>
-            <dd>Structure and meaning</dd>
-            <dt>CSS</dt>
-            <dd>Presentation and layout</dd>
-          </dl>
+          <div class="showcase">
+            <dl>
+              <dt>HTML</dt>
+              <dd>Structure and meaning</dd>
+              <dt>CSS</dt>
+              <dd>Presentation</dd>
+            </dl>
+          </div>
         </section>
       </section>
 
@@ -244,19 +292,37 @@ flowchart LR
         <section>
           <h2>Two Columns</h2>
           <p>Use <code>columns-2</code> when text should flow through two columns on every display size.</p>
-          <div class="columns-2">
-            <p>Columns are useful for compact reference text, glossaries and short documentation notes.</p>
-            <p>The content keeps its semantic structure while the browser distributes it across the columns.</p>
-            <p>Use columns for flowing content, not for precise interface layouts or independent panels.</p>
+          <div class="showcase">
+            <div class="columns-2">
+              <p>Columns are useful for compact reference text, glossaries and short documentation notes.</p>
+              <p>The content keeps its semantic structure while the browser distributes it across the columns.</p>
+              <p>Use columns for flowing content, not for precise interface layouts or independent panels.</p>
+            </div>
           </div>
         </section>
         <section>
           <h2>Three Columns</h2>
           <p>Use <code>columns-3</code> when short text blocks should flow through three columns on every display size.</p>
-          <div class="columns-3">
-            <p>First column content can start with the same simple paragraph markup as normal text.</p>
-            <p>Additional paragraphs continue the same flow without extra wrappers or layout elements.</p>
-            <p>The class is a Tailwind utility and does not need a DragonWisdom CSS module.</p>
+          <div class="showcase">
+            <div class="columns-3">
+              <p>First column content can start with the same simple paragraph markup as normal text.</p>
+              <p>Additional paragraphs continue the same flow without extra wrappers or layout elements.</p>
+              <p>The class is a Tailwind utility and does not need a DragonWisdom CSS module.</p>
+            </div>
+        </section>
+      </section>
+
+      <section id="showcase">
+        <section>
+          <h2>Showcase</h2>
+          <p>Use <code>showcase</code> when readers should see content rendered and as source markup at the same time.</p>
+          <div class="showcase">
+            <h3>Small Example</h3>
+            <p>A showcase keeps the source HTML short and adds the two-column view with optional JavaScript.</p>
+            <ul>
+              <li>Rendered content on the left.</li>
+              <li>Original markup as code on the right.</li>
+            </ul>
           </div>
         </section>
       </section>
@@ -265,20 +331,22 @@ flowchart LR
         <section>
           <h2>Tabs</h2>
           <p>Tabs keep related content areas close together. The source stays plain sections with headings, and JavaScript turns them into an accessible tab interface.</p>
-          <section class="tabs">
-            <section>
-              <h3>Markup</h3>
-              <p>Use <code>section class="tabs"</code> with direct child sections. Each child section uses its heading as the tab label.</p>
+          <div class="showcase">
+            <section class="tabs">
+              <section>
+                <h3>Markup</h3>
+                <p>Use <code>section class="tabs"</code> with direct child sections. Each child section uses its heading as the tab label.</p>
+              </section>
+              <section>
+                <h3>Fallback</h3>
+                <p>Without JavaScript, all sections remain visible as normal document content.</p>
+              </section>
+              <section>
+                <h3>Keyboard</h3>
+                <p>With JavaScript, arrow keys, Home, End, Enter and Space follow the WAI-ARIA tabs pattern.</p>
+              </section>
             </section>
-            <section>
-              <h3>Fallback</h3>
-              <p>Without JavaScript, all sections remain visible as normal document content.</p>
-            </section>
-            <section>
-              <h3>Keyboard</h3>
-              <p>With JavaScript, arrow keys, Home, End, Enter and Space follow the WAI-ARIA tabs pattern.</p>
-            </section>
-          </section>
+          </div>
         </section>
       </section>
 
@@ -315,18 +383,12 @@ flowchart LR
                 <td>No</td>
                 <td>Visible state or severity</td>
               </tr>
-              <tr>
-                <td>Mermaid diagram</td>
-                <td><code>pre class="mermaid"</code></td>
-                <td>Yes</td>
-                <td>Workflows and relationships</td>
-              </tr>
             </tbody>
           </table>
         </section>
         <section>
           <h2>Sortable Table</h2>
-          <p>Add <code>sortable</code> when a table should become interactive. The plain table still works without JavaScript.</p>
+          <p>Add CSS class <code>sortable</code> when a table should become interactive. The plain table still works without JavaScript.</p>
           <table class="sortable">
             <caption>Sortable table features</caption>
             <thead>
@@ -354,12 +416,6 @@ flowchart LR
                 <td>Sort arrows</td>
                 <td>sortable</td>
                 <td>src/table/sortable.css</td>
-                <td>Experimental</td>
-              </tr>
-              <tr>
-                <td>Column sorting</td>
-                <td>sortable</td>
-                <td>src/table/sortable.js</td>
                 <td>Experimental</td>
               </tr>
             </tbody>

@@ -1,5 +1,6 @@
-const codeBlockSelector = "pre:not(.mermaid[data-processed])";
+const codeBlockSelector = "pre:not(.mermaid)";
 const mermaidCodeEventName = "dragonwisdom:mermaid-code";
+const showcaseEventName = "dragonwisdom:showcase";
 const enhancedCodeBlocks = new WeakSet();
 
 function getCodeBlockText(pre) {
@@ -96,3 +97,4 @@ new MutationObserver(removeRenderedMermaidButtons).observe(document.documentElem
 });
 
 document.addEventListener(mermaidCodeEventName, enhanceMermaidCodeBlocks);
+document.addEventListener(showcaseEventName, enhanceCodeBlocks);

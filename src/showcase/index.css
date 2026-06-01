@@ -1,0 +1,22 @@
+@layer components {
+  .showcase[data-showcase-enhanced] {
+    @apply grid gap-4 md:grid-cols-2;
+  }
+
+  .showcase[data-showcase-enhanced] > .showcase-rendered,
+  .showcase[data-showcase-enhanced] > .showcase-source {
+    @apply min-w-0;
+  }
+
+  .showcase[data-showcase-enhanced] > * > :first-child {
+    @apply mt-0;
+  }
+
+  .showcase[data-showcase-enhanced] > * > :last-child {
+    @apply mb-0;
+  }
+
+  .showcase[data-showcase-enhanced] > .showcase-source > pre {
+    @apply m-0;
+  }
+}

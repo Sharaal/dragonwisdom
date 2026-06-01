@@ -12,4 +12,8 @@
     overflow-wrap: anywhere;
     white-space: pre-wrap;
   }
+
+  pre code {
+    @apply bg-transparent p-0;
+  }
 }
