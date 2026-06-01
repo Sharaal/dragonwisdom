@@ -149,6 +149,8 @@ export default defineConfig({
     cssCodeSplit: false,
     rollupOptions: {
       output: {
+        format: "iife",
+        name: "DragonWisdom",
         codeSplitting: false,
         entryFileNames: "dragonwisdom.js",
         assetFileNames: (assetInfo) => {
