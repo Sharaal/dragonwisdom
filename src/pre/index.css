@@ -1,2 +1,15 @@
 @import "./clipboard.css";
 @import "./mermaid.css";
+
+@layer base {
+  pre {
+    @apply my-6 overflow-x-auto rounded bg-slate-100 p-4 text-slate-900;
+  }
+
+  pre:not(.mermaid[data-processed]) {
+    @apply font-mono text-sm;
+
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+}

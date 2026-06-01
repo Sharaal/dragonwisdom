@@ -67,13 +67,6 @@
     overflow-wrap: anywhere;
   }
 
-  pre:not(.mermaid) {
-    @apply my-6 rounded bg-slate-100 p-4 font-mono text-sm text-slate-900;
-
-    overflow-wrap: anywhere;
-    white-space: pre-wrap;
-  }
-
   abbr[title] {
     @apply cursor-help decoration-dotted underline-offset-2;
 

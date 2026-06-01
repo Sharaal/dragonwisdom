@@ -1,5 +1,4 @@
-const codeBlockSelector = "pre:not(.mermaid)";
-const mermaidCodeBlockSelector = "pre.mermaid:not([data-processed])";
+const codeBlockSelector = "pre:not(.mermaid[data-processed])";
 const mermaidCodeEventName = "dragonwisdom:mermaid-code";
 const enhancedCodeBlocks = new WeakSet();
 
@@ -82,8 +81,7 @@ export function enhanceCodeBlocks() {
 }
 
 export function enhanceMermaidCodeBlocks() {
-  document.querySelectorAll(mermaidCodeBlockSelector).forEach(enhanceCodeBlock);
-  removeRenderedMermaidButtons();
+  enhanceCodeBlocks();
 }
 
 if (document.readyState === "loading") {

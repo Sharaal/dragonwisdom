@@ -1,15 +1,4 @@
 @layer base {
-  pre.mermaid {
-    @apply my-6 overflow-x-auto rounded bg-slate-100 p-4 text-slate-900;
-  }
-
-  pre.mermaid:not([data-processed]) {
-    @apply font-mono text-sm;
-
-    overflow-wrap: anywhere;
-    white-space: pre-wrap;
-  }
-
   pre.mermaid svg {
     @apply mx-auto;
   }

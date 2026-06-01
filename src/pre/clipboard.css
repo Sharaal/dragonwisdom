@@ -1,6 +1,5 @@
 @layer base {
-  pre:not(.mermaid):has(> button.copy),
-  pre.mermaid:not([data-processed]):has(> button.copy) {
+  pre:not(.mermaid[data-processed]):has(> button.copy) {
     @apply relative pr-12;
   }
 
