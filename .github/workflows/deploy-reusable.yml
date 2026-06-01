@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       deploy_files:
-        description: "Files to deploy: all or html_ico"
+        description: "Files to deploy: all, html_ico, or html_ico_skill"
         required: false
         default: all
         type: string
@@ -17,11 +17,21 @@ on:
         required: true
         type: string
       public_base_url_kind:
-        description: "Public base URL source: dev or releases"
+        description: "Public base URL source: dev, prod, or releases"
         required: true
         type: string
       public_base_url_path:
         description: Public base URL path suffix
+        required: false
+        default: ""
+        type: string
+      skill_public_base_url_kind:
+        description: "Skill public base URL source: dev, prod, releases, or empty to use public_base_url_kind"
+        required: false
+        default: ""
+        type: string
+      skill_public_base_url_path:
+        description: Skill public base URL path suffix
         required: false
         default: ""
         type: string
@@ -57,33 +67,58 @@ jobs:
         shell: bash
         env:
           DEV_PUBLIC_BASE_URL: ${{ vars.DEV_PUBLIC_BASE_URL }}
+          PROD_PUBLIC_BASE_URL: ${{ vars.PROD_PUBLIC_BASE_URL }}
           PUBLIC_BASE_URL_KIND: ${{ inputs.public_base_url_kind }}
           PUBLIC_BASE_URL_PATH: ${{ inputs.public_base_url_path }}
           RELEASES_PUBLIC_BASE_URL: ${{ vars.RELEASES_PUBLIC_BASE_URL }}
+          SKILL_PUBLIC_BASE_URL_KIND: ${{ inputs.skill_public_base_url_kind }}
+          SKILL_PUBLIC_BASE_URL_PATH: ${{ inputs.skill_public_base_url_path }}
         run: |
-          case "$PUBLIC_BASE_URL_KIND" in
-            dev)
-              public_base_url="${DEV_PUBLIC_BASE_URL%/}${PUBLIC_BASE_URL_PATH}"
-              ;;
-            releases)
-              public_base_url="${RELEASES_PUBLIC_BASE_URL%/}${PUBLIC_BASE_URL_PATH}"
-              ;;
-            *)
-              echo "Expected public_base_url_kind to be dev or releases, got: $PUBLIC_BASE_URL_KIND" >&2
-              exit 1
-              ;;
-          esac
+          resolve_public_base_url() {
+            local kind="$1"
+            local path="$2"
+            local input_name="$3"
+            local public_base_url
 
-          if [[ -z "$public_base_url" || "$public_base_url" == "$PUBLIC_BASE_URL_PATH" ]]; then
-            echo "Public base URL resolved to an empty base for kind: $PUBLIC_BASE_URL_KIND" >&2
-            exit 1
+            case "$kind" in
+              dev)
+                public_base_url="${DEV_PUBLIC_BASE_URL%/}${path}"
+                ;;
+              prod)
+                public_base_url="${PROD_PUBLIC_BASE_URL%/}${path}"
+                ;;
+              releases)
+                public_base_url="${RELEASES_PUBLIC_BASE_URL%/}${path}"
+                ;;
+              *)
+                echo "Expected $input_name to be dev, prod, or releases, got: $kind" >&2
+                exit 1
+                ;;
+            esac
+
+            if [[ -z "$public_base_url" || "$public_base_url" == "$path" ]]; then
+              echo "Public base URL resolved to an empty base for $input_name: $kind" >&2
+              exit 1
+            fi
+
+            printf '%s\n' "$public_base_url"
+          }
+
+          public_base_url="$(resolve_public_base_url "$PUBLIC_BASE_URL_KIND" "$PUBLIC_BASE_URL_PATH" "public_base_url_kind")"
+
+          if [[ -n "$SKILL_PUBLIC_BASE_URL_KIND" ]]; then
+            skill_public_base_url="$(resolve_public_base_url "$SKILL_PUBLIC_BASE_URL_KIND" "$SKILL_PUBLIC_BASE_URL_PATH" "skill_public_base_url_kind")"
+          else
+            skill_public_base_url="$public_base_url"
           fi
 
           echo "public_base_url=$public_base_url" >> "$GITHUB_OUTPUT"
+          echo "skill_public_base_url=$skill_public_base_url" >> "$GITHUB_OUTPUT"
 
       - name: Build
         env:
           PUBLIC_BASE_URL: ${{ steps.public_base_url.outputs.public_base_url }}
+          SKILL_PUBLIC_BASE_URL: ${{ steps.public_base_url.outputs.skill_public_base_url }}
         run: npm run build
 
       - name: Configure SSH
@@ -112,6 +147,19 @@ jobs:
             --include='*/' \
             --include='*.html' \
             --include='*.ico' \
+            --exclude='*' \
+            ./dist/public/ \
+            "${{ vars.SSH_LOGIN }}@${{ vars.SSH_HOST }}:${{ vars.SSH_ROOT_DIRECTORY }}${{ inputs.server_dir }}"
+
+      - name: Rsync HTML, favicon, and skill installer files
+        if: inputs.deploy_files == 'html_ico_skill'
+        run: |
+          rsync -az --delete --delete-excluded --prune-empty-dirs --progress \
+            --include='*/' \
+            --include='*.html' \
+            --include='*.ico' \
+            --include='install-skill.sh' \
+            --include='SKILL.zip' \
             --exclude='*' \
             ./dist/public/ \
             "${{ vars.SSH_LOGIN }}@${{ vars.SSH_HOST }}:${{ vars.SSH_ROOT_DIRECTORY }}${{ inputs.server_dir }}"

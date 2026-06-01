@@ -49,11 +49,11 @@ flowchart LR
 Install the DragonWisdom HTML skill for AI agents with one command. The installer replaces an existing skill at `$HOME/.agents/skills/dragonwisdom-html`.
 
 ```sh
-curl -o- https://releases.dragonwisdom.de/{version}/install-skill.sh | bash
+curl -o- https://dragonwisdom.de/install-skill.sh | bash
 ```
 
 ```sh
-wget -qO- https://releases.dragonwisdom.de/{version}/install-skill.sh | bash
+wget -qO- https://dragonwisdom.de/install-skill.sh | bash
 ```
 
 Use the skill by starting your prompt with `$dragonwisdom-html`.

@@ -6,8 +6,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 const packageJson = JSON.parse(readFileSync(resolve("package.json"), "utf8"));
 
-function assetUrl(fileName) {
-  const publicBaseUrl = process.env.PUBLIC_BASE_URL?.replace(/\/+$/, "");
+function assetUrl(fileName, baseUrl = process.env.PUBLIC_BASE_URL) {
+  const publicBaseUrl = baseUrl?.replace(/\/+$/, "");
 
   if (publicBaseUrl) {
     return `${publicBaseUrl}/${fileName}`;
@@ -28,6 +28,7 @@ function templateText(text, { cssUrl, jsUrl, skillArchiveUrl, skillInstallScript
     .replaceAll("{version}", packageJson.version)
     .replaceAll("{skill_archive_url}", skillArchiveUrl)
     .replaceAll("{skill_install_script_url}", skillInstallScriptUrl)
+    .replaceAll("https://dragonwisdom.de/install-skill.sh", skillInstallScriptUrl)
     .replace(
       '<link rel="stylesheet" href="/src/dragonwisdom.css">',
       `<link rel="stylesheet" href="${cssUrl}">`
@@ -71,8 +72,9 @@ async function transformTemplateFiles(directory, urls) {
 function localIndexHtml() {
   const cssUrl = assetUrl("dragonwisdom.css");
   const jsUrl = assetUrl("dragonwisdom.js");
-  const skillArchiveUrl = assetUrl("SKILL.zip");
-  const skillInstallScriptUrl = assetUrl("install-skill.sh");
+  const skillPublicBaseUrl = process.env.SKILL_PUBLIC_BASE_URL ?? process.env.PUBLIC_BASE_URL;
+  const skillArchiveUrl = assetUrl("SKILL.zip", skillPublicBaseUrl);
+  const skillInstallScriptUrl = assetUrl("install-skill.sh", skillPublicBaseUrl);
 
   return {
     name: "local-index-html",

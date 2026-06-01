@@ -36,12 +36,13 @@ jobs:
       - deploy-release
     uses: ./.github/workflows/deploy-reusable.yml
     with:
-      deploy_files: html_ico
+      deploy_files: html_ico_skill
       environment: prod
       htaccess_mode: no-cache
       public_base_url_kind: releases
       public_base_url_path: /v${{ needs.prepare.outputs.release_major }}
       server_dir: prod/
+      skill_public_base_url_kind: prod
     secrets: inherit
 
   deploy-release:
