@@ -27,6 +27,7 @@
             <li><a href="#links">Links</a></li>
             <li><a href="#lists">Lists</a></li>
             <li><a href="#columns">Columns</a></li>
+            <li><a href="#tabs">Tabs</a></li>
             <li><a href="#tables">Tables</a></li>
             <li><a href="#diagrams">Diagrams</a></li>
           </ul>
@@ -257,6 +258,27 @@ flowchart LR
             <p>Additional paragraphs continue the same flow without extra wrappers or layout elements.</p>
             <p>The class is a Tailwind utility and does not need a DragonWisdom CSS module.</p>
           </div>
+        </section>
+      </section>
+
+      <section id="tabs">
+        <section>
+          <h2>Tabs</h2>
+          <p>Tabs keep related content areas close together. The source stays plain sections with headings, and JavaScript turns them into an accessible tab interface.</p>
+          <section class="tabs">
+            <section>
+              <h3>Markup</h3>
+              <p>Use <code>section class="tabs"</code> with direct child sections. Each child section uses its heading as the tab label.</p>
+            </section>
+            <section>
+              <h3>Fallback</h3>
+              <p>Without JavaScript, all sections remain visible as normal document content.</p>
+            </section>
+            <section>
+              <h3>Keyboard</h3>
+              <p>With JavaScript, arrow keys, Home, End, Enter and Space follow the WAI-ARIA tabs pattern.</p>
+            </section>
+          </section>
         </section>
       </section>
 

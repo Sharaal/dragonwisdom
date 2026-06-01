@@ -1,3 +1,5 @@
+@import "./tabs.css";
+
 @layer components {
   main > section > section {
     @apply my-6 rounded-md border border-slate-200 bg-white p-5 shadow-sm;
