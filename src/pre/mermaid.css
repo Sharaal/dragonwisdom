@@ -5,6 +5,9 @@
 
   pre.mermaid:not([data-processed]) {
     @apply font-mono text-sm;
+
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
   }
 
   pre.mermaid svg {
