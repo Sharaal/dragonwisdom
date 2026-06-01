@@ -131,7 +131,11 @@
       @apply py-1.5;
     }
 
-    body > nav > button:not([aria-controls="main-navigation"]) {
+    body > nav > button[data-nav-mode-button] {
+      @apply mb-4;
+    }
+
+    body > nav > button[data-saveable-button] {
       @apply mt-4;
     }
 
@@ -142,7 +146,7 @@
     body > nav > button[aria-controls="main-navigation"] + ul,
     body > nav > button[aria-controls="main-navigation"][aria-expanded="true"] + ul,
     :root:not(.has-nav-navigation) body > nav:focus-within > button[aria-controls="main-navigation"] + ul {
-      @apply static mt-2 border-b-0 bg-transparent py-0 shadow-none;
+      @apply static mt-0 border-b-0 bg-transparent py-0 shadow-none;
 
       display: flex;
       flex-basis: auto;
@@ -151,6 +155,7 @@
     }
 
     body > nav a,
+    body > nav button[data-nav-mode-button],
     body > nav button[data-saveable-button] {
       @apply w-full;
     }

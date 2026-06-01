@@ -42,8 +42,11 @@ function serializeElement(element) {
   const attributes = Array.from(element.attributes).map(serializeAttribute).join(" ");
   const openingTag = attributes ? `<${tagName} ${attributes}>` : `<${tagName}>`;
 
-  if (tagName === "pre") {
-    return `${openingTag}${element.textContent ?? ""}</${tagName}>`;
+  if (tagName === "pre" && element.classList.contains("mermaid")) {
+    const text = element.textContent ?? "";
+    const content = text.startsWith("\n") ? text : `\n${text}`;
+
+    return `${openingTag}${content}</${tagName}>`;
   }
 
   if (voidElementNames.has(tagName)) {
