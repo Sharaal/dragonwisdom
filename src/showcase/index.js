@@ -104,6 +104,7 @@ function createSourcePane(markup) {
   const code = document.createElement("code");
 
   pane.className = "showcase-source";
+  code.className = "language-html";
   code.textContent = markup;
   pre.append(code);
   pane.append(pre);
