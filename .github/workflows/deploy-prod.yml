@@ -36,7 +36,7 @@ jobs:
       - deploy-release
     uses: ./.github/workflows/deploy-reusable.yml
     with:
-      deploy_files: html_ico_skill
+      deploy_files: html_skill
       environment: prod
       htaccess_mode: no-cache
       public_base_url_kind: releases

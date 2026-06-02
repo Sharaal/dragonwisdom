@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       deploy_files:
-        description: "Files to deploy: all, html_ico, or html_ico_skill"
+        description: "Files to deploy: all, html, or html_skill"
         required: false
         default: all
         type: string
@@ -140,24 +140,26 @@ jobs:
             ./dist/public/ \
             "${{ vars.SSH_LOGIN }}@${{ vars.SSH_HOST }}:${{ vars.SSH_ROOT_DIRECTORY }}${{ inputs.server_dir }}"
 
-      - name: Rsync HTML and favicon files
-        if: inputs.deploy_files == 'html_ico'
+      - name: Rsync HTML, favicon, and image files
+        if: inputs.deploy_files == 'html'
         run: |
           rsync -az --delete --delete-excluded --prune-empty-dirs --progress \
             --include='*/' \
             --include='*.html' \
             --include='*.ico' \
+            --include='img/***' \
             --exclude='*' \
             ./dist/public/ \
             "${{ vars.SSH_LOGIN }}@${{ vars.SSH_HOST }}:${{ vars.SSH_ROOT_DIRECTORY }}${{ inputs.server_dir }}"
 
-      - name: Rsync HTML, favicon, and skill installer files
-        if: inputs.deploy_files == 'html_ico_skill'
+      - name: Rsync HTML and skill files
+        if: inputs.deploy_files == 'html_skill'
         run: |
           rsync -az --delete --delete-excluded --prune-empty-dirs --progress \
             --include='*/' \
             --include='*.html' \
             --include='*.ico' \
+            --include='img/***' \
             --include='install-skill.sh' \
             --include='SKILL.zip' \
             --exclude='*' \
