@@ -13,7 +13,7 @@ jobs:
     name: Resolve Server Directory
     runs-on: ubuntu-latest
     outputs:
-      release_major: ${{ steps.resolve.outputs.release_major }}
+      release_minor: ${{ steps.resolve.outputs.release_minor }}
       server_dir: ${{ steps.resolve.outputs.server_dir }}
     steps:
       - name: Resolve Server Directory
@@ -26,8 +26,8 @@ jobs:
             echo "Expected SemVer Tag in format vMAJOR.MINOR.PATCH, got: $TAG" >&2
             exit 1
           fi
-          echo "release_major=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
-          echo "server_dir=releases/v${BASH_REMATCH[1]}/" >> "$GITHUB_OUTPUT"
+          echo "release_minor=${BASH_REMATCH[1]}.${BASH_REMATCH[2]}" >> "$GITHUB_OUTPUT"
+          echo "server_dir=releases/v${BASH_REMATCH[1]}.${BASH_REMATCH[2]}/" >> "$GITHUB_OUTPUT"
 
   deploy-prod:
     name: Deploy Prod
@@ -40,7 +40,7 @@ jobs:
       environment: prod
       htaccess_mode: no-cache
       public_base_url_kind: releases
-      public_base_url_path: /v${{ needs.prepare.outputs.release_major }}
+      public_base_url_path: /v${{ needs.prepare.outputs.release_minor }}
       server_dir: prod/
       skill_public_base_url_kind: prod
     secrets: inherit
@@ -54,6 +54,6 @@ jobs:
       environment: prod
       htaccess_mode: immutable
       public_base_url_kind: releases
-      public_base_url_path: /v${{ needs.prepare.outputs.release_major }}
+      public_base_url_path: /v${{ needs.prepare.outputs.release_minor }}
       server_dir: ${{ needs.prepare.outputs.server_dir }}
     secrets: inherit
