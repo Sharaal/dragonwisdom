@@ -1,0 +1,19 @@
+@layer components {
+  .split-2 {
+    @apply grid grid-cols-1 gap-4 md:grid-cols-2;
+  }
+
+  .split-3 {
+    @apply grid grid-cols-1 gap-4 md:grid-cols-3;
+  }
+
+  .split-4 {
+    @apply grid grid-cols-1 gap-4 md:grid-cols-4;
+  }
+
+  .split-2 > *,
+  .split-3 > *,
+  .split-4 > * {
+    @apply min-w-0;
+  }
+}
