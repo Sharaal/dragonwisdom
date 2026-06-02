@@ -26,6 +26,8 @@ function cssIndexHtml(html, { jsScript, scriptReplacement = "" }) {
 function templateText(text, { cssUrl, jsUrl, skillArchiveUrl, skillInstallScriptUrl }) {
   return text
     .replaceAll("{version}", packageJson.version)
+    .replaceAll("{css_url}", cssUrl)
+    .replaceAll("{js_url}", jsUrl)
     .replaceAll("{skill_archive_url}", skillArchiveUrl)
     .replaceAll("{skill_install_script_url}", skillInstallScriptUrl)
     .replaceAll("https://dragonwisdom.de/install-skill.sh", skillInstallScriptUrl)
@@ -112,6 +114,8 @@ function localIndexHtml() {
             `<link rel="stylesheet" href="${cssUrl}">`
           )
           .replaceAll("{version}", packageJson.version)
+          .replaceAll("{css_url}", cssUrl)
+          .replaceAll("{js_url}", jsUrl)
           .replaceAll("{skill_archive_url}", skillArchiveUrl)
           .replaceAll("{skill_install_script_url}", skillInstallScriptUrl);
       }
