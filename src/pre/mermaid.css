@@ -3,3 +3,11 @@
     @apply mx-auto;
   }
 }
+
+@layer components {
+  section.mermaid-tabs [role="tablist"]::before {
+    @apply self-center px-2 text-sm font-semibold text-slate-700;
+
+    content: "Mermaid";
+  }
+}

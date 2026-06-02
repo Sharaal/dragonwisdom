@@ -24,12 +24,12 @@
   }
 
   section.tabs [role="tab"] {
-    @apply rounded border border-transparent bg-transparent px-3 py-2 text-left text-sm font-medium text-slate-700 shadow-none;
+    @apply rounded border border-slate-300 bg-white px-3 py-2 text-left text-sm font-medium text-slate-700 shadow-sm;
   }
 
   section.tabs [role="tab"]:hover,
   section.tabs [role="tab"]:focus-visible {
-    @apply border-sky-700 bg-white text-sky-900;
+    @apply border-sky-700 bg-sky-50 text-sky-900;
   }
 
   section.tabs [role="tab"][aria-selected="true"] {
