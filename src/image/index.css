@@ -3,7 +3,7 @@
     @apply block h-auto max-w-full rounded-md border border-slate-200 dark:border-slate-700;
   }
 
-  img.zoomable {
+  body.js img.zoomable {
     @apply cursor-zoom-in;
   }
 
