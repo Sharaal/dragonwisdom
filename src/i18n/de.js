@@ -1,5 +1,7 @@
 export default {
   "clipboard.copyCode": "Code kopieren",
+  "image.closeZoom": "Zoom schließen",
+  "image.openZoom": "Bild vergrößern",
   "mermaid.code": "Code",
   "mermaid.preview": "Vorschau",
   "nav.closeMenu": "Menü schließen",

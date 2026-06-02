@@ -1,7 +1,7 @@
 {
   "name": "dragonwisdom",
   "description": "DragonWisdom helps you write documentation as minimal, semantic HTML: clear and token-efficient for AI agents, while being beautifully styled and fully functional for humans.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "license": "CC-BY-4.0",
   "type": "module",
