@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./favicon.ico">
+    <title>Claude Opus 4.8 vs ChatGPT 5.5</title>
+    <link rel="stylesheet" href="https://releases.dragonwisdom.de/v1.2/dragonwisdom.css">
+    <script src="https://releases.dragonwisdom.de/v1.2/dragonwisdom.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Claude Opus 4.8 vs ChatGPT 5.5</h1>
+    </header>
+
+    <nav>
+      <button type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-navigation">☰</button>
+      <ul id="main-navigation">
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#benchmarks">Benchmarks</a></li>
+        <li><a href="#costs">Costs</a></li>
+        <li><a href="#feedback">First feedback</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="summary">
+        <section>
+          <h2>Executive summary</h2>
+          <p>Claude Opus 4.8, released on May 28, 2026, is Anthropic's newest Opus model. GPT-5.5 was announced by OpenAI in April 2026 and rolled out to ChatGPT and Codex before API availability. The comparison is uneven because both vendors publish different benchmark sets and because some third-party results mix ChatGPT, Codex, API and effort settings.</p>
+          <p>At a high level, Opus 4.8 looks stronger for agentic coding, long-context work, professional analysis and self-checking behavior. GPT-5.5 looks stronger for terminal automation, broad OpenAI ecosystem use, lower regular-output pricing and some math, browsing and cybersecurity benchmarks.</p>
+        </section>
+        <section>
+          <h2>Main differences</h2>
+          <ul>
+            <li><strong>Coding:</strong> Opus 4.8 leads on SWE-Bench Pro in secondary benchmark summaries; GPT-5.5 leads on Terminal-Bench in OpenAI and secondary reporting.</li>
+            <li><strong>Cost:</strong> standard Opus 4.8 API pricing is $5 input and $25 output per 1M tokens. OpenAI announced gpt-5.5 API pricing at $5 input and $30 output per 1M tokens, with gpt-5.5-pro at $30 input and $180 output.</li>
+            <li><strong>Context:</strong> both flagship API variants are positioned around a 1M token context window; GPT-5.5 in Codex is listed with 400K context.</li>
+            <li><strong>Behavior:</strong> Anthropic emphasizes honesty and lower unflagged-code-flaw rates. OpenAI emphasizes agentic coding, scientific research, computer work and token efficiency versus GPT-5.4.</li>
+            <li><strong>Availability:</strong> Opus 4.8 is available through Claude API, Claude products and cloud partners. GPT-5.5 is in ChatGPT and Codex first, with API availability announced as coming soon.</li>
+          </ul>
+        </section>
+      </section>
+
+      <section id="benchmarks">
+        <section>
+          <h2>Benchmark snapshot</h2>
+          <p>The following table combines official OpenAI numbers with Anthropic-related benchmark summaries from Vellum, AllThings.how and TokenMix where Anthropic's launch page does not expose all numbers as plain text.</p>
+          <table class="sortable">
+            <thead>
+              <tr>
+                <th>Benchmark</th>
+                <th>Claude Opus 4.8</th>
+                <th>GPT-5.5</th>
+                <th>Practical read</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SWE-Bench Pro</td>
+                <td>69.2%</td>
+                <td>58.6%</td>
+                <td>Opus 4.8 appears stronger on hard GitHub issue resolution.</td>
+              </tr>
+              <tr>
+                <td>Terminal-Bench 2.1</td>
+                <td>74.6%</td>
+                <td>78.2%</td>
+                <td>GPT-5.5 appears better for command-line agent workflows.</td>
+              </tr>
+              <tr>
+                <td>Terminal-Bench 2.0</td>
+                <td>Not directly comparable in Anthropic plain-text release</td>
+                <td>82.7%</td>
+                <td>OpenAI reports state-of-the-art terminal workflow performance.</td>
+              </tr>
+              <tr>
+                <td>OSWorld-Verified</td>
+                <td>83.4%</td>
+                <td>78.7%</td>
+                <td>Secondary reports put Opus ahead on desktop computer use.</td>
+              </tr>
+              <tr>
+                <td>GDPval-AA Elo</td>
+                <td>1,890</td>
+                <td>1,769</td>
+                <td>Opus 4.8 appears stronger on professional knowledge-work tasks.</td>
+              </tr>
+              <tr>
+                <td>BrowseComp</td>
+                <td>84.3%</td>
+                <td>84.4%</td>
+                <td>Very close on browsing/research in these reported figures.</td>
+              </tr>
+              <tr>
+                <td>Humanity's Last Exam with tools</td>
+                <td>57.9%</td>
+                <td>52.2%</td>
+                <td>Opus 4.8 appears stronger in the cited secondary summaries.</td>
+              </tr>
+              <tr>
+                <td>FrontierMath Tier 1-3</td>
+                <td>Not reported in comparable plain text</td>
+                <td>51.7%</td>
+                <td>OpenAI gives detailed math results for GPT-5.5; direct Opus 4.8 comparison is incomplete.</td>
+              </tr>
+              <tr>
+                <td>CyberGym</td>
+                <td>Not reported in comparable plain text</td>
+                <td>81.8%</td>
+                <td>OpenAI reports a strong cybersecurity step-up versus GPT-5.4.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <h2>Benchmark interpretation</h2>
+          <p>Opus 4.8's most meaningful benchmark story is not just a higher score, but a better reliability profile for long-running agent work. Anthropic says it is about four times less likely than Opus 4.7 to leave flaws in its own code unflagged. This matters for code review, migrations and research workflows where a model's willingness to report uncertainty has operational value.</p>
+          <p>GPT-5.5's strongest story is broader agentic productivity inside the OpenAI product stack. OpenAI reports 82.7% on Terminal-Bench 2.0, 78.7% on OSWorld-Verified, 84.4% on BrowseComp and 81.8% on CyberGym. It also frames GPT-5.5 as more token efficient than GPT-5.4, even though API pricing is higher than GPT-5.4.</p>
+        </section>
+      </section>
+
+      <section id="costs">
+        <section>
+          <h2>Cost comparison</h2>
+          <table class="sortable">
+            <thead>
+              <tr>
+                <th>Model or mode</th>
+                <th>Input per 1M tokens</th>
+                <th>Output per 1M tokens</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Claude Opus 4.8 standard</td>
+                <td>$5</td>
+                <td>$25</td>
+                <td>Same regular usage price as Opus 4.7.</td>
+              </tr>
+              <tr>
+                <td>Claude Opus 4.8 fast mode</td>
+                <td>$10</td>
+                <td>$50</td>
+                <td>Higher speed at 2x standard per-token pricing.</td>
+              </tr>
+              <tr>
+                <td>GPT-5.5 API announced</td>
+                <td>$5</td>
+                <td>$30</td>
+                <td>OpenAI said API availability was coming soon.</td>
+              </tr>
+              <tr>
+                <td>GPT-5.5 Pro API announced</td>
+                <td>$30</td>
+                <td>$180</td>
+                <td>Higher-accuracy tier for harder questions.</td>
+              </tr>
+              <tr>
+                <td>GPT-5.5 Fast in Codex</td>
+                <td>Plan-based</td>
+                <td>2.5x cost in Codex usage terms</td>
+                <td>OpenAI says it generates tokens 1.5x faster.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <h2>Cost implications</h2>
+          <p>For pure API output tokens, Opus 4.8 standard is cheaper than OpenAI's announced gpt-5.5 rate by $5 per 1M output tokens. GPT-5.5 may still be cheaper in real tasks if it uses fewer tokens, needs fewer retries or is accessed through subscription plans instead of direct API billing.</p>
+          <p>Opus 4.8's pricing advantage is less clear when fast mode is enabled, because the rate doubles. Its value case depends on whether better self-checking and higher SWE-Bench Pro/GDPval results reduce human review, retries or downstream failures.</p>
+        </section>
+      </section>
+
+      <section id="feedback">
+        <section>
+          <h2>First reviews and feedback</h2>
+          <ul>
+            <li><strong>Anthropic launch feedback:</strong> early testers reported higher-quality analysis, better citation precision, more efficient retrieval and stronger multi-step reasoning. Anthropic frames the model as a modest but tangible improvement.</li>
+            <li><strong>Tom's Guide:</strong> coverage focused on Opus 4.8 being more willing to push back, ask questions and avoid confidently pretending to know something.</li>
+            <li><strong>Tom's Guide head-to-head:</strong> a stress-test article favored Claude Opus 4.8 over ChatGPT-5.5 Instant on sycophancy and pushback tests, but that is a narrow behavioral test rather than a broad benchmark suite.</li>
+            <li><strong>TechRadar on GPT-5.5:</strong> early coverage described GPT-5.5 as a notable upgrade despite modest naming, especially in ChatGPT's broader product experience.</li>
+            <li><strong>Reddit and user reports:</strong> feedback is mixed. Some users report Opus 4.8 is a clear upgrade over Opus 4.7, while others complain about high token usage and say GPT-5.5 feels more token-efficient in their own coding workflows.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Bottom line</h2>
+          <p>Choose Claude Opus 4.8 first for high-stakes agentic coding, code review, long-context analysis and workflows where a model should challenge weak assumptions. Choose GPT-5.5 first for OpenAI-native workflows, terminal automation, ChatGPT/Codex integration, very broad tool use and cases where token efficiency or subscription access matters more than peak Opus-style review behavior.</p>
+        </section>
+      </section>
+
+      <section id="sources">
+        <section>
+          <h2>Sources</h2>
+          <ul>
+            <li><a href="https://www.anthropic.com/news/claude-opus-4-8">Anthropic: Introducing Claude Opus 4.8</a></li>
+            <li><a href="https://platform.claude.com/docs/en/about-claude/models/overview">Anthropic: Claude models overview</a></li>
+            <li><a href="https://openai.com/index/introducing-gpt-5-5/">OpenAI: Introducing GPT-5.5</a></li>
+            <li><a href="https://developers.openai.com/api/docs/pricing">OpenAI API pricing</a></li>
+            <li><a href="https://www.vellum.ai/blog/claude-opus-4-8-benchmarks-explained">Vellum: Claude Opus 4.8 benchmarks explained</a></li>
+            <li><a href="https://allthings.how/claude-opus-4-8-benchmarks-scores-rankings-and-pricing-may-2026/">AllThings.how: Claude Opus 4.8 benchmarks, scores and pricing</a></li>
+            <li><a href="https://tokenmix.ai/blog/claude-opus-4-8-review-pricing-benchmark">TokenMix: Claude Opus 4.8 review and benchmarks</a></li>
+            <li><a href="https://www.tomsguide.com/ai/claude-opus-4-8-just-launched-and-anthropic-says-its-far-less-likely-to-fake-answers">Tom's Guide: Claude Opus 4.8 launch review</a></li>
+            <li><a href="https://www.tomsguide.com/ai/claude-opus-4-8-just-proved-ai-is-finally-growing-a-backbone-and-it-crushed-chatgpt-in-7-brutal-tests">Tom's Guide: Claude Opus 4.8 vs ChatGPT-5.5 Instant tests</a></li>
+            <li><a href="https://www.techradar.com/ai-platforms-assistants/chatgpt/we-love-you-and-we-want-you-to-win-openai-releases-gpt-5-5-for-chatgpt">TechRadar: OpenAI releases GPT-5.5 for ChatGPT</a></li>
+            <li><a href="https://www.reddit.com/r/Anthropic/comments/1ts50bm/opus_48_still_isnt_as_good_as_gpt55/">Reddit: user feedback on Opus 4.8 vs GPT-5.5</a></li>
+          </ul>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      Made with <a href="https://dragonwisdom.de">DragonWisdom</a>
+    </footer>
+  </body>
+</html>

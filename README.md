@@ -10,7 +10,7 @@ DragonWisdom helps you write documentation as minimal, semantic HTML: clear and 
 
 * Turn a prompt
   ![Prompt Research](public/img/prompt-research.png)
-* Into a HTML file
+* Into HTML file ([opus4-8-chatgpt-5-5.html](https://dragonwisdom.de/opus4-8-chatgpt-5-5.html))
   ![HTML Research](public/img/html-research.png)
 
 ## What You Are Looking At
