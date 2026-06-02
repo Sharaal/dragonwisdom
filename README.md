@@ -110,6 +110,32 @@ HTML can be useful for documentation, but it must stay small and easy to write.
 * JavaScript as a hard requirement.
 * Layout wrappers that do not add meaning.
 
+#### TailwindCSS:
+
+```html
+<section class="mx-auto max-w-5xl rounded-md border border-slate-200 bg-white p-5 shadow-sm">
+  <h2 class="mb-3 mt-0 text-2xl font-bold leading-tight text-slate-900">AI-friendly HTML documentation readable for humans</h2>
+  <p class="my-4 text-base leading-6 text-slate-900">DragonWisdom helps you write documentation as minimal, semantic HTML: clear and token-efficient for AI agents, while being beautifully styled and fully functional for humans.</p>
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <p class="my-4 min-w-0 text-base leading-6 text-slate-900">Turn a prompt <img class="mt-2 block h-auto max-w-full rounded-md border border-slate-200" src="./img/prompt-research.png" alt="Prompt Research"></p>
+    <p class="my-4 min-w-0 text-base leading-6 text-slate-900">Into a HTML file <img class="mt-2 block h-auto max-w-full rounded-md border border-slate-200" src="./img/html-research.png" alt="HTML Research"></p>
+  </div>
+</section>
+```
+
+#### DragonWisdom:
+
+```html
+<section>
+  <h2>AI-friendly HTML documentation readable for humans</h2>
+  <p>DragonWisdom helps you write documentation as minimal, semantic HTML: clear and token-efficient for AI agents, while being beautifully styled and fully functional for humans.</p>
+  <div class="split-2">
+    <p>Turn a prompt <img src="./img/prompt-research.png" alt="Prompt Research"></p>
+    <p>Into a HTML file <img src="./img/html-research.png" alt="HTML Research"></p>
+  </div>
+</section>
+```
+
 ## The Solution
 
 DragonWisdom keeps the source close to plain semantic HTML and moves the design into one CSS file.
