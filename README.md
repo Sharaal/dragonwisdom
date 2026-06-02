@@ -8,9 +8,10 @@ Homepage: https://dragonwisdom.de
 
 DragonWisdom helps you write documentation as minimal, semantic HTML: clear and token-efficient for AI agents, while being beautifully styled and fully functional for humans.
 
-* Turn a prompt
+* Turn a prompt 
+  ```$dragonwisdom-html Recherche for a comparism of Opus 4.8 and ChatGPT 5.5. Focus on the main differences in benchmarks, costs and first reviews/feedback. Store the result as opus4-8-chatgpt-5-5.html```
   ![Prompt Research](public/img/prompt-research.png)
-* Into HTML file ([opus4-8-chatgpt-5-5.html](https://dragonwisdom.de/opus4-8-chatgpt-5-5.html))
+* Into a HTML file ([opus4-8-chatgpt-5-5.html](https://dragonwisdom.de/opus4-8-chatgpt-5-5.html))
   ![HTML Research](public/img/html-research.png)
 
 ## What You Are Looking At
