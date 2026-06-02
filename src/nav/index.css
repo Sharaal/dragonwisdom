@@ -137,15 +137,15 @@
       @apply py-1.5;
     }
 
-    body > nav > button[data-nav-mode-button] {
+    body > nav li:has(> button[data-nav-mode-button]) {
       @apply mb-4;
     }
 
-    body > nav > button[data-saveable-button] {
+    body > nav li:has(> button[data-saveable-button]) {
       @apply mt-4;
     }
 
-    body > nav > button:not([aria-controls="main-navigation"]) + button:not([aria-controls="main-navigation"]) {
+    body > nav li:has(> button[data-nav-mode-button]) + li:has(> button[data-saveable-button]) {
       @apply mt-2;
     }
 

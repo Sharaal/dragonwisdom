@@ -52,15 +52,29 @@ function scrollToSection(section) {
   section.scrollIntoView();
 }
 
-function createModeButton(nav) {
+function createButtonItem(button) {
+  const currentItem = button.closest("li");
+
+  if (currentItem) {
+    return currentItem;
+  }
+
+  const item = document.createElement("li");
+
+  item.append(button);
+  return item;
+}
+
+function createModeButton(nav, navigation) {
   const button = nav.querySelector("button[data-nav-mode-button]") ?? document.createElement("button");
+  const item = createButtonItem(button);
 
   button.type = "button";
   button.classList.add("secondary");
   button.dataset.navModeButton = "";
 
-  if (!button.parentElement) {
-    nav.prepend(button);
+  if (item.parentElement !== navigation) {
+    navigation.prepend(item);
   }
 
   return button;
@@ -69,17 +83,18 @@ function createModeButton(nav) {
 export function enhanceNavNavigation() {
   const nav = document.querySelector("body > nav");
   const menuButton = nav?.querySelector('button[aria-controls="main-navigation"]');
+  const navigation = nav?.querySelector("#main-navigation");
   const links = Array.from(nav?.querySelectorAll('a[href^="#"]') ?? []);
   const sections = getLinkedSections(links);
   const isPageable = document.body.classList.contains("pageable");
 
-  if (!links.length || !sections.length) {
+  if (!navigation || !links.length || !sections.length) {
     return;
   }
 
   document.documentElement.classList.add("has-nav-navigation");
 
-  const modeButton = isPageable ? createModeButton(nav) : null;
+  const modeButton = isPageable ? createModeButton(nav, navigation) : null;
   const fallbackId = sections[0].id;
   let mode = multiPageMode;
   let observer = null;

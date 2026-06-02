@@ -53,24 +53,42 @@ async function saveHtml() {
   URL.revokeObjectURL(url);
 }
 
+function createButtonItem(button) {
+  const currentItem = button.closest("li");
+
+  if (currentItem) {
+    return currentItem;
+  }
+
+  const item = document.createElement("li");
+
+  item.append(button);
+  return item;
+}
+
 export function enhanceSaveableDocument() {
   if (!document.body.classList.contains("saveable")) {
     return;
   }
 
   const nav = document.querySelector("body > nav");
+  const navigation = nav?.querySelector("#main-navigation");
 
-  if (!nav) {
+  if (!nav || !navigation) {
     return;
   }
 
   const button = nav.querySelector("button[data-saveable-button]") ?? document.createElement("button");
+  const item = createButtonItem(button);
 
   button.type = "button";
   button.classList.add("secondary");
   button.textContent = translate("saveable.savePage");
   button.dataset.saveableButton = "";
-  nav.append(button);
+
+  if (item.parentElement !== navigation) {
+    navigation.append(item);
+  }
 
   if (enhancedButtons.has(button)) {
     return;

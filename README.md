@@ -80,13 +80,13 @@ You can create your own HTML documentation from scratch with the elements descri
 Add the CSS to your HTML:
 
 ```html
-<link rel="stylesheet" href="https://releases.dragonwisdom.de/{version}/dragonwisdom.css">
+<link rel="stylesheet" href="https://releases.dragonwisdom.de/{release}/dragonwisdom.css">
 ```
 
 Add the optional JavaScript when you want interactive navigation, saving, Mermaid rendering or sortable tables:
 
 ```html
-<script src="https://releases.dragonwisdom.de/{version}/dragonwisdom.js"></script>
+<script src="https://releases.dragonwisdom.de/{release}/dragonwisdom.js"></script>
 ```
 
 ## Why HTML Instead of Markdown?
