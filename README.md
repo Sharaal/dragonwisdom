@@ -4,9 +4,9 @@ Homepage: https://dragonwisdom.de
 
 # DragonWisdom
 
-AI-friendly HTML documentation readable for humans.
+## AI-friendly HTML documentation readable for humans.
 
-DragonWisdom helps you write documentation as minimal semantic HTML, keep the structure clear for AI agents, and publish one local or static HTML file.
+DragonWisdom helps you write documentation as minimal, semantic HTML: clear and token-efficient for AI agents, while being beautifully styled and fully functional for humans.
 
 * Turn a prompt
   ![Prompt Research](public/img/prompt-research.png)
@@ -25,10 +25,10 @@ The built page can still be opened locally with `file://`, so it works as a stat
 
 ```mermaid
 flowchart LR
-  subgraph agents[For AI-Agents]
+  subgraph agents[For AI agents]
     A[Minimal HTML]
   end
-  subgraph humans[For Humans]
+  subgraph humans[For humans]
     B[DragonWisdom CSS]
     C[Readable documentation]
     D[Optional DragonWisdom JS]
