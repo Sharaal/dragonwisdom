@@ -44,7 +44,7 @@
     <main>
       <section id="dragonwisdom">
         <section>
-          <h2>AI-friendly HTML documentation readable for humans</h2>
+          <h2>AI-friendly HTML Documentation Readable For Humans</h2>
           <p>DragonWisdom helps you write documentation as minimal, semantic HTML: clear and token-efficient for AI agents, while being beautifully styled and fully functional for humans.</p>
           <div class="split-2">
             <p>Turn a prompt <img src="./img/prompt-research.png" alt="Prompt Research"></p>
@@ -59,6 +59,7 @@
         </section>
         <section>
           <h2>How It Works</h2>
+          <p>You provide the minimal semantic HTML. DragonWisdom takes care of the styling, readability, and optional interactive features.</p>
 <pre class="mermaid">
 flowchart LR
   subgraph agents[For AI agents]
@@ -83,6 +84,7 @@ flowchart LR
       <section id="how-to-use-it">
         <section>
           <h2>How to Use It</h2>
+          <p>Choose the approach that best fits your use case: install the AI skill, start from an existing template, or write your own HTML from scratch.</p>
           <h3>AI Skill</h3>
           <p>Install the DragonWisdom HTML skill for AI agents with one command. The installer replaces an existing skill at <code>$HOME/.agents/skills/dragonwisdom-html</code>.</p>
           <pre><code>curl -o- https://dragonwisdom.de/install-skill.sh | bash</code></pre>
@@ -95,7 +97,7 @@ flowchart LR
             <p><a href="./minimal.html">Minimal template</a> for a simple page without navigation <img src="./img/minimal.png" alt="Minimal template"></p>
             <p><a href="./nav.html">Navigation template</a> for a page with a main menu <img src="./img/nav.png" alt="Navigation template"></p>
           </div>
-          <h3>Alternative: Write Your Own HTML</h3>
+          <h3>Write Your Own HTML</h3>
           <p>You can create your own HTML documentation from scratch with the elements described in the documentation.</p>
           <p>Add the CSS to your HTML:</p>
           <pre><code>&lt;link rel="stylesheet" href="https://releases.dragonwisdom.de/{version}/dragonwisdom.css"&gt;</code></pre>
@@ -108,7 +110,7 @@ flowchart LR
         <section>
           <h2>Why HTML Instead of Markdown?</h2>
           <p>Anthropic proposed moving away from Markdown files toward HTML files in order to provide more structured information in repositories.</p>
-          <p>Compare the two variants yourself:</p>
+          <h3>Compare Both Variants Yourself</h3>
           <div class="split-2">
             <p>Long/many <strong>Markdown</strong> files <img src="./img/markdown.png" alt="Markdown variant"></p>
             <p>One structured <strong>HTML</strong> file <img src="./img/html.png" alt="HTML variant"></p>
@@ -126,9 +128,13 @@ flowchart LR
             <li>JavaScript as a hard requirement.</li>
             <li>Layout wrappers that do not add meaning.</li>
           </ul>
+        </section>
+        <section>
+          <h2>The Comparison</h2>
+          <p>Tailwind CSS helps you create stunning websites, but using it directly comes at the cost of verbosity and complexity. DragonWisdom abstracts it into a streamlined approach: minimal, yet powerful.</p>
           <div class="split-2">
             <section>
-              <h4>TailwindCSS</h4>
+              <h3>Only Tailwind</h3>
               <pre><code>&lt;section class="mx-auto max-w-5xl rounded-md border border-slate-200 bg-white p-5 shadow-sm"&gt;
   &lt;h2 class="mb-3 mt-0 text-2xl font-bold leading-tight text-slate-900"&gt;AI-friendly HTML documentation readable for humans&lt;/h2&gt;
   &lt;p class="my-4 text-base leading-6 text-slate-900"&gt;DragonWisdom helps you write documentation as minimal, semantic HTML: clear and token-efficient for AI agents, while being beautifully styled and fully functional for humans.&lt;/p&gt;
@@ -139,7 +145,7 @@ flowchart LR
 &lt;/section&gt;</code></pre>
             </section>
             <section>
-              <h4>DragonWisdom</h4>
+              <h3>With DragonWisdom</h3>
               <pre><code>&lt;section&gt;
   &lt;h2&gt;AI-friendly HTML documentation readable for humans&lt;/h2&gt;
   &lt;p&gt;DragonWisdom helps you write documentation as minimal, semantic HTML: clear and token-efficient for AI agents, while being beautifully styled and fully functional for humans.&lt;/p&gt;
@@ -150,15 +156,6 @@ flowchart LR
 &lt;/section&gt;</code></pre>
             </section>
           </div>
-        </section>
-        <section>
-          <h2>The Solution</h2>
-          <p>DragonWisdom keeps the source close to plain semantic HTML and moves the design into one CSS file.</p>
-          <ul>
-            <li>Use regular elements such as headings, paragraphs, lists, tables and figures.</li>
-            <li>Add classes only when they change meaning or enable a feature.</li>
-            <li>Use JavaScript only for opt-in behavior.</li>
-          </ul>
         </section>
       </section>
 

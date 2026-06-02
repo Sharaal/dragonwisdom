@@ -4,7 +4,7 @@ Homepage: https://dragonwisdom.de
 
 # DragonWisdom
 
-## AI-friendly HTML documentation readable for humans.
+## AI-friendly HTML Documentation Readable For Humans
 
 DragonWisdom helps you write documentation as minimal, semantic HTML: clear and token-efficient for AI agents, while being beautifully styled and fully functional for humans.
 
@@ -22,6 +22,8 @@ The homepage (https://dragonwisdom.de) is the live example. Its `index.html` is 
 The built page can still be opened locally with `file://`, so it works as a static document.
 
 ## How It Works
+
+You provide the minimal semantic HTML. DragonWisdom takes care of the styling, readability, and optional interactive features.
 
 ```mermaid
 flowchart LR
@@ -43,6 +45,8 @@ flowchart LR
 ```
 
 ## How to Use It
+
+Choose the approach that best fits your use case: install the AI skill, start from an existing template, or write your own HTML from scratch.
 
 ### AI Skill
 
@@ -69,7 +73,7 @@ Visit the Homepage (https://dragonwisdom.de), Press Ctrl+S, or use the JavaScrip
 * [Navigation template](https://dragonwisdom.de/nav.html) for a page with a main menu
   ![Navigation template](https://dragonwisdom.de/img/nav.png)
 
-### Alternative: Write Your Own HTML
+### Write Your Own HTML
 
 You can create your own HTML documentation from scratch with the elements described in the documentation.
 
@@ -89,7 +93,7 @@ Add the optional JavaScript when you want interactive navigation, saving, Mermai
 
 Anthropic proposed moving away from Markdown files toward HTML files in order to provide more structured information in repositories.
 
-Compare the two variants yourself:
+### Compare Both Variants Yourself
 
 * Long/many **Markdown** files
   ![Markdown variant](public/img/markdown.png)
@@ -110,7 +114,11 @@ HTML can be useful for documentation, but it must stay small and easy to write.
 * JavaScript as a hard requirement.
 * Layout wrappers that do not add meaning.
 
-#### TailwindCSS:
+## The Comparison
+
+Tailwind CSS helps you create stunning websites, but using it directly comes at the cost of verbosity and complexity. DragonWisdom abstracts it into a streamlined approach: minimal, yet powerful.
+
+### Only Tailwind:
 
 ```html
 <section class="mx-auto max-w-5xl rounded-md border border-slate-200 bg-white p-5 shadow-sm">
@@ -123,7 +131,7 @@ HTML can be useful for documentation, but it must stay small and easy to write.
 </section>
 ```
 
-#### DragonWisdom:
+### With DragonWisdom:
 
 ```html
 <section>
@@ -135,14 +143,6 @@ HTML can be useful for documentation, but it must stay small and easy to write.
   </div>
 </section>
 ```
-
-## The Solution
-
-DragonWisdom keeps the source close to plain semantic HTML and moves the design into one CSS file.
-
-* Use regular elements such as headings, paragraphs, lists, tables and figures.
-* Add classes only when they change meaning or enable a feature.
-* Use JavaScript only for opt-in behavior.
 
 ## Build Locally
 
