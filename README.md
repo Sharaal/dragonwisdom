@@ -1,3 +1,5 @@
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
 Homepage: https://dragonwisdom.de
 
 # DragonWisdom
@@ -6,12 +8,10 @@ AI-friendly HTML documentation readable for humans.
 
 DragonWisdom helps you write documentation as minimal semantic HTML, keep the structure clear for AI agents, and publish one local or static HTML file.
 
-Compare the two variants yourself:
-
-* Long/many **Markdown** files
-  ![Markdown variant](public/img/markdown.png)
-* One structured **HTML** file
-  ![HTML variant](public/img/html.png)
+* Turn a prompt
+  ![Prompt Research](public/img/prompt-research.png)
+* Into a HTML file
+  ![HTML Research](public/img/html-research.png)
 
 ## What You Are Looking At
 
@@ -62,6 +62,13 @@ Use the skill by starting your prompt with `$dragonwisdom-html`.
 
 Visit the Homepage (https://dragonwisdom.de), Press Ctrl+S, or use the JavaScript Version's `Save this page` button. Then edit the saved HTML file for your own documentation.
 
+#### Or Use Other Templates
+
+* [Minimal template](https://dragonwisdom.de/minimal.html) for a simple page without navigation
+  ![Minimal template](https://dragonwisdom.de/img/minimal.png)
+* [Navigation template](https://dragonwisdom.de/nav.html) for a page with a main menu
+  ![Navigation template](https://dragonwisdom.de/img/nav.png)
+
 ### Alternative: Write Your Own HTML
 
 You can create your own HTML documentation from scratch with the elements described in the documentation.
@@ -81,6 +88,13 @@ Add the optional JavaScript when you want interactive navigation, saving, Mermai
 ## Why HTML Instead of Markdown?
 
 Anthropic proposed moving away from Markdown files toward HTML files in order to provide more structured information in repositories.
+
+Compare the two variants yourself:
+
+* Long/many **Markdown** files
+  ![Markdown variant](public/img/markdown.png)
+* One structured **HTML** file
+  ![HTML variant](public/img/html.png)
 
 HTML can be useful for documentation, but it must stay small and easy to write.
 
@@ -111,10 +125,6 @@ DragonWisdom keeps the source close to plain semantic HTML and moves the design 
 3. Start the server via `npm run dev` and open the page in the browser.
 4. Build the static artifacts via `npm run build`, they will be available in `dist/public`.
 
-## License
+## Questions and/or Feedback?
 
-DragonWisdom is licensed under the Creative Commons Attribution 4.0 International License. See [LICENSE](LICENSE).
-
-## Questions or Feedback?
-
-Contact me at [dragonwisdom@sharaal.de](mailto:dragonwisdom@sharaal.de) or Discord `sharaal`.
+Made with [DragonWisdom](https://dragonwisdom.de) by [Sharaal](https://sharaal.de), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), [Support me](https://buymeacoffee.com/sharaal)

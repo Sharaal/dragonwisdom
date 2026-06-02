@@ -1,5 +1,6 @@
 {
   "name": "dragonwisdom",
+  "description": "DragonWisdom helps you write documentation as minimal semantic HTML, keep the structure clear for AI agents, and publish one local or static HTML file.",
   "version": "1.1.0",
   "private": true,
   "license": "CC-BY-4.0",
