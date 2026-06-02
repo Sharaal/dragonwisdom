@@ -29,11 +29,11 @@
   }
 
   ul.badges > li {
-    @apply mt-0 rounded-full bg-slate-100 px-2 py-0.5 text-sm font-medium leading-6 text-slate-800;
+    @apply mt-0 rounded-full bg-slate-100 px-2 py-0.5 text-sm font-medium leading-6 text-slate-800 dark:bg-slate-800 dark:text-slate-200;
   }
 
   dd {
-    @apply ml-6 mt-1 text-slate-700;
+    @apply ml-6 mt-1 text-slate-700 dark:text-slate-300;
   }
 
   dd + dt {

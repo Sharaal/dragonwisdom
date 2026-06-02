@@ -1,10 +1,10 @@
 @layer base {
   a:not(nav a) {
-    @apply font-medium text-sky-700 underline underline-offset-2;
+    @apply font-medium text-sky-700 underline underline-offset-2 dark:text-sky-300;
   }
 
   a:not(nav a):hover {
-    @apply text-sky-900;
+    @apply text-sky-900 dark:text-sky-200;
   }
 
   a[href]:not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"])::after {
@@ -26,32 +26,32 @@
   }
 
   a:not(nav a):focus-visible {
-    @apply rounded outline-2 outline-offset-2 outline-sky-700;
+    @apply rounded outline-2 outline-offset-2 outline-sky-700 dark:outline-sky-300;
   }
 
   button {
-    @apply rounded-full border border-sky-700 bg-sky-700 px-4 py-2 font-medium text-white;
+    @apply rounded-full border border-sky-700 bg-sky-700 px-4 py-2 font-medium text-white dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950;
   }
 
   button:hover:not(:disabled) {
-    @apply border-sky-900 bg-sky-900;
+    @apply border-sky-900 bg-sky-900 dark:border-sky-300 dark:bg-sky-300;
   }
 
   button:disabled {
-    @apply cursor-not-allowed border-slate-300 bg-slate-200 text-slate-500;
+    @apply cursor-not-allowed border-slate-300 bg-slate-200 text-slate-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-500;
   }
 
   button:focus-visible {
-    @apply outline-2 outline-offset-2 outline-sky-700;
+    @apply outline-2 outline-offset-2 outline-sky-700 dark:outline-sky-300;
   }
 }
 
 @layer components {
   button.secondary:not(:disabled) {
-    @apply border-sky-200 bg-sky-50 text-sky-900;
+    @apply border-sky-200 bg-sky-50 text-sky-900 dark:border-sky-800 dark:bg-sky-950 dark:text-sky-200;
   }
 
   button.secondary:hover:not(:disabled) {
-    @apply border-sky-700 bg-sky-100 text-sky-950;
+    @apply border-sky-700 bg-sky-100 text-sky-950 dark:border-sky-500 dark:bg-sky-900 dark:text-sky-100;
   }
 }

@@ -3,7 +3,7 @@
 
 @layer base {
   pre {
-    @apply my-6 overflow-x-auto rounded bg-slate-100 p-4 text-slate-900;
+    @apply my-6 overflow-x-auto rounded bg-slate-100 p-4 text-slate-900 dark:bg-slate-800 dark:text-slate-100;
   }
 
   pre:not(.mermaid[data-processed]) {

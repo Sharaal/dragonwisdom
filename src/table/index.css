@@ -3,24 +3,24 @@
 
 @layer components {
   table {
-    @apply w-full table-fixed border border-separate border-spacing-0 border-slate-300 rounded-md bg-white shadow-sm;
+    @apply w-full table-fixed border border-separate border-spacing-0 border-slate-300 rounded-md bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900;
   }
 
   table thead {
-    @apply bg-slate-800 text-white;
+    @apply bg-slate-800 text-white dark:bg-slate-700;
   }
 
   table tbody tr:nth-child(even):not(.info, .success, .warning, .danger) {
-    @apply bg-stone-100;
+    @apply bg-stone-100 dark:bg-slate-800;
   }
 
   table tbody tr:hover:not(.info, .success, .warning, .danger) {
-    @apply bg-slate-200;
+    @apply bg-slate-200 dark:bg-slate-700;
   }
 
   table th,
   table td {
-    @apply break-words border-b border-stone-200 px-3 py-2 text-left align-top;
+    @apply break-words border-b border-stone-200 px-3 py-2 text-left align-top dark:border-slate-800;
 
     overflow-wrap: anywhere;
   }

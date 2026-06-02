@@ -4,7 +4,7 @@
   }
 
   pre > button.copy {
-    @apply absolute right-2 top-2 flex size-8 items-center justify-center rounded border border-slate-300 bg-white text-slate-600 shadow-sm;
+    @apply absolute right-2 top-2 flex size-8 items-center justify-center rounded border border-slate-300 bg-white text-slate-600 shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300;
   }
 
   pre > button.copy::before,
@@ -26,15 +26,15 @@
 
   pre > button.copy:hover,
   pre > button.copy:focus-visible {
-    @apply border-slate-400 text-slate-900;
+    @apply border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100;
   }
 
   pre > button.copy:focus-visible {
-    @apply outline outline-2 outline-offset-2 outline-slate-500;
+    @apply outline outline-2 outline-offset-2 outline-slate-500 dark:outline-slate-300;
   }
 
   pre > button.copy[data-state="copied"] {
-    @apply border-emerald-500 text-emerald-700;
+    @apply border-emerald-500 text-emerald-700 dark:border-emerald-400 dark:text-emerald-300;
   }
 
   pre > button.copy[data-state="copied"]::before {

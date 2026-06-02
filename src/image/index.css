@@ -1,6 +1,6 @@
 @layer base {
   img {
-    @apply block h-auto max-w-full rounded-md border border-slate-200;
+    @apply block h-auto max-w-full rounded-md border border-slate-200 dark:border-slate-700;
   }
 
   img.zoomable {
@@ -8,7 +8,7 @@
   }
 
   img.zoomable:focus-visible {
-    @apply outline-2 outline-offset-2 outline-sky-600;
+    @apply outline-2 outline-offset-2 outline-sky-600 dark:outline-sky-300;
   }
 
   figure {
@@ -16,7 +16,7 @@
   }
 
   figcaption {
-    @apply mt-2 text-sm text-slate-600;
+    @apply mt-2 text-sm text-slate-600 dark:text-slate-400;
   }
 }
 
@@ -30,7 +30,7 @@
   }
 
   .image-zoom__image {
-    @apply max-h-[90vh] w-auto max-w-full rounded-md border border-slate-700 bg-white object-contain shadow-2xl;
+    @apply max-h-[90vh] w-auto max-w-full rounded-md border border-slate-700 bg-white object-contain shadow-2xl dark:bg-slate-900;
   }
 
   .image-zoom__close {

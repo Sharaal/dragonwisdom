@@ -4,7 +4,7 @@
   }
 
   body > header {
-    @apply sticky top-0 z-30 mb-0 flex items-center border-b border-stone-200 bg-stone-50;
+    @apply sticky top-0 z-30 mb-0 flex items-center border-b border-stone-200 bg-stone-50 dark:border-slate-800 dark:bg-slate-950;
 
     block-size: var(--header-height);
   }

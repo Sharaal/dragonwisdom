@@ -10,7 +10,7 @@
   }
 
   body > nav {
-    @apply sticky top-0 z-40 mb-0 flex flex-wrap items-start justify-end gap-2 border-b border-stone-200 bg-stone-50 py-3;
+    @apply sticky top-0 z-40 mb-0 flex flex-wrap items-start justify-end gap-2 border-b border-stone-200 bg-stone-50 py-3 dark:border-slate-800 dark:bg-slate-950;
 
     block-size: var(--header-height);
     grid-column: 2;
@@ -31,7 +31,7 @@
 
   body > nav button,
   body > nav a {
-    @apply inline-flex rounded border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 no-underline shadow-sm;
+    @apply inline-flex rounded border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 no-underline shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200;
   }
 
   body > nav li > ul {
@@ -51,7 +51,7 @@
   }
 
   body > nav > button[aria-controls="main-navigation"][aria-expanded="true"] + ul {
-    @apply absolute right-0 top-full border-b border-stone-200 bg-stone-50 py-3 shadow-sm;
+    @apply absolute right-0 top-full border-b border-stone-200 bg-stone-50 py-3 shadow-sm dark:border-slate-800 dark:bg-slate-950;
 
     display: flex;
 
@@ -60,7 +60,7 @@
   }
 
   :root:not(.has-nav-navigation) body > nav:focus-within > button[aria-controls="main-navigation"] + ul {
-    @apply absolute right-0 top-full border-b border-stone-200 bg-stone-50 py-3 shadow-sm;
+    @apply absolute right-0 top-full border-b border-stone-200 bg-stone-50 py-3 shadow-sm dark:border-slate-800 dark:bg-slate-950;
 
     display: flex;
 
@@ -73,7 +73,7 @@
   body > nav button[aria-expanded="true"],
   body > nav a:hover,
   body > nav a[aria-current="page"] {
-    @apply border-slate-800 bg-slate-800 text-white;
+    @apply border-slate-800 bg-slate-800 text-white dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950;
   }
 
   main > section {
@@ -112,7 +112,7 @@
     }
 
     body > nav {
-      @apply z-40 mb-0 block border-b-0 border-r border-stone-200 pb-6 pr-4 pt-6;
+      @apply z-40 mb-0 block border-b-0 border-r border-stone-200 pb-6 pr-4 pt-6 dark:border-slate-800;
 
       block-size: auto;
       grid-column: 1;
@@ -130,7 +130,7 @@
     }
 
     body > nav li > ul {
-      @apply gap-1 border-l border-stone-200 pl-3;
+      @apply gap-1 border-l border-stone-200 pl-3 dark:border-slate-800;
     }
 
     body > nav li > ul a {

@@ -1,13 +1,13 @@
 @layer components {
   table.info {
-    @apply border-sky-300 bg-white;
+    @apply border-sky-300 bg-white dark:border-sky-700 dark:bg-slate-900;
 
     --table-status-bg: var(--color-sky-100);
     --table-status-text: var(--color-sky-900);
   }
 
   table.info caption {
-    @apply text-sky-900;
+    @apply text-sky-900 dark:text-sky-300;
   }
 
   table.info thead {
@@ -21,14 +21,14 @@
   }
 
   table.success {
-    @apply border-emerald-300 bg-white;
+    @apply border-emerald-300 bg-white dark:border-emerald-700 dark:bg-slate-900;
 
     --table-status-bg: var(--color-emerald-100);
     --table-status-text: var(--color-emerald-900);
   }
 
   table.success caption {
-    @apply text-emerald-900;
+    @apply text-emerald-900 dark:text-emerald-300;
   }
 
   table.success thead {
@@ -42,14 +42,14 @@
   }
 
   table.warning {
-    @apply border-amber-300 bg-white;
+    @apply border-amber-300 bg-white dark:border-amber-700 dark:bg-slate-900;
 
     --table-status-bg: var(--color-amber-100);
     --table-status-text: var(--color-amber-950);
   }
 
   table.warning caption {
-    @apply text-amber-950;
+    @apply text-amber-950 dark:text-amber-300;
   }
 
   table.warning thead {
@@ -63,14 +63,14 @@
   }
 
   table.danger {
-    @apply border-red-300 bg-white;
+    @apply border-red-300 bg-white dark:border-red-700 dark:bg-slate-900;
 
     --table-status-bg: var(--color-red-100);
     --table-status-text: var(--color-red-900);
   }
 
   table.danger caption {
-    @apply text-red-900;
+    @apply text-red-900 dark:text-red-300;
   }
 
   table.danger thead {
@@ -105,5 +105,43 @@
   table tbody tr:hover:is(.info, .success, .warning, .danger) > :is(th, td),
   table tbody tr:hover > :is(th, td):is(.info, .success, .warning, .danger) {
     background-color: color-mix(in oklab, var(--table-status-bg) 78%, var(--table-status-text));
+  }
+
+  @media (prefers-color-scheme: dark) {
+    table.info,
+    table tbody tr.info,
+    table tr > :is(th, td).info {
+      --table-status-bg: var(--color-sky-950);
+      --table-status-text: var(--color-sky-200);
+    }
+
+    table.success,
+    table tbody tr.success,
+    table tr > :is(th, td).success {
+      --table-status-bg: var(--color-emerald-950);
+      --table-status-text: var(--color-emerald-200);
+    }
+
+    table.warning,
+    table tbody tr.warning,
+    table tr > :is(th, td).warning {
+      --table-status-bg: var(--color-amber-950);
+      --table-status-text: var(--color-amber-200);
+    }
+
+    table.danger,
+    table tbody tr.danger,
+    table tr > :is(th, td).danger {
+      --table-status-bg: var(--color-red-950);
+      --table-status-text: var(--color-red-200);
+    }
+
+    table:is(.info, .success, .warning, .danger) tbody tr:nth-child(even):not(.info, .success, .warning, .danger) > :is(th, td):not(.info, .success, .warning, .danger) {
+      background-color: color-mix(in oklab, var(--color-slate-900) 70%, var(--table-status-bg));
+    }
+
+    table:is(.info, .success, .warning, .danger) tbody tr:hover:not(.info, .success, .warning, .danger) > :is(th, td):not(.info, .success, .warning, .danger) {
+      background-color: color-mix(in oklab, var(--color-slate-800) 65%, var(--table-status-bg));
+    }
   }
 }

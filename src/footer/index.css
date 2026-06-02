@@ -1,6 +1,6 @@
 @layer components {
   body > footer {
-    @apply mt-0 border-t border-stone-200 py-4 text-sm text-slate-600;
+    @apply mt-0 border-t border-stone-200 py-4 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400;
 
     grid-column: 1 / -1;
   }
