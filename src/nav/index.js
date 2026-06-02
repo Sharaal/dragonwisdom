@@ -2,6 +2,7 @@ import { translate } from "../i18n/index.js";
 
 const onePageMode = "one-page";
 const multiPageMode = "multi-page";
+const scrollSpyTolerance = 4;
 
 function decodeHash(hash) {
   try {
@@ -105,13 +106,13 @@ export function enhanceNavNavigation() {
   };
   const getClosestVisibleSectionId = () => {
     const firstSection = sections[0];
-    const focusedSection = sections.findLast((section) => section.getBoundingClientRect().top <= getFocusOffset(section));
+    const focusedSection = sections.findLast((section) => section.getBoundingClientRect().top <= getFocusOffset(section) + scrollSpyTolerance);
 
     if (focusedSection) {
       return focusedSection.id;
     }
 
-    if (firstSection && firstSection.getBoundingClientRect().top > getFocusOffset(firstSection)) {
+    if (firstSection && firstSection.getBoundingClientRect().top > getFocusOffset(firstSection) + scrollSpyTolerance) {
       return firstSection.id;
     }
 
