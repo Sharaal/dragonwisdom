@@ -10,9 +10,9 @@ DragonWisdom helps you write documentation as minimal, semantic HTML: clear and 
 
 * Turn a prompt 
   ```$dragonwisdom-html Recherche for a comparism of Opus 4.8 and ChatGPT 5.5. Focus on the main differences in benchmarks, costs and first reviews/feedback. Store the result as opus4-8-chatgpt-5-5.html```
-  ![Prompt Research](public/img/prompt-research.png)
+  ![Prompt Research](public/img/prompt-research-dark.png)
 * Into a HTML file ([opus4-8-chatgpt-5-5.html](https://dragonwisdom.de/opus4-8-chatgpt-5-5.html))
-  ![HTML Research](public/img/html-research.png)
+  ![HTML Research](public/img/html-research-dark.png)
 
 ## What You Are Looking At
 
@@ -70,9 +70,9 @@ Visit the Homepage (https://dragonwisdom.de), Press Ctrl+S, or use the JavaScrip
 #### Or Use Other Templates
 
 * [Minimal template](https://dragonwisdom.de/minimal.html) for a simple page without navigation
-  ![Minimal template](https://dragonwisdom.de/img/minimal.png)
+  ![Minimal template](https://dragonwisdom.de/img/minimal-dark.png)
 * [Navigation template](https://dragonwisdom.de/nav.html) for a page with a main menu
-  ![Navigation template](https://dragonwisdom.de/img/nav.png)
+  ![Navigation template](https://dragonwisdom.de/img/nav-dark.png)
 
 ### Write Your Own HTML
 
@@ -97,9 +97,9 @@ Anthropic proposed moving away from Markdown files toward HTML files in order to
 ### Compare Both Variants Yourself
 
 * Long/many **Markdown** files
-  ![Markdown variant](public/img/markdown.png)
+  ![Markdown variant](public/img/markdown-dark.png)
 * One structured **HTML** file
-  ![HTML variant](public/img/html.png)
+  ![HTML variant](public/img/html-dark.png)
 
 HTML can be useful for documentation, but it must stay small and easy to write.
 
@@ -126,8 +126,8 @@ Tailwind CSS helps you create stunning websites, but using it directly comes at 
   <h2 class="mb-3 mt-0 text-2xl font-bold leading-tight text-slate-900">AI-friendly HTML documentation readable for humans</h2>
   <p class="my-4 text-base leading-6 text-slate-900">DragonWisdom helps you write documentation as minimal, semantic HTML: clear and token-efficient for AI agents, while being beautifully styled and fully functional for humans.</p>
   <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-    <p class="my-4 min-w-0 text-base leading-6 text-slate-900">Turn a prompt <img class="mt-2 block h-auto max-w-full rounded-md border border-slate-200" src="./img/prompt-research.png" alt="Prompt Research"></p>
-    <p class="my-4 min-w-0 text-base leading-6 text-slate-900">Into a HTML file <img class="mt-2 block h-auto max-w-full rounded-md border border-slate-200" src="./img/html-research.png" alt="HTML Research"></p>
+    <p class="my-4 min-w-0 text-base leading-6 text-slate-900">Turn a prompt <img class="mt-2 block h-auto max-w-full rounded-md border border-slate-200" src="./img/prompt-research-dark.png" alt="Prompt Research"></p>
+    <p class="my-4 min-w-0 text-base leading-6 text-slate-900">Into a HTML file <img class="mt-2 block h-auto max-w-full rounded-md border border-slate-200" src="./img/html-research-dark.png" alt="HTML Research"></p>
   </div>
 </section>
 ```
@@ -139,8 +139,8 @@ Tailwind CSS helps you create stunning websites, but using it directly comes at 
   <h2>AI-friendly HTML documentation readable for humans</h2>
   <p>DragonWisdom helps you write documentation as minimal, semantic HTML: clear and token-efficient for AI agents, while being beautifully styled and fully functional for humans.</p>
   <div class="split-2">
-    <p>Turn a prompt <img src="./img/prompt-research.png" alt="Prompt Research"></p>
-    <p>Into a HTML file <img src="./img/html-research.png" alt="HTML Research"></p>
+    <p>Turn a prompt <img src="./img/prompt-research-dark.png" alt="Prompt Research"></p>
+    <p>Into a HTML file <img src="./img/html-research-dark.png" alt="HTML Research"></p>
   </div>
 </section>
 ```
