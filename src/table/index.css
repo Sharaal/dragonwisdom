@@ -37,57 +37,61 @@
   }
 
   @media (max-width: 640px) {
-    body.js table.stack {
+    table.scrollable {
+      @apply block max-w-full table-auto overflow-x-auto whitespace-nowrap;
+    }
+
+    body.js table.stackable {
       @apply block table-auto border-0 bg-transparent shadow-none dark:bg-transparent;
     }
 
-    body.js table.stack caption {
+    body.js table.stackable caption {
       @apply block rounded-t-md border border-b-0 border-slate-300 bg-white px-3 py-2 text-left dark:border-slate-700 dark:bg-slate-900;
     }
 
-    body.js table.stack thead {
+    body.js table.stackable thead {
       @apply sr-only;
     }
 
-    body.js table.stack tbody {
+    body.js table.stackable tbody {
       @apply block;
     }
 
-    body.js table.stack tbody tr {
+    body.js table.stackable tbody tr {
       @apply mb-4 grid grid-cols-1 overflow-hidden rounded-md border border-slate-300 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900;
     }
 
-    body.js table.stack tbody tr:last-child {
+    body.js table.stackable tbody tr:last-child {
       @apply mb-0;
     }
 
-    body.js table.stack tbody tr:nth-child(even):not(.info, .success, .warning, .danger),
-    body.js table.stack tbody tr:hover:not(.info, .success, .warning, .danger) {
+    body.js table.stackable tbody tr:nth-child(even):not(.info, .success, .warning, .danger),
+    body.js table.stackable tbody tr:hover:not(.info, .success, .warning, .danger) {
       @apply bg-white dark:bg-slate-900;
     }
 
-    body.js table.stack tbody td {
+    body.js table.stackable tbody td {
       @apply grid grid-cols-[minmax(7rem,40%)_1fr] gap-3 border-b border-stone-200 px-3 py-2 dark:border-slate-800;
     }
 
-    body.js table.stack tbody td::before {
+    body.js table.stackable tbody td::before {
       content: attr(data-label);
       @apply font-bold text-slate-700 dark:text-slate-200;
     }
 
-    body.js table.stack tbody td:not([data-label]) {
+    body.js table.stackable tbody td:not([data-label]) {
       @apply block;
     }
 
-    body.js table.stack tbody td:not([data-label])::before {
+    body.js table.stackable tbody td:not([data-label])::before {
       content: none;
     }
 
-    body.js table.stack tbody tr:last-child td {
+    body.js table.stackable tbody tr:last-child td {
       @apply border-b border-stone-200 dark:border-slate-800;
     }
 
-    body.js table.stack tbody tr td:last-child {
+    body.js table.stackable tbody tr td:last-child {
       border-bottom: 0;
     }
   }

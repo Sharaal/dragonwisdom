@@ -437,10 +437,10 @@ flowchart LR
           </table>
         </section>
         <section>
-          <h2>Stacked Table</h2>
-          <p>Add CSS class <code>stack</code> when wide rows should become label-value groups on mobile.</p>
-          <table class="stack">
-            <caption>Stacked table example</caption>
+          <h2>Stackable Table</h2>
+          <p>Add CSS class <code>stackable</code> when wide rows should become label-value groups on mobile.</p>
+          <table class="stackable">
+            <caption>Stackable table example</caption>
             <thead>
               <tr>
                 <th>Property</th>
@@ -467,6 +467,45 @@ flowchart LR
                 <td>Standard table</td>
                 <td>HTML</td>
                 <td>No JavaScript</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <h2>Scrollable Table</h2>
+          <p>Add CSS class <code>scrollable</code> when a table should keep its columns and scroll horizontally on mobile.</p>
+          <table class="scrollable">
+            <caption>Scrollable table example</caption>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Class</th>
+                <th>Mobile Behavior</th>
+                <th>JavaScript</th>
+                <th>Best For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Standard</td>
+                <td><code>table</code></td>
+                <td>Normal table</td>
+                <td>No</td>
+                <td>Short comparisons</td>
+              </tr>
+              <tr>
+                <td>Stackable</td>
+                <td><code>table class="stackable"</code></td>
+                <td>Label-value groups</td>
+                <td>Yes</td>
+                <td>Long row data</td>
+              </tr>
+              <tr>
+                <td>Scrollable</td>
+                <td><code>table class="scrollable"</code></td>
+                <td>Horizontal scroll</td>
+                <td>No</td>
+                <td>Dense data</td>
               </tr>
             </tbody>
           </table>

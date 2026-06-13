@@ -21,7 +21,7 @@ function addMobileTableLabels(table) {
 }
 
 export function enhanceAllTables() {
-  document.querySelectorAll("table.stack").forEach(addMobileTableLabels);
+  document.querySelectorAll("table.stackable").forEach(addMobileTableLabels);
   document.querySelectorAll("table.sortable").forEach(enhanceTableSorting);
 }
 
