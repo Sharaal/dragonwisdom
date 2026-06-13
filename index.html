@@ -437,6 +437,41 @@ flowchart LR
           </table>
         </section>
         <section>
+          <h2>Stacked Table</h2>
+          <p>Add CSS class <code>stack</code> when wide rows should become label-value groups on mobile.</p>
+          <table class="stack">
+            <caption>Stacked table example</caption>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+                <th>Owner</th>
+                <th>State</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mobile layout</td>
+                <td>Label-value rows</td>
+                <td>CSS</td>
+                <td>Opt-in</td>
+              </tr>
+              <tr>
+                <td>Labels</td>
+                <td>Table headers</td>
+                <td>JavaScript</td>
+                <td>Generated</td>
+              </tr>
+              <tr>
+                <td>Fallback</td>
+                <td>Standard table</td>
+                <td>HTML</td>
+                <td>No JavaScript</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
           <h2>Sortable Table</h2>
           <p>Add CSS class <code>sortable</code> when a table should become interactive. The plain table still works without JavaScript.</p>
           <table class="sortable">
