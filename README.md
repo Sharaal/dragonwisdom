@@ -1,4 +1,4 @@
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Homepage: https://dragonwisdom.de
 
@@ -154,4 +154,4 @@ Tailwind CSS helps you create stunning websites, but using it directly comes at 
 
 ## Questions and/or Feedback?
 
-Made with [DragonWisdom](https://dragonwisdom.de) by [Sharaal](https://sharaal.de), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), [Support me](https://buymeacoffee.com/sharaal)
+Made with [DragonWisdom](https://dragonwisdom.de) by [Sharaal](https://sharaal.de), [MIT License](LICENSE), [Support me](https://buymeacoffee.com/sharaal)

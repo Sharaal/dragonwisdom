@@ -3,7 +3,7 @@
   "description": "DragonWisdom helps you write documentation as minimal, semantic HTML: clear and token-efficient for AI agents, while being beautifully styled and fully functional for humans.",
   "version": "1.3.0",
   "private": true,
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
